@@ -1,8 +1,21 @@
 $(document).ready(function (){
-        $("#carrosel").load("util/carrossel.html");
-        $("#cabecalho").load("util/cabecalho.html");
-        $("#rodape").load("util/rodape.html");
-        $("#filmes").load("util/filmes.html");
-        $("#paginacao").load("util/paginacao.html");
-        $('#valor').mask("R$ #.##0,00", {reverse: true});
+    $('#valor').mask("R$ #.##0,00", {reverse: true});
+});
+$(document).ready(function (){
+    $("#carrosel").load("util/carrossel.html");
+});
+$(document).ready(function (){
+    $("#cabecalho").load("util/cabecalho.html");
+});
+$(document).ready(function (){
+    $("#rodape").load("util/rodape.html");
+});
+$(document).ready(function (){
+    $("#filmes").load("util/filmes.html");
+});
+$(document).ready(function (){
+    $("#paginacao").load("util/paginacao.html");
+});
+$(document).ready(function (){
+    $("#telefone").mask('(00) 0000-0000#');
 });
