@@ -1,17 +1,12 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
-        <title>Cadastro de Ator</title>
+        <title>Cadastro de Classe</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="bootstrap-4.0.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="bootstrap-4.0.0/dist/css/4-col-portfolio.css">
-        <script src="util.js"></script>
         <link href="bootstrap-4.0.0/dist/css/style.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     </head>
@@ -30,11 +25,11 @@ and open the template in the editor.
                   </div> 
                     <div class="form-group col-md-4">
                         <label for="exampleInputEmail1">Valor</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="R$">
+                        <input type="text" id="valor" class="form-control" placeholder="R$">
                   </div>
                     <div class="form-group col-md-4">
                         <label for="exampleInputEmail1">Data</label>
-                        <input type="email" id="telefone" class="form-control" id="exampleInputEmail1" placeholder="__/__/____">
+                        <input type="date" id="telefone" class="form-control" placeholder="__/__/____">
                   </div>
                 </div>
 
@@ -51,6 +46,7 @@ and open the template in the editor.
          </div>
         
         <div id="rodape"></div>
-     <script src="js/util.js"></script>
-    </body>
+        <script src="js/jquery.mask.min.js"></script>
+        <script src="js/util.js"></script>
+     
 </html>
