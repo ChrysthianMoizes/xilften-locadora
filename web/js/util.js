@@ -27,6 +27,8 @@ $("#paginacao").ready(function (){
         $("#paginacao").load("util/paginacao.html");
     });
 });
+
 $("#telefone").ready(function(){
     $("#telefone").mask('(00) 0000-0000#');
 });
+
