@@ -1,9 +1,3 @@
-$("#carrosel").ready(function (){
-    $(function (){
-        $("#carrosel").load("util/carrossel.html");
-    });
-});
-
 $("#cabecalho").ready(function (){
     $(function (){
         $("#cabecalho").load("util/cabecalho.html");
@@ -31,4 +25,8 @@ $("#paginacao").ready(function (){
 $("#telefone").ready(function(){
     $("#telefone").mask('(00) 0000-0000#');
 });
+
+$("#carrossel").carousel({
+  interval: 500
+})
 
