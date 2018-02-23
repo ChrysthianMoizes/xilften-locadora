@@ -18,11 +18,7 @@ $(document).ready(function (){
 });
 $(document).ready(function (){
     $("#telefone").mask('(00) 0000-0000#');
-<<<<<<< HEAD
 });
 $(document).ready(function (){
     $("#anoTituloTitulo").mask('0000');
 });
-=======
-});
->>>>>>> d494a1d04443fc55a2e0c2830d32ad44ee8d80ec
