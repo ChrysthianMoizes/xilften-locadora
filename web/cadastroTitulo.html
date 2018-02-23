@@ -3,10 +3,12 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
-        <title>Cadastro de Filme</title>
+        <title>Cadastro de Titulo</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="bootstrap-4.0.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="bootstrap-4.0.0/dist/css/4-col-portfolio.css">
+        <script src="bootstrap-4.0.0/assets/js/vendor/jquery-slim.min.js"></script>
+        <script src="bootstrap-4.0.0/assets/js/vendor/popper.min.js"></script>
         <script src="util.js"></script>
         <link href="bootstrap-4.0.0/dist/css/style.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -18,25 +20,62 @@
         
         <div id="main" class="container-fluid">
             
-          <h3 class="page-header">Cadastro de FIlme</h3>
+          <h3 class="page-header">Cadastro de Titulo</h3>
 
           <form action="index.html">
                 <div class="row">
-                  <div class="form-group col-md-4">
+                    <div class="form-group col-xl-4">
                         <label for="nomeTitulo">Nome</label>
-                        <input type="email" class="form-control" id="nomeTitulo" placeholder="Nome do titulo">
-                  </div> 
-                </div>
-              
+                        <input type="email" class="form-control" id="nomeTituloTitulo" placeholder="Nome do titulo">
+                    </div>
+                    <div class="form-group col-xl-4">
+                        <label for="nomeDiretorTitulo">Diretor</label>
+                        <input type="search" class="form-control" id="nomeDiretorTitulo" placeholder="Nome do Diretor">
+                    </div>
+                    <div class="form-group col-xl-4">
+                        <label for="anoTitulo">Ano</label>
+                        <input type="date" class="form-control" id="anoTituloTitulo" placeholder="Ano do titulo">
+                    </div> 
+                </div>              
                 <div class="row">
-                  <div class="form-group col-md-2">
+                    <div class="form-group col-md-4">
                         <label for="atoresTitulo">Atores</label>
-                        <input type="search" class="form-control" id="nomeAtorTItulo" placeholder="Nome do Ator">
-                  </div> 
+                        <div class="form-group">
+                        <select class="form-control" id="atoresTitulo">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="sel2">Atores cadastrado</label>
+                        <select multiple class="form-control" id="sel2">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                        </select>   
+                    </div>
                 </div>
-
+                             
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="sinopse">Sinopse</label>
+                        <textarea class="form-control" rows="5" id="comment" placeholder="Sinopse do titulo"></textarea>
+                    </div>
+                    <div class="form-group col-xl-4">
+                        <label for="categoriaTituloTitulo">Categoria</label>
+                        <input type="search" class="form-control" id="categoriaTituloTitulo" placeholder="Categoria do Diretor">
+                    </div>
+                    <div class="form-group col-xl-4">
+                        <label for="classeTituloTitulo">Classe</label>
+                        <input type="search" class="form-control" id="classeTituloTitulo" placeholder="Classe do titulo">
+                  </div> 
+                </div>           
                 <hr />
-
                 <div class="row">
                   <div class="col-md-12">
                         <button type="submit" class="btn btn-primary">Salvar</button>

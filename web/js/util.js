@@ -1,5 +1,5 @@
 $(document).ready(function (){
-    $('#valor').mask("R$ #.##0,00", {reverse: true});
+    $('#valor').mask("#.##0,00", {reverse: true});
 });
 $(document).ready(function (){
     $("#carrosel").load("util/carrossel.html");
@@ -18,4 +18,7 @@ $(document).ready(function (){
 });
 $(document).ready(function (){
     $("#telefone").mask('(00) 0000-0000#');
+});
+$(document).ready(function (){
+    $("#anoTituloTitulo").mask('0000');
 });
