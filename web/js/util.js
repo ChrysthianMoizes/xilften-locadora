@@ -8,6 +8,9 @@ $(document).ready(function (){
     $("#cabecalho").load("util/cabecalho.html");
 });
 $(document).ready(function (){
+    $("#cabecalhoEx").load("../../util/cabecalho.html");
+});
+$(document).ready(function (){
     $("#rodape").load("util/rodape.html");
 });
 $(document).ready(function (){
