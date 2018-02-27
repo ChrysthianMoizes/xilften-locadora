@@ -3,7 +3,7 @@
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
-        <title>Cadastro de Diretor</title>
+        <title>Alterar Ator</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/4-col-portfolio.css">
@@ -11,15 +11,29 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
         
     </head>
-    <body>
-        
-        <div id="cabecalhoEx"></div>
-        
-        <div id="main" class="container-fluid">
-            
-          <h3 class="page-header">Cadastro de Diretor</h3>
-
+    <body>        
+        <div id="cabecalhoEx"></div>        
+        <div id="main" class="container-fluid">            
+          <h3 class="page-header">Alterar Ator</h3>
           <form action="index.html">
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label for="exampleInputEmail1">Busca</label>
+                        <input type="text" name="browser" list="atores" class="form-control" id="nomeAtorBuscaAtor" placeholder="Nome Completo">
+                        <datalist id="atores">
+                            <option value="Fernando Collor">
+                            <option value="Dilma Rouself">
+                            <option value="Jair Messias">
+                            <option value="Luiz Inasil Lula">
+                            <option value="Ciro Gomez">
+                            <option value="Marina Silva">
+                        </datalist>
+                    </div> 
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </div>
+                </div>
+                <hr />
                 <div class="row">
                   <div class="form-group col-md-4">
                         <label for="exampleInputEmail1">Nome</label>
@@ -31,7 +45,7 @@
 
                 <div class="row">
                   <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Salvar</button>
+                        <button type="submit" class="btn btn-primary">Atualizar</button>
                         <a href="template.html" class="btn btn-default">Cancelar</a>
                   </div>
                 </div>
