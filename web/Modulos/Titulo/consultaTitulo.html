@@ -1,153 +1,61 @@
 <!DOCTYPE html>
 
 <html lang="pt-br">
+    
     <head>
         <meta charset="utf-8">
         <title>Consultar Título</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/4-col-portfolio.css">
-        <script src=../../bootstrap-4.0.0/assets/js/vendor/jquery-slim.min.js"></script>
-        <script src="../../bootstrap-4.0.0/assets/js/vendor/popper.min.js"></script>
-        <link href="../../bootstrap-4.0.0/dist/css/style.css" rel="stylesheet">
+        <script src="../../util.js"></script>
+        <script src="../../bootstrap-4.0.0/assets/js/vendor/jquery-slim.min.js"></script>
+        <script src="../../bootstrap-4.0.0/assets/js/vendor/popper.min.js"></script> 
+        <script src="../../bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
         
     </head>
     <body>
         
-        <div id="cabecalhoEx"></div>
-        
-        <div id="main" class="container-fluid">
+        <div id="cabecalhoFilmes"></div>
+            <div class="container">
+                
+                <br><br>
+                
+                
+                <table align="right" border="0">
+                    <form class="form-inline">
+                    <tr><td><input type="radio" class="form-control" placeholder="Buscar">Categoria</td><td><input type="radio" class="form-control" placeholder="Buscar">Nome</td><td><input type="text" class="form-control" placeholder="Buscar"></td><td><button type="button" class="btn btn-outline-info">OK</button></td></tr>
+                    </form>  
+                </table>
+                <br><br>
+                
+                <hr />
             
-            <h3 class="page-header">Consultar Título</h3>
+                <div class="row">                
+                        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+                            <div class="card h-100">
+                                <a href="http://www.adorocinema.com/filmes/filme-130336/"><img class="card-img-top" src="../../img/filmes_logo1.jpg" alt=""></a>
+                                <div class="card-body">
+                                <h4 class="card-title"><a href="http://www.adorocinema.com/filmes/filme-130336/">Filme 1</a></h4>
+                                <p class="card-text">Filme conta a história da volta dos que nao foram</p>
+                                </div>
+                            </div>
+                        </div>
 
-            <form action="index.html">
-              
-                <div class="row">
-                    <div class="form-group col-md-4">
-                        <label for="exampleInputEmail1">Buscar</label>
-                        <input type="text" name="browser" list="titulos" class="form-control" id="noemDiretor" placeholder="Nome do titulo">
-                        <datalist id="titulos">
-                            <option value="Fernando Collor">
-                            <option value="Dilma Rouself">
-                            <option value="Jair Messias">
-                            <option value="Luiz Inasil Lula">
-                            <option value="Ciro Gomez">
-                            <option value="Marina Silva">
-                        </datalist>
-                    </div>  
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Buscar</button>
-                    </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item">
+                            <div class="card h-100">
+                                <a href="http://www.adorocinema.com/filmes/filme-130336/"><img class="card-img-top" src="../../img/filmes_logo1.jpg" alt=""></a>
+                                <div class="card-body">
+                                    <h4 class="card-title"><a href="http://www.adorocinema.com/filmes/filme-130336/">Filme 2</a></h4>
+                                    <p class="card-text">Filme conta a história da volta dos que nao foram</p>
+                                </div>
+                            </div>
+                        </div>
                 </div>
-            
-                <hr />  
-                
-                <!--TABLE-->
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Nome do Diretor</th>
-                            <th>Atores</th>
-                            <th>Diretor</th>
-                            <th>Ano</th>
-                            <th>Sinopse</th>
-                            <th>Categoria</th>
-                            <th>Classe</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Titulo 1</td>
-                            <td>
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Nome do Ator</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Ator 1</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ator 4</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ator 35</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                            <td>Diretor 1</td>
-                            <td>2000</td>
-                            <td>Sinopse uehueheuheuheuehueheuheuheuehueh</td>
-                            <td>Humor</td>
-                            <td>Classe 1</td>
-                        </tr>
-                        <tr>
-                            <td>Titulo 2</td>
-                            <td>
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Nome do Ator</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Ator 11</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ator 34</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ator 90</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                            <td>Diretor 2</td>
-                            <td>2002</td>
-                            <td>Sinopse uehueheuheuheuehueheuheuheuehueheuheuheuehuehueheuheueheuhe
-                                uehueheuheuheuehuehueheuheuehueheuheuheuehuehuehuehueheuheuheuheueh</td>
-                            <td>Humor</td>
-                            <td>Classe 2</td>
-                        </tr>
-                        <tr>
-                            <td>Titulo 3</td>
-                            <td>
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Nome do Ator</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Ator 56</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ator 67</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ator 2</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                            <td>Diretor 3</td>
-                            <td>1998</td>
-                            <td>Sinopse uehueheuheuheuehueheu</td>
-                            <td>Humor</td>
-                            <td>Classe 3</td>
-                        </tr>
-                    </tbody>
-                 </table>
-                
-
-          </form>
-         </div>
-     <script src="../../js/util.js"></script>
+            </div>
+        <div id="paginacao"></div>
+        <div id="rodape"></div>
+        <script src="../../js/util.js"></script>
     </body>
 </html>

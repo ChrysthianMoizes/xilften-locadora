@@ -18,9 +18,7 @@ $(document).ready(function (){
 $(document).ready(function (){
     $("#rodape").load("util/rodape.html");
 });
-$(document).ready(function (){
-    $("#filmes").load("util/filmes.html");
-});
+
 $(document).ready(function (){
     $("#paginacao").load("../../util/paginacao.html");
 });
