@@ -8,7 +8,7 @@ $(document).ready(function (){
     $("#cabecalho").load("util/cabecalho.html");
 });
 $(document).ready(function (){
-    $("#cabecalhoEx").load("../../util/cabecalho.html");
+    $("#cabecalhoEx").load("../../util/cabecalhoCrud.html");
 });
 
 $(document).ready(function (){

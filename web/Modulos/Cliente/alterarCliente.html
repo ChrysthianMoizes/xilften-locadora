@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>Cadastrar Cliente</title>
+        <title>Alterar Cliente</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/bootstrap.min.css">
@@ -19,10 +19,39 @@
 
             <div id="main" class="container-fluid">
 
-                <h3 class="page-header">Cadastrar Cliente</h3>
+                <h3 class="page-header">Alterar Cliente</h3>
                 <br><hr />
 
                 <form action="index.html">
+
+                    <div class="row">
+
+                        <div class="form-group col-xl-4">
+                            <label for="nomeDiretorTitulo">Cliente</label>
+                            <input id="auto" class="form-control" list="browsers" name="browser" type="text" placeholder="Selecione um cliente">
+                            <datalist id="browsers">
+                                <option value="Fernando Collor">
+                                <option value="Dilma Rouself">
+                                <option value="Jair Messias">
+                                <option value="Luiz Inasil Lula">
+                                <option value="Ciro Gomez">
+                                <option value="Marina Silva">
+                            </datalist>
+                            <br>
+                            <a href="" class="btn btn-light">Adicionar</a>
+                            <a href="" class="btn btn-light">Remover</a>
+                        </div>
+
+                        <div class="form-group col-md-4">
+                            <label for="sel2">Dependentes incluidos</label>
+                            <select multiple class="form-control" id="sel2">
+                                <option>Dependente 1</option>
+                                <option>Dependente 2</option>
+                            </select>   
+                        </div>
+
+                    </div>
+                    <hr />
 
                     <div class="row">
 
@@ -86,11 +115,12 @@
                         </div>
                     </div>
                     <hr />
+
                     <center>
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary">Salvar</button>
-                                <a href="" class="btn btn-default">Cancelar</a>
+                                <button type="submit" class="btn btn-primary">Alterar</button>
+                                <a href="../../dashboard.html" class="btn btn-default">Cancelar</a>
                             </div>
                         </div>
                     </center>
