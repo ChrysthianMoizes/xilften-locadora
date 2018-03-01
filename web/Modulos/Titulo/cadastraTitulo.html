@@ -18,82 +18,83 @@
         <div id="cabecalhoEx"></div>
         
         <div id="main" class="container-fluid">
-            
-          <h3 class="page-header">Cadastrar Título</h3>
+            <div class="container">
+                <h3 class="page-header">Cadastrar Título</h3>
 
-          <form action="index.html">
-                <div class="row">
-                    <div class="form-group col-xl-4">
-                        <label for="nomeTitulo">Nome</label>
-                        <input type="email" class="form-control" id="nomeTituloTitulo" placeholder="Nome do titulo">
-                    </div>
-                    <div class="form-group col-xl-4">
-                        <label for="nomeDiretorTitulo">Diretor</label>
-                        <input id="auto" class="form-control" list="browsers" name="browser" type="text" placeholder="Nome do Diretor">
-                        <datalist id="browsers">
-                            <option value="Fernando Collor">
-                            <option value="Dilma Rouself">
-                            <option value="Jair Messias">
-                            <option value="Luiz Inasil Lula">
-                            <option value="Ciro Gomez">
-                            <option value="Marina Silva">
-                        </datalist>
-                    </div>
-                    <div class="form-group col-xl-4">
-                        <label for="anoTitulo">Ano</label>
-                        <input type="date" class="form-control" id="anoTituloTitulo" placeholder="Ano do titulo">
-                    </div> 
-                </div>              
-                <div class="row">
-                    <div class="form-group col-md-4">
-                        <label for="atoresTitulo">Atores</label>
-                        <div class="form-group">
-                            <select class="form-control" id="atoresTitulo">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                            </select>
+                <form action="index.html">
+                      <div class="row">
+                          <div class="form-group col-xl-4">
+                              <label for="nomeTitulo">Nome</label>
+                              <input type="email" class="form-control" id="nomeTituloTitulo" placeholder="Nome do titulo">
+                          </div>
+                          <div class="form-group col-xl-4">
+                              <label for="nomeDiretorTitulo">Diretor</label>
+                              <input id="auto" class="form-control" list="browsers" name="browser" type="text" placeholder="Nome do Diretor">
+                              <datalist id="browsers">
+                                  <option value="Fernando Collor">
+                                  <option value="Dilma Rouself">
+                                  <option value="Jair Messias">
+                                  <option value="Luiz Inasil Lula">
+                                  <option value="Ciro Gomez">
+                                  <option value="Marina Silva">
+                              </datalist>
+                          </div>
+                          <div class="form-group col-xl-4">
+                              <label for="anoTitulo">Ano</label>
+                              <input type="date" class="form-control" id="anoTituloTitulo" placeholder="Ano do titulo">
+                          </div> 
+                      </div>              
+                      <div class="row">
+                          <div class="form-group col-md-4">
+                              <label for="atoresTitulo">Atores</label>
+                              <div class="form-group">
+                                  <select class="form-control" id="atoresTitulo">
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                  </select>
+                              </div>
+                              <a href="" class="btn btn-light">Adicionar</a>
+                              <a href="" class="btn btn-light">Remover</a>
+                          </div>
+                          <div class="form-group col-md-4">
+                              <label for="sel2">Atores incluidos</label>
+                              <select multiple class="form-control" id="sel2">
+                                  <option>1</option>
+                                  <option>2</option>
+                                  <option>3</option>
+                                  <option>4</option>
+                                  <option>5</option>
+                              </select>   
+                          </div>
+                      </div>
+
+                      <div class="row">
+                          <div class="form-group col-md-4">
+                              <label for="sinopse">Sinopse</label>
+                              <textarea class="form-control" rows="5" id="comment" placeholder="Sinopse do titulo"></textarea>
+                          </div>
+                          <div class="form-group col-xl-4">
+                              <label for="categoriaTituloTitulo">Categoria</label>
+                              <input type="search" class="form-control" id="categoriaTituloTitulo" placeholder="Categoria do Diretor">
+                          </div>
+                          <div class="form-group col-xl-4">
+                              <label for="classeTituloTitulo">Classe</label>
+                              <input type="search" class="form-control" id="classeTituloTitulo" placeholder="Classe do titulo">
+                        </div> 
+                      </div>           
+                      <hr />
+                      <div class="row">
+                        <div class="col-md-12">
+                              <button type="submit" class="btn btn-primary">Salvar</button>
+                              <a href="template.html" class="btn btn-default">Cancelar</a>
                         </div>
-                        <a href="" class="btn btn-light">Adicionar</a>
-                        <a href="" class="btn btn-light">Remover</a>
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label for="sel2">Atores incluidos</label>
-                        <select multiple class="form-control" id="sel2">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                        </select>   
-                    </div>
-                </div>
-                             
-                <div class="row">
-                    <div class="form-group col-md-4">
-                        <label for="sinopse">Sinopse</label>
-                        <textarea class="form-control" rows="5" id="comment" placeholder="Sinopse do titulo"></textarea>
-                    </div>
-                    <div class="form-group col-xl-4">
-                        <label for="categoriaTituloTitulo">Categoria</label>
-                        <input type="search" class="form-control" id="categoriaTituloTitulo" placeholder="Categoria do Diretor">
-                    </div>
-                    <div class="form-group col-xl-4">
-                        <label for="classeTituloTitulo">Classe</label>
-                        <input type="search" class="form-control" id="classeTituloTitulo" placeholder="Classe do titulo">
-                  </div> 
-                </div>           
-                <hr />
-                <div class="row">
-                  <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Salvar</button>
-                        <a href="template.html" class="btn btn-default">Cancelar</a>
-                  </div>
-                </div>
-
-          </form>
-         </div>
-     <script src="../../js/util.js"></script>
+                      </div>
+                    </form>
+            </div>
+        <br>
+        </div>
+        <script src="../../js/util.js"></script>
     </body>
 </html>
