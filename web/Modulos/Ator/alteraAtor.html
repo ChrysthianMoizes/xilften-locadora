@@ -14,11 +14,17 @@
     <body>        
         <div id="cabecalhoEx"></div>        
         <div id="main" class="container-fluid">            
-          <h3 class="page-header">Alterar Ator</h3>
-          <form action="index.html">
+          
+          <div class="container">
+            <h3 class="page-header">Alterar Ator</h3>
+            <form action="index.html">
                 <div class="row">
                     <div class="form-group col-md-4">
-                        <label for="exampleInputEmail1">Busca</label>
+                        <label for="exampleInputEmail1">Busca</label> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-4">    
                         <input type="text" name="browser" list="atores" class="form-control" id="nomeAtorBuscaAtor" placeholder="Nome Completo">
                         <datalist id="atores">
                             <option value="Fernando Collor">
@@ -29,28 +35,32 @@
                             <option value="Marina Silva">
                         </datalist>
                     </div> 
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary">Buscar</button>
+                        </div>
                     </div>
                 </div>
                 <hr />
                 <div class="row">
-                  <div class="form-group col-md-4">
-                        <label for="exampleInputEmail1">Nome</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nome Completo">
-                  </div> 
+                    <div class="form-group col-md-4">
+                        <label for="exampleInputEmail1">Nome</label> 
+                    </div>
                 </div>
-
-                <hr />
-
                 <div class="row">
-                  <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Atualizar</button>
-                        <a href="template.html" class="btn btn-default">Cancelar</a>
-                  </div>
+                    <div class="form-group col-md-4">
+                          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nome Completo">
+                    </div> 
                 </div>
-
-          </form>
+                <hr/>
+                    <div class="row">
+                        <div class="col-md-12" align="center">
+                            <button type="submit" class="btn btn-primary">Atualizar</button>
+                            <a href="template.html" class="btn btn-outline-dark">Cancelar</a>
+                        </div>
+                    </div>
+            </form>
+          </div>
          </div>
      <script src="../../js/util.js"></script>
     </body>
