@@ -41,7 +41,7 @@
                           </div>
                           <div class="form-group col-xl-4">
                               <label for="anoTitulo">Ano</label>
-                              <input type="date" class="form-control" id="anoTituloTitulo" placeholder="Ano do titulo">
+                              <input type="number" class="form-control" id="anoTituloTitulo" placeholder="Ano do titulo">
                           </div> 
                       </div>              
                       <div class="row">
@@ -68,6 +68,9 @@
                                   <option>5</option>
                               </select>   
                           </div>
+                          <div class="form-inline col-md-1">
+                            <input type="file" name="arquivo" class="upload btn-outline-dark" accept="image/png, image/jpeg">
+                          </div>
                       </div>
 
                       <div class="row">
@@ -86,9 +89,9 @@
                       </div>           
                       <hr />
                       <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12" align="center">
                               <button type="submit" class="btn btn-primary">Salvar</button>
-                              <a href="template.html" class="btn btn-default">Cancelar</a>
+                              <a href="template.html" class="btn btn-outline-dark">Cancelar</a>
                         </div>
                       </div>
                     </form>

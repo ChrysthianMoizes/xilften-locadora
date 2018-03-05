@@ -27,4 +27,11 @@ $(document).ready(function (){
 });
 $(document).ready(function (){
     $("#anoTituloTitulo").mask('0000');
+    $(document).keypress(function(e) {
+        if(e.which == 13) $('#meuBotao').click();
+    });
+
+    $('button').click(function(e) {
+        
+    });
 });
