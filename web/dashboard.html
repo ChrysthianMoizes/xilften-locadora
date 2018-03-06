@@ -148,27 +148,36 @@
                     <h2>Últimas Locações</h2>
                     <br>
 
-                    <table border="0">
-                        <form class="form-inline"> 
-                            <tr>
-                                <td>
-                                    <button id="efetuarLocacao" onClick="efetuarLocacao()" type="button" class="btn btn-outline-success">Efetuar Locação</button>
-                                </td>
-                                <td></td>
-                                <td>
-                                    <button id="alterarLocacao" type="button" class="btn btn-outline-secondary">Alterar Dados da Locação</button>
-                                </td>
-                                <td></td>
-                                <td>
-                                    <button id="cancelarLocacao" type="button" class="btn btn-outline-danger">Cancelar Locação</button>
-                                </td>
-                                <td></td>
-                                <td>
-                                    <button id="efetuarDevolucao" type="button" class="btn btn-outline-primary">Efetuar Devolução</button>
-                                </td>
-                            </tr>
-                        </form>
-                    </table>    
+                    <div class="row">
+                        <div class="col">
+                            <table border="0">
+                                <form class="form-inline"> 
+                                    <tr>
+                                        <td>
+                                            <button id="btnEfetuarLocacao" onclick="efetuarLocacao()" type="button" class="btn btn-outline-success">Efetuar Locação</button>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <button id="btnAlterarLocacao" onclick="alterarLocacao()" type="button" class="btn btn-outline-secondary">Alterar Dados da Locação</button>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <button id="btnCancelarLocacao" onclick="cancelarLocacao()" type="button" class="btn btn-outline-danger">Cancelar Locação</button>
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                            <button id="btnEfetuarDevolucao" onclick="efetuarDevolucao()" type="button" class="btn btn-outline-primary">Efetuar Devolução</button>
+                                        </td>
+                                    </tr>
+                                </form>
+                            </table>   
+                        </div>
+                        
+                        <div class="col" align="right">
+                            <button id="btnAtualizarTabela" onclick="" type="button" class="btn btn-info"> Atualizar Tabela</button>
+                        </div>
+                        
+                    </div>
 
                     <br>
 
@@ -224,6 +233,7 @@
                     </div>
                 </main>
             </div>
-        </div>    
+        </div>
+        <script src="js/util.js"></script>
     </body>
 </html>
