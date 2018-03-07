@@ -25,6 +25,9 @@ $(document).ready(function (){
 $(document).ready(function (){
     $("#telefone").mask('(00) 0000-0000#');
 });
+$(document).ready(function(){
+    $("#popover").popover();   
+});
 $(document).ready(function (){
     $("#anoTituloTitulo").mask('0000');
     $(document).keypress(function(e) {
@@ -34,4 +37,5 @@ $(document).ready(function (){
     $('button').click(function(e) {
         
     });
+    
 });
