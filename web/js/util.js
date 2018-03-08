@@ -27,7 +27,7 @@ $(document).ready(function () {
     $("#telefone").mask('(00) 0000-0000#');
 });
 $(document).ready(function(){
-    $("#popover").popover();   
+    $('[data-toggle="popover"]').popover();   
 });
 $(document).ready(function () {
 
