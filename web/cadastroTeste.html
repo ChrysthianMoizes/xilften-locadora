@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Cadastro Teste</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <h2><center>Cadastro de Cliente</center></h2>
+        
+        <form name="cadastroCliente" method="POST" action="../locadora/teste1" align="center">
+            Nome:<br>
+            <input type="text" name="nome" value=""></br>
+            CPF:<br>
+            <input type="text" name="cpf" value=""></br>
+            Endereço:<br>
+            <input type="text" name="endereco" value=""></br>
+            Sexo:<br>
+            <input type="radio" name="sexo" value="masc">Masculino<input type="radio" name="sexo" value="fem">Feminino<br>
+            Tipo:<br>
+            <select name="tipo">
+                <option value="Normal">Normal</option>
+                <option value="VIP">VIP</option>
+            </select><br>
+            Receber comunicados:<br>
+            <input type="checkbox" name="comunicados" value="sim"><br>
+            Obs:<br>
+            <textarea name="obs" rows="4" cols="20"></textarea><br>
+            <input type="submit" value="OK">
+            <input type="reset" value="Reset">
+        </form>
+
+    </body>
+</html>
