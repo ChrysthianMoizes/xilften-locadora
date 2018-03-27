@@ -33,6 +33,62 @@ public class Cliente {
         this.estahAtivo = estahAtivo;
         this.locacoes = locacoes;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getNumInscricao() {
+        return numInscricao;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public Date getDtNascimento() {
+        return dtNascimento;
+    }
+
+    public char getSexo() {
+        return sexo;
+    }
+
+    public boolean isEstahAtivo() {
+        return estahAtivo;
+    }
+
+    public Collection<Locacao> getLocacoes() {
+        return locacoes;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNumInscricao(int numInscricao) {
+        this.numInscricao = numInscricao;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setDtNascimento(Date dtNascimento) {
+        this.dtNascimento = dtNascimento;
+    }
+
+    public void setSexo(char sexo) {
+        this.sexo = sexo;
+    }
+
+    public void setEstahAtivo(boolean estahAtivo) {
+        this.estahAtivo = estahAtivo;
+    }
+
+    public void setLocacoes(Collection<Locacao> locacoes) {
+        this.locacoes = locacoes;
+    }
     
     
     

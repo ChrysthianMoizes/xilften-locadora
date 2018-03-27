@@ -15,6 +15,22 @@ public class Dependente extends Cliente{
     public Dependente(Socio socio) {
         this.socio = socio;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public Socio getSocio() {
+        return socio;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setSocio(Socio socio) {
+        this.socio = socio;
+    }
     
     
 }

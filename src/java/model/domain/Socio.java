@@ -35,6 +35,70 @@ public class Socio extends Cliente{
         this.numero = numero;
         this.dependentes = dependentes;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getTelefone() {
+        return telefone;
+    }
+
+    public String getLogradouro() {
+        return logradouro;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public int getCep() {
+        return cep;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public Collection<Dependente> getDependentes() {
+        return dependentes;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTelefone(int telefone) {
+        this.telefone = telefone;
+    }
+
+    public void setLogradouro(String logradouro) {
+        this.logradouro = logradouro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public void setCep(int cep) {
+        this.cep = cep;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public void setDependentes(Collection<Dependente> dependentes) {
+        this.dependentes = dependentes;
+    }
     
     
 }

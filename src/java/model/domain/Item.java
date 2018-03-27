@@ -30,5 +30,54 @@ public class Item {
         this.titulo = titulo;
         this.locacoes = locacoes;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public int getNumSerie() {
+        return numSerie;
+    }
+
+    public Date getDtAquisicao() {
+        return dtAquisicao;
+    }
+
+    public String getTipoItem() {
+        return tipoItem;
+    }
+
+    public Titulo getTitulo() {
+        return titulo;
+    }
+
+    public Collection<Locacao> getLocacoes() {
+        return locacoes;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNumSerie(int numSerie) {
+        this.numSerie = numSerie;
+    }
+
+    public void setDtAquisicao(Date dtAquisicao) {
+        this.dtAquisicao = dtAquisicao;
+    }
+
+    public void setTipoItem(String tipoItem) {
+        this.tipoItem = tipoItem;
+    }
+
+    public void setTitulo(Titulo titulo) {
+        this.titulo = titulo;
+    }
+
+    public void setLocacoes(Collection<Locacao> locacoes) {
+        this.locacoes = locacoes;
+    }
+    
     
 }

@@ -38,6 +38,79 @@ public class Titulo {
         this.classe = classe;
         this.itens = itens;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getAno() {
+        return ano;
+    }
+
+    public String getSinopse() {
+        return sinopse;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public Collection<Ator> getAtores() {
+        return atores;
+    }
+
+    public Diretor getDiretor() {
+        return diretor;
+    }
+
+    public Classe getClasse() {
+        return classe;
+    }
+
+    public Collection<Item> getItens() {
+        return itens;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
+
+    public void setSinopse(String sinopse) {
+        this.sinopse = sinopse;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public void setAtores(Collection<Ator> atores) {
+        this.atores = atores;
+    }
+
+    public void setDiretor(Diretor diretor) {
+        this.diretor = diretor;
+    }
+
+    public void setClasse(Classe classe) {
+        this.classe = classe;
+    }
+
+    public void setItens(Collection<Item> itens) {
+        this.itens = itens;
+    }
+    
     
     
 }
