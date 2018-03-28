@@ -1,16 +1,64 @@
 package model.domain;
 
+import java.io.Serializable;
 import java.util.Collection;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
-public class Titulo {
+@Entity
+public class Titulo implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    
+    @Column(nullable = false)
     private String nome;
+    
+    @Column(nullable = false)
     private int ano;
+    
+    @Column(nullable = false)
     private String sinopse;
+    
+    @Column(nullable = false)
     private String categoria;
+    
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "ator_titulo",
+            joinColumns = @JoinColumn(name = "titulo_id", nullable = true),
+            inverseJoinColumns = @JoinColumn(name = "ator_id"))
+    @Cascade(CascadeType.SAVE_UPDATE)
     private Collection<Ator> atores;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "titulo_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    @Cascade(CascadeType.SAVE_UPDATE)
     private Diretor diretor;
+       
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "titulo_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    @Cascade(CascadeType.SAVE_UPDATE)
     private Classe classe;
+    
+    @OneToMany(mappedBy = "titulo", fetch = FetchType.EAGER)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    @Cascade(CascadeType.SAVE_UPDATE)
     private Collection<Item> itens;
 
     public Titulo() {

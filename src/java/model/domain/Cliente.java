@@ -1,15 +1,47 @@
 package model.domain;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
-public class Cliente {
+@Entity
+public class Cliente implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    
+    @Column(nullable = false, unique = true)
     private int numInscricao;
+    
+    @Column(nullable = false)
     private String nome;
+    
+    @Column(nullable = false)
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dtNascimento;
+    
+    @Column(nullable = false)
     private char sexo;
+    
+    @Column(nullable = false)
     private boolean estahAtivo;
+    
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    @Cascade(CascadeType.SAVE_UPDATE)
     private Collection<Locacao> locacoes;
 
     public Cliente() {

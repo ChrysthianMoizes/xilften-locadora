@@ -1,9 +1,22 @@
 package model.domain;
 
-public class Ator {
-    private int id;
-    private String nome;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public class Ator implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+    
+    @Column(nullable = false)
+    private String nome;
+    
     public Ator() {
     }
 
@@ -11,7 +24,7 @@ public class Ator {
         this.id = id;
         this.nome = nome;
     }
-
+    
     public Ator(String nome) {
         this.nome = nome;
     }

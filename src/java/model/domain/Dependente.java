@@ -1,36 +1,41 @@
 package model.domain;
 
+import java.util.Collection;
+import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "dependente")
+@PrimaryKeyJoinColumn(name = "dependente_id")
 public class Dependente extends Cliente{
-    private int id;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "socio_id", nullable = false)
     private Socio socio;
 
     public Dependente() {
     }
 
-    public Dependente(int id, Socio socio) {
-        this.id = id;
+    public Dependente(Socio socio, int id, int numInscricao, String nome, Date dtNascimento, char sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
+        super(id, numInscricao, nome, dtNascimento, sexo, estahAtivo, locacoes);
         this.socio = socio;
     }
 
-    public Dependente(Socio socio) {
+    public Dependente(Socio socio, int numInscricao, String nome, Date dtNascimento, char sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
+        super(numInscricao, nome, dtNascimento, sexo, estahAtivo, locacoes);
         this.socio = socio;
-    }
-
-    public int getId() {
-        return id;
     }
 
     public Socio getSocio() {
         return socio;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public void setSocio(Socio socio) {
         this.socio = socio;
     }
-    
-    
 }

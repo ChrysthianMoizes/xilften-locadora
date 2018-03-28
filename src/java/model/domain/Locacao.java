@@ -1,15 +1,54 @@
 package model.domain;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
-public class Locacao {
+@Entity
+public class Locacao implements Serializable {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    
+    @Column(nullable = false)
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dtLocacao;
+    
+    @Column(nullable = false)
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dtDevolucaoPrevista;
+    
+    @Column(nullable = true)
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date dtDevolucaoEfetiva;
+    
+    @Column(nullable = true)
     private float valorCobrado;
+    
+    @Column(nullable = true)
     private float multaCobrada;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "item_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.NO_ACTION)
+    @Cascade(CascadeType.SAVE_UPDATE)
     private Item item;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
 
     public Locacao() {
