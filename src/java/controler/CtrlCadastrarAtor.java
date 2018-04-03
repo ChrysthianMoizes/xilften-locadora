@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import model.application.AplCadastrarAtor;
 
 
-public class ctrCadastrarAtor extends HttpServlet {
+public class CtrlCadastrarAtor extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
