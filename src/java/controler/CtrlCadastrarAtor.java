@@ -22,24 +22,27 @@ public class CtrlCadastrarAtor extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String operacao = request.getParameter("operacao");
+        
         if(operacao.equals("incluirAtor")){
             String nomeAtor = request.getParameter("nome");
             int op = aplCadastrarAtor.incluirAtor(nomeAtor);
             
             switch(op){
                 
-                case 0:
-                    
+                //incluido 
                 case 1:
-                    
+                    response.addHeader("status", "incluido");
+                    response.sendRedirect("cadastraAtor.jsp");
+                    break;
+                //erro    
                 case 2:
-                    
+                    response.addHeader("status", "erro ao cadastrar");
+                    break;
             }
         }
         
         try (PrintWriter out = response.getWriter()) {
             
-       
         }
     }
 
