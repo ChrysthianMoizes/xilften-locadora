@@ -42,8 +42,16 @@
                 </form>
                 
                 <%
-                    String status = response.getHeader("satus");
-                    if(status != null){
+                    //String status = response.getHeader("satus");
+                    
+                    String msg = request.getParameter("msg");
+                    
+                    
+                    
+                    if(msg != null){
+                        
+                        out.println("<font color='green'>"+msg+"</font><a href=#>Listar Atores</a>");
+                        
                 %>
                     <!-- Modal -->
                     <div class="modal fade" id="myModal">

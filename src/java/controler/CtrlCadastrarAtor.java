@@ -1,7 +1,6 @@
 package controler;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,8 +32,8 @@ public class CtrlCadastrarAtor extends HttpServlet {
                 
                 //incluido 
                 case 1:
-                    response.addHeader("status", "incluido");
-                    response.sendRedirect("cadastraAtor.jsp");
+                    //response.addHeader("status", "incluido");
+                    response.sendRedirect("Modulos/Ator/cadastraAtor.jsp?msg=Ator Cadastrado com Sucesso!");
                     break;
                 //erro    
                 case 2:
@@ -43,9 +42,9 @@ public class CtrlCadastrarAtor extends HttpServlet {
             }
         }
         
-        try (PrintWriter out = response.getWriter()) {
+        //try (PrintWriter out = response.getWriter()) {
             
-        }
+        //}
     }
 
     @Override

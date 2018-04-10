@@ -1,22 +1,16 @@
-package model.application.hibernete;
+package dao;
 
-import org.hibernate.Session;
 import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 
-public class HibernateConfig {
+public class NewHibernateUtil {
 
     private static final SessionFactory sessionFactory;
     
     static {
         try {
             
-            sessionFactory = new AnnotationConfiguration().configure("hibernate.cfg.xml").buildSessionFactory();
-            Session session = sessionFactory.openSession(); 
-            Transaction tx = session.beginTransaction();
-            tx.commit();
-            session.close();
+            sessionFactory = new AnnotationConfiguration().configure("dao/hibernate.cfg.xml").buildSessionFactory();
         } catch (Throwable ex) {
             // Log the exception. 
             System.err.println("Initial SessionFactory creation failed." + ex);

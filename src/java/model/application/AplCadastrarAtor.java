@@ -1,5 +1,6 @@
 package model.application;
 
+import dao.GDGenerico;
 import model.domain.Ator;
 
 public class AplCadastrarAtor{

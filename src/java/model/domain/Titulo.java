@@ -45,13 +45,13 @@ public class Titulo implements Serializable {
     private Collection<Ator> atores;
     
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "titulo_id", nullable = false)
+    @JoinColumn(name = "diretor_id", nullable = false)
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     @Cascade(CascadeType.SAVE_UPDATE)
     private Diretor diretor;
        
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "titulo_id", nullable = false)
+    @JoinColumn(name = "classe_id", nullable = false)
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     @Cascade(CascadeType.SAVE_UPDATE)
     private Classe classe;
