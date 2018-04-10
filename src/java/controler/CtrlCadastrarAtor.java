@@ -3,12 +3,13 @@ package controler;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.application.AplCadastrarAtor;
 
-
+@WebServlet(name = "CtrlCadastrarAtor", urlPatterns = {"/CtrlCadastrarAtor"})
 public class CtrlCadastrarAtor extends HttpServlet {
 
     private AplCadastrarAtor aplCadastrarAtor;
@@ -18,11 +19,12 @@ public class CtrlCadastrarAtor extends HttpServlet {
         aplCadastrarAtor = new AplCadastrarAtor();
     }
     
+    
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String operacao = request.getParameter("operacao");
-        
         if(operacao.equals("incluirAtor")){
             String nomeAtor = request.getParameter("nome");
             int op = aplCadastrarAtor.incluirAtor(nomeAtor);

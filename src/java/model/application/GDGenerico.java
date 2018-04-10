@@ -6,6 +6,7 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.exception.ConstraintViolationException;
+import model.application.hibernete.HibernateConfig;
 
 public class GDGenerico {
 
@@ -75,7 +76,7 @@ public class GDGenerico {
     public Session criarSessao() {
         if ( sessao != null && sessao.isOpen())
             sessao.close();
-        //sessao = cgd.hibernate.HibernateConfig.getSessionFactory().openSession();
+        sessao = HibernateConfig.getSessionFactory().openSession();
         return sessao;
     }
 }
