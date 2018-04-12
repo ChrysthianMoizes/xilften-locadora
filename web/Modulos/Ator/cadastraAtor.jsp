@@ -43,16 +43,8 @@
                 </form>
                 
                 <%
-                    //String status = response.getHeader("satus");
-                    
                     String msg = request.getParameter("msg");
-                    
-                    
-                    
                     if(msg != null){
-                        
-                        //out.println("<font color='green'>"+msg+"</font><a href=#>Listar Atores</a>");
-                        
                 %>
                     <!-- Modal -->
                     <div class="modal fade" id="modalCadastroAtor">
@@ -66,12 +58,12 @@
 
                                 <!-- Modal body -->
                                 <div class="modal-body">
-                                    Inclusão concluida
+                                    <%= msg %>
                                 </div>
 
                                 <!-- Modal footer -->
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                                    <button type="button" class="btn btn-info" data-dismiss="modal">Fechar</button>
                                 </div>
 
                             </div><!-- DIV MODAL CONTENT-->

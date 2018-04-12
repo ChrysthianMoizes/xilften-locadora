@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/4-col-portfolio.css">
         <link href="../../bootstrap-4.0.0/dist/css/style.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
 
     </head>
     <body>        
@@ -62,6 +62,8 @@
                 
             </div>
         </div>
+        <script src="../../bootstrap-4.0.0/dist/js/bootstrap.bundle.js"></script>
+        <script src="../../js/jquery.mask.min.js"></script>
         <script src="../../js/util.js"></script>
     </body>
 </html>

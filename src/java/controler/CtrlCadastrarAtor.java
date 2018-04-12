@@ -33,7 +33,7 @@ public class CtrlCadastrarAtor extends HttpServlet {
                 //incluido 
                 case 1:
                     //response.addHeader("status", "incluido");
-                    response.sendRedirect("Modulos/Ator/cadastraAtor.jsp?msg=Ator Cadastrado com Sucesso!");
+                    response.sendRedirect("Modulos/Ator/cadastraAtor.jsp?msg="+nomeAtor+" Cadastrado com Sucesso!");
                     break;
                 //erro    
                 case 2:
