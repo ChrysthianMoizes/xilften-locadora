@@ -9,9 +9,6 @@
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/4-col-portfolio.css">
         <link href="../../bootstrap-4.0.0/dist/css/style.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
-        <script src="../../bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
-        <script src="../../bootstrap-4.0.0/assets/js/vendor/popper.min.js"></script>
-        <script src="../../js/util.js"></script>
 
     </head>
     <body>        
@@ -78,6 +75,8 @@
                 </form>
             </div>
         </div>
-
+        <script src="../../bootstrap-4.0.0/dist/js/bootstrap.bundle.js"></script>
+        <script src="../../js/jquery.mask.min.js"></script>
+        <script src="../../js/util.js"></script>
     </body>
 </html>

@@ -5,10 +5,11 @@
         <meta charset="utf-8">
         <title>Cadastrar Ator</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/4-col-portfolio.css">
         <link href="../../bootstrap-4.0.0/dist/css/style.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+        
         
     </head>
     <body>
@@ -50,11 +51,11 @@
                     
                     if(msg != null){
                         
-                        out.println("<font color='green'>"+msg+"</font><a href=#>Listar Atores</a>");
+                        //out.println("<font color='green'>"+msg+"</font><a href=#>Listar Atores</a>");
                         
                 %>
                     <!-- Modal -->
-                    <div class="modal fade" id="myModal">
+                    <div class="modal fade" id="modalCadastroAtor">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <!-- Modal Header -->
@@ -82,6 +83,8 @@
                 
             </div>
         </div>
-     <script src="../../js/util.js"></script>
+    <script src="../../bootstrap-4.0.0/dist/js/bootstrap.bundle.js"></script>
+    <script src="../../js/jquery.mask.min.js"></script>
+    <script src="../../js/util.js"></script>
     </body>
 </html>

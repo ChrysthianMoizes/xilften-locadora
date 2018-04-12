@@ -41,6 +41,11 @@ $(document).ready(function () {
 
     });
     
+    if ($("#modalCadastroAtor").length) { 
+        $('#modalCadastroAtor').modal('show');
+        console.log("existe");
+    }
+    
 });
 
 function efetuarLocacao() {
