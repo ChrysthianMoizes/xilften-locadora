@@ -1,14 +1,18 @@
 package model.application;
 
-import dao.GDGenerico;
+import dao.GDAtor;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.domain.Ator;
 
 public class AplCadastrarAtor{
     
-    private GDGenerico gdCrud;
+    private GDAtor gdCrud;
 
     public AplCadastrarAtor() {
-        gdCrud = new GDGenerico();
+        gdCrud = new GDAtor();
     }
 
     public int incluirAtor(String nome){
@@ -23,4 +27,26 @@ public class AplCadastrarAtor{
             return 2;
         }
     } 
+    public List listarAtor(){
+        return gdCrud.listarAtor();
+    }
+
+    public int excluirAtor(int id) {
+        Ator ator = new Ator();
+        ator.setId(id);
+        try {
+            gdCrud.excluir(ator);
+            return 1;
+        } catch (SQLException ex) {
+            Logger.getLogger(AplCadastrarAtor.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AplCadastrarAtor.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+    }
+    
+//    public Ator buscarAtor(int id){
+//        
+//    }
 }

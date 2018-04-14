@@ -1,3 +1,6 @@
+<%@page import="model.domain.Ator"%>
+<%@page import="model.application.AplCadastrarAtor"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -20,7 +23,7 @@
                 <h3 class="page-header">Excluir Ator</h3>
                 <br><hr />
 
-                <form action="index.html">
+                <form method="POST" action="/locadora/CtrlCadastrarAtor">
                     <div class="row">
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Busca</label>
@@ -28,19 +31,21 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-4">
-                            <input type="text" name="browser" list="atores" class="form-control" id="nomeAtorBuscaAtor" placeholder="Nome Completo">
+                            <input type="text" name="id" list="atores" class="form-control" id="nomeAtorBuscaAtor" placeholder="Nome Completo">
                             <datalist id="atores">
-                                <option value="Fernando Collor">
-                                <option value="Dilma Rouself">
-                                <option value="Jair Messias">
-                                <option value="Luiz Inasil Lula">
-                                <option value="Ciro Gomez">
-                                <option value="Marina Silva">
+                                <%  
+                                    List lista = new AplCadastrarAtor().listarAtor();
+                                    //List lista = (List)request.getAttribute("lista"); 
+                                    if(lista != null)
+                                        for(int i = 0; i < lista.size(); i++){
+                                %>
+                                            <option value="<%= ((Ator)lista.get(i)).getId() %>" > <%= ((Ator)lista.get(i)).getNome() %> </option>
+                                <%      }%>
                             </datalist>
-
                         </div>  
                     </div>
-                    <hr />    
+                    <hr /> 
+                    <input type="hidden" name="operacao" value="excluirAtor">
                     <div class="row">
                         <div class="col-md-12" align="center">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Excluir</button>
@@ -64,7 +69,7 @@
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
-                                            <button type="button" class="btn btn-primary">Continuar e Excluir</button>
+                                            <button type="submit" class="btn btn-primary">Continuar e Excluir</button>
                                         </div>
 
                                     </div><!-- DIV MODAL CONTENT-->
