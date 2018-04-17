@@ -44,9 +44,9 @@ public class CtrCadastrarlAtor extends HttpServlet {
                             response.addHeader("status", "erro ao cadastrar");
                             break;
                     }
-                    break;
+                break;
 
-              case "excluirAtor":
+                case "excluirAtor":
                     String idS = request.getParameter("id");
                     String nomeAtorEx = request.getParameter("nome");
                     int id = Integer.valueOf(idS);
@@ -54,14 +54,36 @@ public class CtrCadastrarlAtor extends HttpServlet {
                     switch(opEx){
                         //exluido 
                         case 1:
-                            response.sendRedirect("Modulos/Ator/cadastraAtor.jsp?msg="+nomeAtorEx+" Excluido com Sucesso!");
+                            response.sendRedirect("Modulos/Ator/excluiAtor.jsp?msg="+nomeAtorEx+" Excluido com Sucesso!");
                             break;
                         //erro    
                         case 2:
                             response.addHeader("status", "Erro ao excluir "+nomeAtorEx);
                             break;
                     }
-               break;
+                break;
+               
+                case "alterarAtor":
+                    String nomeAtorA = request.getParameter("nome");
+                    String idA = request.getParameter("id");
+                    int opAl = 0;
+                    if(!idA.equals("0"))
+                        opAl = aplCadastrarAtor.alterarAtor(idA, nomeAtorA);
+                    switch(opAl){
+                        //exluido 
+                        case 1:
+                            response.sendRedirect("Modulos/Ator/alteraAtor.jsp?msg="+nomeAtorA+" Alterado com Sucesso!");
+                            break;
+                        //erro    
+                        case 2:
+                            response.addHeader("status", "Erro ao alterar "+nomeAtorA);
+                            break;
+                        default:
+                            response.sendRedirect("Modulos/Ator/alteraAtor.jsp");
+                            break;
+                    }
+                    
+                break;
             }
         }catch(Exception e){
             out.print("Erro "+e.getMessage());

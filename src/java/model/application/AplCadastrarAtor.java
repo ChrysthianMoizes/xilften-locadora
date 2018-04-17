@@ -9,10 +9,10 @@ import model.domain.Ator;
 
 public class AplCadastrarAtor{
     
-    private GDAtor gdCrud;
+    private GDAtor gdAtor;
 
     public AplCadastrarAtor() {
-        gdCrud = new GDAtor();
+        gdAtor = new GDAtor();
     }
 
     public int incluirAtor(String nome){
@@ -21,32 +21,38 @@ public class AplCadastrarAtor{
         Ator novoAtor = new Ator();
         novoAtor.setNome(nome);
         try{
-            gdCrud.incluir(novoAtor);
+            gdAtor.incluir(novoAtor);
             return 1;
         }catch(Exception e){
             return 2;
         }
     } 
     public List listarAtor(){
-        return gdCrud.listarAtor();
+        return gdAtor.listarAtor();
     }
 
     public int excluirAtor(int id) {
         Ator ator = new Ator();
         ator.setId(id);
         try {
-            gdCrud.excluir(ator);
+            gdAtor.excluir(ator);
             return 1;
-        } catch (SQLException ex) {
-            Logger.getLogger(AplCadastrarAtor.class.getName()).log(Level.SEVERE, null, ex);
-            return 0;
-        } catch (ClassNotFoundException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(AplCadastrarAtor.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
     }
     
-//    public Ator buscarAtor(int id){
-//        
-//    }
+    public int alterarAtor(String idA, String nomeA) {
+        Ator ator = new Ator();
+        ator.setId(Integer.valueOf(idA));
+        ator.setNome(nomeA);
+        try {
+            gdAtor.alterar(ator);
+            return 1;
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(AplCadastrarAtor.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+    }
 }

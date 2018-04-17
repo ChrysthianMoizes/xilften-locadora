@@ -46,6 +46,10 @@ $(document).ready(function () {
         console.log("existe");
     }
     
+    if ($("#modalAlterarAtor").length) { 
+        $('#modalAlterarAtor').modal('show');
+    }
+    
 });
 
 function efetuarLocacao() {

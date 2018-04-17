@@ -31,8 +31,8 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-4">
-                            <input type="text" name="id" list="atores" class="form-control" id="nomeAtorBuscaAtor" placeholder="Nome Completo">
-                            <datalist id="atores">
+                            <!--input type="search" name="id" list="atores" class="form-control" id="nomeAtorBuscaAtor" placeholder="Nome Completo" autocomplete="on"-->
+                            <select class="form-control" name="id">
                                 <%  
                                     List lista = new AplCadastrarAtor().listarAtor();
                                     //List lista = (List)request.getAttribute("lista"); 
@@ -41,7 +41,7 @@
                                 %>
                                             <option value="<%= ((Ator)lista.get(i)).getId() %>" > <%= ((Ator)lista.get(i)).getNome() %> </option>
                                 <%      }%>
-                            </datalist>
+                            </select>
                         </div>  
                     </div>
                     <hr /> 
