@@ -41,13 +41,13 @@ $(document).ready(function () {
 
     });
     
-    if ($("#modalCadastroAtor").length) { 
-        $('#modalCadastroAtor').modal('show');
+    if ($("#modalCadastro").length) { 
+        $('#modalCadastro').modal('show');
         console.log("existe");
     }
     
-    if ($("#modalAlterarAtor").length) { 
-        $('#modalAlterarAtor').modal('show');
+    if ($("#modalAlterar").length) { 
+        $('#modalAlterar').modal('show');
     }
     
 });

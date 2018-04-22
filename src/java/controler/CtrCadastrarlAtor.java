@@ -2,15 +2,12 @@ package controler;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.application.AplCadastrarAtor;
-import model.domain.Ator;
 
 @WebServlet(name = "CtrlCadastrarAtor", urlPatterns = {"/CtrlCadastrarAtor"})
 public class CtrCadastrarlAtor extends HttpServlet {
@@ -70,11 +67,9 @@ public class CtrCadastrarlAtor extends HttpServlet {
                     if(!idA.equals("0"))
                         opAl = aplCadastrarAtor.alterarAtor(idA, nomeAtorA);
                     switch(opAl){
-                        //exluido 
                         case 1:
                             response.sendRedirect("Modulos/Ator/alteraAtor.jsp?msg="+nomeAtorA+" Alterado com Sucesso!");
                             break;
-                        //erro    
                         case 2:
                             response.addHeader("status", "Erro ao alterar "+nomeAtorA);
                             break;

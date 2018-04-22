@@ -8,6 +8,14 @@
         <servlet-name>CtrlCadastrarAtor</servlet-name>
         <url-pattern>/CtrlCadastrarAtor</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>CtrlCadastrarDiretor</servlet-name>
+        <servlet-class>controler.CtrlCadastrarDiretor</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CtrlCadastrarDiretor</servlet-name>
+        <url-pattern>/CtrlCadastrarDiretor</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

@@ -36,7 +36,6 @@
                                <option value="0">Selecione</option>
                                 <%  
                                     List lista = new AplCadastrarAtor().listarAtor();
-                                    //List lista = (List)request.getAttribute("lista"); 
                                     if(lista != null)
                                         for(int i = 0; i < lista.size(); i++){
                                 %>
@@ -71,7 +70,7 @@
                     if(msg != null){
                 %>
                     <!-- Modal -->
-                    <div class="modal fade" id="modalAlterarAtor">
+                    <div class="modal fade" id="modalAlterar">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <!-- Modal Header -->

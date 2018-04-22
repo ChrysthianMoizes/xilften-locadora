@@ -21,8 +21,8 @@
             <div id="main" class="container-fluid"> 
 
                 <h3 class="page-header">Excluir Ator</h3>
-                <br><hr />
-
+                <br>
+                <hr />
                 <form method="POST" action="/locadora/CtrlCadastrarAtor">
                     <div class="row">
                         <div class="form-group col-md-4">
@@ -31,7 +31,6 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-4">
-                            <!--input type="search" name="id" list="atores" class="form-control" id="nomeAtorBuscaAtor" placeholder="Nome Completo" autocomplete="on"-->
                             <select class="form-control" name="id">
                                 <%  
                                     List lista = new AplCadastrarAtor().listarAtor();

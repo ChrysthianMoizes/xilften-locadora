@@ -47,7 +47,7 @@
                     if(msg != null){
                 %>
                     <!-- Modal -->
-                    <div class="modal fade" id="modalCadastroAtor">
+                    <div class="modal fade" id="modalCadastro">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <!-- Modal Header -->
