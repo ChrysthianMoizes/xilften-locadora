@@ -9,6 +9,14 @@
         <url-pattern>/CtrlCadastrarAtor</url-pattern>
     </servlet-mapping>
     <servlet>
+        <servlet-name>CtrlCadastrarClasse</servlet-name>
+        <servlet-class>controler.CtrlCadastrarClasse</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CtrlCadastrarClasse</servlet-name>
+        <url-pattern>/CtrlCadastrarClasse</url-pattern>
+    </servlet-mapping> 
+    <servlet>
         <servlet-name>CtrlCadastrarDiretor</servlet-name>
         <servlet-class>controler.CtrlCadastrarDiretor</servlet-class>
     </servlet>

@@ -1,3 +1,6 @@
+<%@page import="model.domain.Classe"%>
+<%@page import="model.application.AplCadastrarClasse"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -8,10 +11,7 @@
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/4-col-portfolio.css">
         <link href="../../bootstrap-4.0.0/dist/css/style.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-        <script src="../../bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
-        <script src="../../bootstrap-4.0.0/assets/js/vendor/popper.min.js"></script>
-        <script src="../../js/util.js"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
 
     </head>
     <body>        
@@ -30,23 +30,24 @@
                     </div>
                     <div class="row">
                         <div class="form-group col-md-4">
-                            <input type="text" name="browser" list="classes" class="form-control" id="nomeAtorBuscaAtor" placeholder="Nome da classe">
-                            <datalist id="classes">
-                                <option value="Fernando Collor">
-                                <option value="Dilma Rouself">
-                                <option value="Jair Messias">
-                                <option value="Luiz Inasil Lula">
-                                <option value="Ciro Gomez">
-                                <option value="Marina Silva">
-                            </datalist>
+                            <select class="form-control" name="id">
+                                <%  
+                                    List lista = new AplCadastrarClasse().listarClasse();
+                                    if(lista != null)
+                                        for(int i = 0; i < lista.size(); i++){
+                                %>
+                                            <option value="<%= ((Classe)lista.get(i)).getId() %>" > <%= ((Classe)lista.get(i)).getNome() %> </option>
+                                <%      }%>
+                            </select>
 
                         </div>  
                     </div>
                     <hr/>
+                    <input type="hidden" name="operacao" value="excluirClasse">
                     <div class="row">
                         <div class="col-md-12" align="center">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Excluir</button>
-                            <a href="template.html" class="btn btn-outline-dark">Cancelar</a>
+                            <a href="../../dashboard.jsp" class="btn btn-outline-dark">Cancelar</a>
 
                             <!-- Modal -->
                             <div class="modal fade" id="myModal">
@@ -60,7 +61,7 @@
 
                                         <!-- Modal body -->
                                         <div class="modal-body">
-                                            Tem certeza que deseja escluir?
+                                            Tem certeza que deseja excluir?
                                         </div>
                                         <input type="hidden" name="operacao" value="excluirClasse">
                                         <!-- Modal footer -->
@@ -77,6 +78,8 @@
                 </form>
             </div>
         </div>
-
+        <script src="../../bootstrap-4.0.0/dist/js/bootstrap.bundle.js"></script>
+        <script src="../../js/jquery.mask.min.js"></script>
+        <script src="../../js/util.js"></script>                    
     </body>
 </html>

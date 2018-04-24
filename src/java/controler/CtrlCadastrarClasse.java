@@ -2,6 +2,7 @@ package controler;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -27,65 +28,76 @@ public class CtrlCadastrarClasse extends HttpServlet {
         try{
             switch(operacao){
                 case "incluirClasse":
-                    String nome = request.getParameter("nome");
-                    String valor = request.getParameter("valor");
-                    String data = request.getParameter("data");
-                    int op = aplCadastrarClasse.incluirClasse(nome, valor, data);
-                    switch(op){
-                        //incluido 
-                        case 1:
-                            response.sendRedirect("Modulos/Classe/cadastraClasse.jsp?msg="+nome+" Cadastrado com Sucesso!");
-                            break;
-                        //erro    
-                        case 2:
-                            response.addHeader("status", "erro ao cadastrar");
-                            break;
-                    }
-                break;
-
-                case "excluirClasse":
-                    String idS = request.getParameter("id");
-                    String nomeClasse = request.getParameter("nome");
-                    int id = Integer.valueOf(idS);
-                    int opEx = aplCadastrarClasse.excluirClasse(id);
-                    switch(opEx){
-                        //exluido 
-                        case 1:
-                            response.sendRedirect("Modulos/Ator/excluiAtor.jsp?msg="+nomeClasse+" Excluido com Sucesso!");
-                            break;
-                        //erro    
-                        case 2:
-                            response.addHeader("status", "Erro ao excluir "+nomeClasse);
-                            break;
-                    }
-                break;
-               
+                    cadastrar(request, response);break;
                 case "alterarClasse":
-                    
-                    String nomeC = request.getParameter("nome");
-                    String valorC = request.getParameter("valor");
-                    String dataC = request.getParameter("data");
-                    String idA = request.getParameter("id");
-                    
-                    int opAl = 0;
-                    if(!idA.equals("0"))
-                        opAl = aplCadastrarClasse.alterarClasse(idA, nomeC, valorC, dataC);
-                    switch(opAl){
-                        case 1:
-                            response.sendRedirect("Modulos/Ator/alteraAtor.jsp?msg="+nomeC+" Alterado com Sucesso!");
-                            break;
-                        case 2:
-                            response.addHeader("status", "Erro ao alterar "+nomeC);
-                            break;
-                        default:
-                            response.sendRedirect("Modulos/Ator/alteraAtor.jsp");
-                            break;
-                    }
-                    
-                break;
+                    alterar(request, response);break;    
+                case "excluirClasse":
+                    excluir(request, response);break;               
             }
         }catch(Exception e){
             out.print("Erro "+e.getMessage());
+        }
+    }
+    
+    private void cadastrar(HttpServletRequest request, HttpServletResponse response) throws ParseException, IOException{
+        
+        String nome = request.getParameter("nome");
+        String valor = request.getParameter("valor");
+        String data = request.getParameter("data");
+        int op = aplCadastrarClasse.incluirClasse(nome, valor, data);
+        switch(op){
+            //incluido 
+            case 1:
+                response.sendRedirect("Modulos/Classe/cadastraClasse.jsp?msg="+nome+" Cadastrado com Sucesso!");
+                break;
+            //erro    
+            case 2:
+                response.addHeader("status", "erro ao cadastrar");
+                break;
+        }
+    }
+    
+    private void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException, ParseException{
+        
+        String nome = request.getParameter("nome");
+        String valor = request.getParameter("valor");
+        String data = request.getParameter("data");
+        String id = request.getParameter("id");
+
+        int opAl = 0;
+        if(!id.equals("0"))
+            opAl = aplCadastrarClasse.alterarClasse(id, nome, valor, data);
+        switch(opAl){
+            case 1:
+                response.sendRedirect("Modulos/Classe/alteraClasse.jsp?msg="+nome+" Alterado com Sucesso!");
+                break;
+            case 2:
+                response.addHeader("status", "Erro ao alterar "+nome);
+                break;
+            default:
+                response.sendRedirect("Modulos/Classe/alteraClasse.jsp");
+                break;
+        }
+    }
+    
+    private void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        
+        String idS = request.getParameter("id");
+        String nome = request.getParameter("nome");
+        
+        int id = Integer.valueOf(idS);
+        
+        int opEx = aplCadastrarClasse.excluirClasse(id);
+        
+        switch(opEx){
+            //exluido 
+            case 1:
+                response.sendRedirect("Modulos/Classe/excluiClasse.jsp?msg="+nome+" Excluido com Sucesso!");
+                break;
+            //erro    
+            case 2:
+                response.addHeader("status", "Erro ao excluir "+nome);
+                break;
         }
     }
 
