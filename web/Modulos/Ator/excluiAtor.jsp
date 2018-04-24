@@ -48,7 +48,7 @@
                     <div class="row">
                         <div class="col-md-12" align="center">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Excluir</button>
-                            <a href="template.html" class="btn btn-outline-dark">Cancelar</a>
+                            <a href="../../dashboard.jsp" class="btn btn-outline-dark">Cancelar</a>
 
                             <!-- Modal -->
                             <div class="modal fade" id="myModal">
@@ -64,7 +64,7 @@
                                         <div class="modal-body">
                                             Tem certeza que deseja escluir?
                                         </div>
-
+                                        <input type="hidden" name="operacao" value="excluirAtor">  
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>

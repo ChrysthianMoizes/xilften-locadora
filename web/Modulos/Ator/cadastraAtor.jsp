@@ -9,8 +9,7 @@
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/4-col-portfolio.css">
         <link href="../../bootstrap-4.0.0/dist/css/style.css" rel="stylesheet">
-        
-        
+     
     </head>
     <body>
         
@@ -37,7 +36,7 @@
                     <div class="row">
                         <div class="col-md-12" align="center">
                             <button type="submit" class="btn btn-primary">Salvar</button>
-                            <a href="template.html" class="btn btn-outline-dark">Cancelar</a>
+                            <a href="../../dashboard.jsp" class="btn btn-outline-dark">Cancelar</a>
                         </div>
                     </div>
                 </form>

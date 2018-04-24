@@ -28,7 +28,7 @@ public class AplCadastrarAtor{
         }
     } 
     public List listarAtor(){
-        return gdAtor.listarAtor();
+        return gdAtor.consultar(Ator.class);
     }
 
     public int excluirAtor(int id) {

@@ -20,7 +20,6 @@
 
             <div id="main" class="container-fluid">            
 
-
                 <h3 class="page-header">Alterar Ator</h3>
                 <br><hr />
 
@@ -60,7 +59,7 @@
                     <div class="row">
                         <div class="col-md-12" align="center">
                             <button type="submit" class="btn btn-primary">Atualizar</button>
-                            <a href="template.html" class="btn btn-outline-dark">Cancelar</a>
+                            <a href="../../dashborad.jsp" class="btn btn-outline-dark">Cancelar</a>
                         </div>
                     </div>
                 </form>

@@ -8,7 +8,7 @@
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/locadora?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.show_sql">true</property>
-    <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.hbm2ddl.auto">create</property>
     <mapping class="model.domain.Ator"/>
     <mapping class="model.domain.Classe"/>
     <mapping class="model.domain.Cliente"/>
