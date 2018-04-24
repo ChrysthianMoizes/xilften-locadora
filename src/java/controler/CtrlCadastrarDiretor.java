@@ -59,17 +59,16 @@ public class CtrlCadastrarDiretor extends HttpServlet{
                     
                 case "excluirDiretor":
                     String idEx = request.getParameter("id");
-                    String nomeDiretorEx = request.getParameter("nome");
                     int id = Integer.valueOf(idEx);
                     int opEx = aplCadastrarDiretor.excluirDiretor(id);
                     switch(opEx){
                         //exluido 
                         case 1:
-                            response.sendRedirect("Modulos/Diretor/excluiDiretor.jsp?msg="+nomeDiretorEx+" Excluido com Sucesso!");
+                            response.sendRedirect("Modulos/Diretor/excluiDiretor.jsp?msg=Excluido com Sucesso!");
                             break;
                         //erro    
                         case 2:
-                            response.addHeader("status", "Erro ao excluir "+nomeDiretorEx);
+                            response.addHeader("status", "Erro ao excluir ");
                             break;
                     }
                     break;
