@@ -18,8 +18,9 @@ public class AplCadastrarClasse{
 
     public int incluirClasse(String nome, String valor, String data) throws ParseException{
         
-        if(nome.equals(""))
+        if(nome.equals("") || (valor.equals("")) || (data.equals("")))
             return 0;
+        
         Classe novaClasse = new Classe();
         novaClasse.setNome(nome);
         
@@ -54,6 +55,9 @@ public class AplCadastrarClasse{
     }
     
     public int alterarClasse(String id, String nome, String valor, String data) throws ParseException {
+        
+        if(nome.equals("") || (valor.equals("")) || (data.equals("")))
+            return 0;
         
         Classe classe = new Classe();
         classe.setId(Integer.valueOf(id));

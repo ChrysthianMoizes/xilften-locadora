@@ -62,7 +62,7 @@
 
                                         <!-- Modal body -->
                                         <div class="modal-body">
-                                            Tem certeza que deseja escluir?
+                                            Tem certeza que deseja excluir?
                                         </div>
                                         <input type="hidden" name="operacao" value="excluirAtor">  
                                         <!-- Modal footer -->

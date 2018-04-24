@@ -48,15 +48,15 @@
                     <div class="row">
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Nome</label>
-                            <input type="text" class="form-control" id="nomeClasse" placeholder="Nome Completo">
+                            <input type="text" name="nome" class="form-control" id="nomeClasse" placeholder="Nome Completo">
                         </div> 
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Valor</label>
-                            <input type="text" id="valor" class="form-control" placeholder="R$">
+                            <input type="text" name="valor" id="valor" class="form-control" placeholder="R$">
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Data</label>
-                            <input type="date" id="telefone" class="form-control" placeholder="__/__/____">
+                            <input type="date" name="data" id="telefone" class="form-control" placeholder="__/__/____">
                         </div>
                     </div>
 
@@ -64,13 +64,48 @@
                     <input type="hidden" name="operacao" value="alterarClasse">  
                     <div class="row">
                         <div class="col-md-12" align="center">
-                            <button type="submit" class="btn btn-primary">Salvar</button>
+                            <button type="submit" class="btn btn-primary">Alterar</button>
                             <a href="../../dashboard.jsp" class="btn btn-outline-dark">Cancelar</a>
                         </div>
                     </div>
 
                 </form>
+                            
+                 <%
+                    String msg = request.getParameter("msg");
+                    if(msg != null){
+                %>
+                    <!-- Modal -->
+                    <div class="modal fade" id="modalAlterar">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Alterar Classe</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <%= msg %>
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info" data-dismiss="modal">Fechar</button>
+                                </div>
+
+                            </div><!-- DIV MODAL CONTENT-->
+                        </div>
+                    </div>
+                <%
+                    }
+                %>           
+                            
             </div>
         </div>
+            <script src="../../bootstrap-4.0.0/dist/js/bootstrap.bundle.js"></script>
+            <script src="../../js/jquery.mask.min.js"></script>
+            <script src="../../js/util.js"></script>
     </body>
 </html>
