@@ -1,26 +1,24 @@
 $(document).ready(function () {
     $('#valor').mask("#.##0,00", {reverse: true});
 });
+
 $(document).ready(function () {
-    $("#carrosel").load("util/carrossel.html");
+    $("#cabecalho").load("util/cabecalho.jsp");
 });
 $(document).ready(function () {
-    $("#cabecalho").load("util/cabecalho.html");
-});
-$(document).ready(function () {
-    $("#cabecalhoEx").load("../../util/cabecalhoCrud.html");
+    $("#cabecalhoEx").load("../../util/cabecalhoCrud.jsp");
 });
 
 $(document).ready(function () {
-    $("#cabecalhoFilmes").load("../../util/cabecalhoFilmes.html");
+    $("#cabecalhoFilmes").load("../../util/cabecalhoFilmes.jsp");
 });
 
 $(document).ready(function () {
-    $("#rodape").load("util/rodape.html");
+    $("#rodape").load("util/rodape.jsp");
 });
 
 $(document).ready(function () {
-    $("#paginacao").load("../../util/paginacao.html");
+    $("#paginacao").load("../../util/paginacao.jsp");
 });
 
 $(document).ready(function () {
