@@ -48,6 +48,10 @@ $(document).ready(function () {
         $('#modalAlterar').modal('show');
     }
     
+     if ($("#modalErrExcluir").length) { 
+        $('#modalErrExcluir').modal('show');
+    }
+    
 });
 
 function efetuarLocacao() {
