@@ -26,58 +26,66 @@ public class CtrlCadastrarDiretor extends HttpServlet{
             switch(operacao){
                 
                 case "incluirDiretor":
-                    String nomeDiretor = request.getParameter("nome");
-                    int op = aplCadastrarDiretor.incluirDiretor(nomeDiretor);
-                    switch(op){
-                        case 1:
-                            response.sendRedirect("Modulos/Diretor/cadastraDiretor.jsp?msg="+nomeDiretor+" Cadastrado com Sucesso!");
-                            break;
-                        case 2:
-                            response.addHeader("status", "erro ao cadastrar");
-                            break;
-                    }
-                    break;
+                    cadastrar(request, response); break;
                     
                 case "alterarDiretor":
-                    String nomeDiretorAl = request.getParameter("nome");
-                    String idA = request.getParameter("id");
-                    int opAl = 0;
-                    if(!idA.equals("0"))
-                        opAl = aplCadastrarDiretor.alterarDiretor(Integer.valueOf(idA), nomeDiretorAl);
-                    switch(opAl){
-                        case 1:
-                            response.sendRedirect("Modulos/Diretor/alteraDiretor.jsp?msg="+nomeDiretorAl+" Alterado com Sucesso!");
-                            break;
-                        case 2:
-                            response.addHeader("status", "Erro ao alterar "+nomeDiretorAl);
-                            break;
-                        default:
-                            response.sendRedirect("Modulos/Diretor/alteraDiretor.jsp");
-                            break;
-                    }
-                    break;
+                    alterar(request, response); break;
                     
                 case "excluirDiretor":
-                    String idEx = request.getParameter("id");
-                    int id = Integer.valueOf(idEx);
-                    int opEx = aplCadastrarDiretor.excluirDiretor(id);
-                    switch(opEx){
-                        //exluido 
-                        case 1:
-                            response.sendRedirect("Modulos/Diretor/excluiDiretor.jsp?msg=Excluido com Sucesso!");
-                            break;
-                        //erro    
-                        case 2:
-                            response.addHeader("status", "Erro ao excluir ");
-                            break;
-                    }
-                    break;
+                    excluir(request, response); break;
             }
         }catch(Exception e){
-            
+            out.print("Erro "+e.getMessage());
         }
      }
      
+     public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        String nome = request.getParameter("nome");
+        int op = aplCadastrarDiretor.incluirDiretor(nome);
+        switch(op){
+            case 1:
+                response.sendRedirect("Modulos/Diretor/cadastraDiretor.jsp?msg="+nome+" Cadastrado com Sucesso!");
+                break;
+            case 2:
+                response.addHeader("status", "erro ao cadastrar");
+                break;
+        }
+     }
+     
+     public void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        String nome = request.getParameter("nome");
+        String id = request.getParameter("id");
+        int opAl = 0;
+        if(!id.equals("0"))
+            opAl = aplCadastrarDiretor.alterarDiretor(Integer.valueOf(id), nome);
+        switch(opAl){
+            case 1:
+                response.sendRedirect("Modulos/Diretor/alteraDiretor.jsp?msg="+nome+" Alterado com Sucesso!");
+                break;
+            case 2:
+                response.addHeader("status", "Erro ao alterar "+nome);
+                break;
+            default:
+                response.sendRedirect("Modulos/Diretor/alteraDiretor.jsp");
+                break;
+        }
+     }
+     
+     public void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        String idEx = request.getParameter("id");
+        int id = Integer.valueOf(idEx);
+        int opEx = aplCadastrarDiretor.excluirDiretor(id);
+        switch(opEx){
+            //exluido 
+            case 1:
+                response.sendRedirect("Modulos/Diretor/excluiDiretor.jsp?msg=Excluido com Sucesso!");
+                break;
+            //erro    
+            case 2:
+                response.addHeader("status", "Erro ao excluir ");
+                break;
+        }
+     }     
      
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
