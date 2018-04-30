@@ -29,7 +29,7 @@
                         </div>
                         <div class="form-group col-md-4">
                             <label for="exampleInputEmail1">Data</label>
-                            <input type="date" name="data" id="telefone" class="form-control" placeholder="__/__/____">
+                            <input type="date" name="data" id="dataClasse" class="form-control">
                         </div>
                     </div>
 

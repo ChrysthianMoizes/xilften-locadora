@@ -37,7 +37,7 @@ public class Titulo implements Serializable {
     @Column(nullable = false)
     private String categoria;
     
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "ator_titulo",
             joinColumns = @JoinColumn(name = "titulo_id", nullable = true),
             inverseJoinColumns = @JoinColumn(name = "ator_id"))
