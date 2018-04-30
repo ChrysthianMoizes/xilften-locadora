@@ -51,7 +51,7 @@ public class CtrlCadastrarClasse extends HttpServlet {
                 response.sendRedirect("Modulos/Classe/cadastraClasse.jsp?msg="+nome+" Cadastrado com Sucesso!");
                 break;
             //erro    
-            case 2:
+            case 0:
                 response.addHeader("status", "erro ao cadastrar");
                 break;
         }

@@ -4,6 +4,10 @@
         <servlet-name>CtrlCadastrarAtor</servlet-name>
         <servlet-class>controler.CtrlCadastrarAtor</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AplCadastrarItem</servlet-name>
+        <servlet-class>model.application.AplCadastrarItem</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CtrlCadastrarAtor</servlet-name>
         <url-pattern>/CtrlCadastrarAtor</url-pattern>
@@ -15,7 +19,7 @@
     <servlet-mapping>
         <servlet-name>CtrlCadastrarClasse</servlet-name>
         <url-pattern>/CtrlCadastrarClasse</url-pattern>
-    </servlet-mapping> 
+    </servlet-mapping>
     <servlet>
         <servlet-name>CtrlCadastrarDiretor</servlet-name>
         <servlet-class>controler.CtrlCadastrarDiretor</servlet-class>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>CtrlCadastrarDiretor</servlet-name>
         <url-pattern>/CtrlCadastrarDiretor</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AplCadastrarItem</servlet-name>
+        <url-pattern>/AplCadastrarItem</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -24,10 +24,11 @@ public class AplCadastrarClasse{
         Classe novaClasse = new Classe();
         novaClasse.setNome(nome);
         
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         Date dtDevolucao = formatter.parse(data);
         
         novaClasse.setPrazoDevolucao(dtDevolucao);
+        valor = valor.replace(",", ".");
         novaClasse.setValor(Float.parseFloat(valor));
         
         try{
