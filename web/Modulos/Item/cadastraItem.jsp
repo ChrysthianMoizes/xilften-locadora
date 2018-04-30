@@ -1,3 +1,4 @@
+<%@page import="model.domain.Titulo"%>
 <%@page import="model.application.AplCadastrarTitulo"%>
 <%@page import="model.domain.Item"%>
 <%@page import="model.application.AplCadastrarItem"%>
@@ -11,7 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/4-col-portfolio.css">
-        <script src=../../bootstrap-4.0.0/assets/js/vendor/jquery-slim.min.js"></script>
+        <script src="../../bootstrap-4.0.0/assets/js/vendor/jquery-slim.min.js"></script>
         <script src="../../bootstrap-4.0.0/assets/js/vendor/popper.min.js"></script>
         <link href="../../bootstrap-4.0.0/dist/css/style.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
@@ -41,7 +42,7 @@
                                     if(listaTitulo != null)
                                         for(int i = 0; i < listaTitulo.size(); i++){
                                 %>
-                                            <option value="<%= ((Item)listaTitulo.get(i)).getId() %>" > <%= ((Item)listaTitulo.get(i)).getTitulo().getNome()%> </option>
+                                            <option value="<%= ((Titulo)listaTitulo.get(i)).getId() %>" > <%= ((Titulo)listaTitulo.get(i)).getNome() %> </option>
                                     <%      }%>
                             </select>
                         </div>
