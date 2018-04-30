@@ -12,7 +12,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.OnDelete;
@@ -55,16 +54,11 @@ public class Titulo implements Serializable {
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     @Cascade(CascadeType.SAVE_UPDATE)
     private Classe classe;
-    
-    @OneToMany(mappedBy = "titulo", fetch = FetchType.EAGER)
-    @OnDelete(action = OnDeleteAction.NO_ACTION)
-    @Cascade(CascadeType.SAVE_UPDATE)
-    private Collection<Item> itens;
 
     public Titulo() {
     }
 
-    public Titulo(int id, String nome, int ano, String sinopse, String categoria, Collection<Ator> atores, Diretor diretor, Classe classe, Collection<Item> itens) {
+    public Titulo(int id, String nome, int ano, String sinopse, String categoria, Collection<Ator> atores, Diretor diretor, Classe classe) {
         this.id = id;
         this.nome = nome;
         this.ano = ano;
@@ -73,10 +67,9 @@ public class Titulo implements Serializable {
         this.atores = atores;
         this.diretor = diretor;
         this.classe = classe;
-        this.itens = itens;
     }
 
-    public Titulo(String nome, int ano, String sinopse, String categoria, Collection<Ator> atores, Diretor diretor, Classe classe, Collection<Item> itens) {
+    public Titulo(String nome, int ano, String sinopse, String categoria, Collection<Ator> atores, Diretor diretor, Classe classe) {
         this.nome = nome;
         this.ano = ano;
         this.sinopse = sinopse;
@@ -84,7 +77,6 @@ public class Titulo implements Serializable {
         this.atores = atores;
         this.diretor = diretor;
         this.classe = classe;
-        this.itens = itens;
     }
 
     public int getId() {
@@ -119,10 +111,6 @@ public class Titulo implements Serializable {
         return classe;
     }
 
-    public Collection<Item> getItens() {
-        return itens;
-    }
-
     public void setId(int id) {
         this.id = id;
     }
@@ -153,12 +141,5 @@ public class Titulo implements Serializable {
 
     public void setClasse(Classe classe) {
         this.classe = classe;
-    }
-
-    public void setItens(Collection<Item> itens) {
-        this.itens = itens;
-    }
-    
-    
-    
+    }       
 }

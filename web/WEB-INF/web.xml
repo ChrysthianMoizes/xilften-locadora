@@ -32,6 +32,14 @@
         <servlet-name>AplCadastrarItem</servlet-name>
         <url-pattern>/AplCadastrarItem</url-pattern>
     </servlet-mapping>
+     <servlet>
+        <servlet-name>CtrlCadastrarTitulo</servlet-name>
+        <servlet-class>controler.CtrlCadastrarTitulo</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CtrlCadastrarTitulo</servlet-name>
+        <url-pattern>/CtrlCadastrarTitulo</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
