@@ -19,68 +19,75 @@ public class CtrlCadastrarAtor extends HttpServlet {
         aplCadastrarAtor = new AplCadastrarAtor();
     }
     
-    
-    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String operacao = request.getParameter("operacao");
         PrintWriter out = response.getWriter();
+        
         try{
             switch(operacao){
                 case "incluirAtor":
-                    String nomeAtor = request.getParameter("nome");
-                    int op = aplCadastrarAtor.incluirAtor(nomeAtor);
-                    switch(op){
-                        //incluido 
-                        case 1:
-                            response.sendRedirect("Modulos/Ator/cadastraAtor.jsp?msg="+nomeAtor+" Cadastrado com Sucesso!");
-                            break;
-                        //erro    
-                        case 2:
-                            response.addHeader("status", "erro ao cadastrar");
-                            break;
-                    }
-                break;
+                    cadastrar(request, response); break;
 
                 case "excluirAtor":
-                    String idS = request.getParameter("id");
-                    int id = Integer.valueOf(idS);
-                    int opEx = aplCadastrarAtor.excluirAtor(id);
-                    switch(opEx){
-                        //exluido 
-                        case 1:
-                            response.sendRedirect("Modulos/Ator/excluiAtor.jsp?msg=Excluido com Sucesso!");
-                            break;
-                        //erro    
-                        case 2:
-                            response.addHeader("status", "Erro ao excluir ");
-                            break;
-                    }
-                break;
+                    excluir(request, response); break;
                
                 case "alterarAtor":
-                    String nomeAtorA = request.getParameter("nome");
-                    String idA = request.getParameter("id");
-                    int opAl = 0;
-                    if(!idA.equals("0"))
-                        opAl = aplCadastrarAtor.alterarAtor(idA, nomeAtorA);
-                    switch(opAl){
-                        case 1:
-                            response.sendRedirect("Modulos/Ator/alteraAtor.jsp?msg="+nomeAtorA+" Alterado com Sucesso!");
-                            break;
-                        case 2:
-                            response.addHeader("status", "Erro ao alterar "+nomeAtorA);
-                            break;
-                        default:
-                            response.sendRedirect("Modulos/Ator/alteraAtor.jsp");
-                            break;
-                    }
-                    
-                break;
+                    alterar(request, response); break;
             }
         }catch(Exception e){
             out.print("Erro "+e.getMessage());
+        }
+    }
+    
+    public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        String nomeAtor = request.getParameter("nome");
+        int op = aplCadastrarAtor.incluirAtor(nomeAtor);
+        switch(op){
+            //incluido 
+            case 1:
+                response.sendRedirect("Modulos/Ator/cadastraAtor.jsp?msg="+nomeAtor+" Cadastrado com Sucesso!");
+                break;
+            //erro    
+            case 2:
+                response.addHeader("status", "erro ao cadastrar");
+                break;
+        }
+    }
+    
+    public void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        String nomeAtorA = request.getParameter("nome");
+        String idA = request.getParameter("id");
+        int opAl = 0;
+        if(!idA.equals("0"))
+            opAl = aplCadastrarAtor.alterarAtor(idA, nomeAtorA);
+        switch(opAl){
+            case 1:
+                response.sendRedirect("Modulos/Ator/alteraAtor.jsp?msg="+nomeAtorA+" Alterado com Sucesso!");
+                break;
+            case 2:
+                response.addHeader("status", "Erro ao alterar "+nomeAtorA);
+                break;
+            default:
+                response.sendRedirect("Modulos/Ator/alteraAtor.jsp");
+                break;
+        }
+    }
+    
+    public void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException{
+        String idS = request.getParameter("id");
+        int id = Integer.valueOf(idS);
+        int opEx = aplCadastrarAtor.excluirAtor(id);
+        switch(opEx){
+            //exluido 
+            case 1:
+                response.sendRedirect("Modulos/Ator/excluiAtor.jsp?msg=Excluido com Sucesso!");
+                break;
+            //erro    
+            case 2:
+                response.addHeader("status", "Erro ao excluir ");
+                break;
         }
     }
 

@@ -27,6 +27,7 @@ public class AplCadastrarAtor{
             return 2;
         }
     } 
+    
     public List listarAtor(){
         return gdAtor.consultar(Ator.class);
     }
