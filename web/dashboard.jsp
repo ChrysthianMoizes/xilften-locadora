@@ -24,7 +24,7 @@
             <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.jsp" style="color: red">X I L F T E N</a>
             <ul class="navbar-nav px-5">
                 <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="login.html">Logout</a>
+                    <a class="nav-link" href="login.jsp">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -40,11 +40,11 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                                     Cliente
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="Modulos/Cliente/cadastraCliente.html">Cadastrar</a>
-                                        <a class="dropdown-item" href="Modulos/Cliente/incluirDependente.html">Incluir Dependente</a>
-                                        <a class="dropdown-item" href="Modulos/Cliente/alterarCliente.html">Alterar</a>
-                                        <a class="dropdown-item" href="Modulos/Cliente/ativarCliente.html">Ativar/Desativar</a>
-                                        <a class="dropdown-item" href="Modulos/Cliente/excluirCliente.html">Excluir</a>
+                                        <a class="dropdown-item" href="Modulos/Cliente/cadastraCliente.jsp">Cadastrar</a>
+                                        <a class="dropdown-item" href="Modulos/Cliente/incluirDependente.jsp">Incluir Dependente</a>
+                                        <a class="dropdown-item" href="Modulos/Cliente/alterarCliente.jsp">Alterar</a>
+                                        <a class="dropdown-item" href="Modulos/Cliente/ativarCliente.jsp">Ativar/Desativar</a>
+                                        <a class="dropdown-item" href="Modulos/Cliente/excluirCliente.jsp">Excluir</a>
                                     </div>
                                 </a>
                             </li>
@@ -98,10 +98,10 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                                     Título
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="Modulos/Titulo/cadastraTitulo.html">Cadastrar</a>
-                                        <a class="dropdown-item" href="Modulos/Titulo/alteraTitulo.html">Alterar</a>
-                                        <a class="dropdown-item" href="Modulos/Titulo/consultaDadosTitulo.html">Consultar</a>
-                                        <a class="dropdown-item" href="Modulos/Titulo/excluiTitulo.html">Excluir</a>
+                                        <a class="dropdown-item" href="Modulos/Titulo/cadastraTitulo.jsp">Cadastrar</a>
+                                        <a class="dropdown-item" href="Modulos/Titulo/alteraTitulo.jsp">Alterar</a>
+                                        <a class="dropdown-item" href="Modulos/Titulo/consultaDadosTitulo.jsp">Consultar</a>
+                                        <a class="dropdown-item" href="Modulos/Titulo/excluiTitulo.jsp">Excluir</a>
                                     </div>
                                 </a>
                             </li>

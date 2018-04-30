@@ -55,17 +55,17 @@ $(document).ready(function () {
 });
 
 function efetuarLocacao() {
-    window.location = "Modulos/Locacao/efetuaLocacao.html";
+    window.location = "Modulos/Locacao/efetuaLocacao.jsp";
 }
 
 function alterarLocacao() {
-    window.location = "Modulos/Locacao/alteraLocacao.html";
+    window.location = "Modulos/Locacao/alteraLocacao.jsp";
 }
 
 function cancelarLocacao() {
-    window.location = "Modulos/Locacao/cancelaLocacao.html";
+    window.location = "Modulos/Locacao/cancelaLocacao.jsp";
 }
 
 function efetuarDevolucao() {
-    window.location = "Modulos/Devolucao/efetuaDevolucao.html";
+    window.location = "Modulos/Devolucao/efetuaDevolucao.jsp";
 }
