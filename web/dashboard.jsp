@@ -10,9 +10,8 @@
         <link rel="icon" href="../../../../favicon.ico">
         <link rel="stylesheet" href="bootstrap-4.0.0/dist/css/bootstrap.min.css">
         <link href="css/dashboard.css" rel="stylesheet">
-        <script src="bootstrap-4.0.0/assets/js/vendor/jquery-slim.min.js"></script>
-        <script src="bootstrap-4.0.0/assets/js/vendor/popper.min.js"></script> 
-        <script src="bootstrap-4.0.0/dist/js/bootstrap.min.js"></script>
+         <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+
         <title>Dashboard</title>
         <style type="text/css">/* Chart.js */
             @-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}
@@ -88,9 +87,9 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
                                     Item
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="Modulos/Item/cadastraItem.html">Cadastrar</a>
-                                        <a class="dropdown-item" href="Modulos/Item/alteraItem.html">Alterar</a>
-                                        <a class="dropdown-item" href="Modulos/Item/excluiItem.html">Excluir</a>
+                                        <a class="dropdown-item" href="Modulos/Item/cadastraItem.jsp">Cadastrar</a>
+                                        <a class="dropdown-item" href="Modulos/Item/alteraItem.jsp">Alterar</a>
+                                        <a class="dropdown-item" href="Modulos/Item/excluiItem.jsp">Excluir</a>
                                     </div>
                                 </a>
                             </li>
@@ -234,6 +233,8 @@
                 </main>
             </div>
         </div>
+        <script src="bootstrap-4.0.0/dist/js/bootstrap.bundle.js"></script>
+        <script src="js/jquery.mask.min.js"></script>
         <script src="js/util.js"></script>
     </body>
 </html>

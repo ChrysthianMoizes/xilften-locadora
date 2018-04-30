@@ -7,7 +7,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="bootstrap-4.0.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="bootstrap-4.0.0/dist/css/4-col-portfolio.css">
-        <script src="util.js"></script>
         <link href="bootstrap-4.0.0/dist/css/style.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
         <link href="css/signin.css" rel="stylesheet">
@@ -31,7 +30,9 @@
       <!--<button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button> -->
     </form>
          
-    <script src="js/util.js"></script>    
+    <script src="bootstrap-4.0.0/dist/js/bootstrap.bundle.js"></script>
+    <script src="js/jquery.mask.min.js"></script>
+    <script src="js/util.js"></script> 
         
     </body>
 </html>
