@@ -37,6 +37,7 @@ public class AplCadastrarClasse{
             return 2;
         }
     } 
+    
     public List listarClasse(){
         return gdClasse.consultar(Classe.class);
     }
