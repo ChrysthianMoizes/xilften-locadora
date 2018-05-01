@@ -24,14 +24,11 @@
                 <br><hr />
                 <form method="POST" action="/locadora/CtrlCadastrarDiretor">
                     <div class="row">
-                        <div class="form-group col-md-4">
-                            <label for="exampleInputEmail1">Busca</label> 
-                        </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-4">
                             <select class="form-control" name="id">
-                               <option value="0">Selecione</option>
+                               <option value="0">Selecione um diretor...</option>
                                 <%  
                                     List lista = new AplCadastrarDiretor().listarDiretor();
                                     if(lista != null)
