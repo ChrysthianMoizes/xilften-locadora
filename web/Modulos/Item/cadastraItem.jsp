@@ -12,8 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/4-col-portfolio.css">
-        <script src="../../bootstrap-4.0.0/assets/js/vendor/jquery-slim.min.js"></script>
-        <script src="../../bootstrap-4.0.0/assets/js/vendor/popper.min.js"></script>
+        
         <link href="../../bootstrap-4.0.0/dist/css/style.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
 
@@ -27,7 +26,7 @@
 
                 <h3 class="page-header">Cadastrar Item</h3>
                 <br><hr />
-                <form action="index.html">
+                <form method="POST" action="/locadora/CtrlCadastrarItem">
                     <div class="row">
                         <div class="form-group col-xl-4">
                             <label for="nomeTitulo">Número de série</label>
@@ -47,8 +46,8 @@
                             </select>
                         </div>
                         <div class="form-group col-xl-4">
-                            <label for="anoTitulo">Ano</label>
-                            <input type="date" class="form-control" name="ano" id="dataAquisicaoItem" placeholder="__/__/____">
+                            <label for="anoTitulo">Data de Aquisição</label>
+                            <input type="date" class="form-control" name="dtAquisicao" id="dataAquisicaoItem" placeholder="__/__/____">
                         </div>
                     </div>
                     <div class="row">
@@ -57,13 +56,10 @@
                             <div class="form-group">
                                 <select class="form-control" name="tipoItem" id="tipoItem">
                                     <option value="0">Selecione</option>
-                                    <%  
-                                    List lista = new AplCadastrarItem().listarItem();
-                                    if(lista != null)
-                                        for(int i = 0; i < lista.size(); i++){
-                                    %>
-                                            <option value="<%= ((Item)lista.get(i)).getId() %>" > <%= ((Item)lista.get(i)).getTitulo().getNome()%> </option>
-                                    <%      }%>
+                                    <option value="1">DVD</option>
+                                    <option value="2">Blur-Ray</option>
+                                    <option value="3">Fita</option>
+                                    <option value="4">Digital</option>
                                 </select>
                             </div>
                         </div> 
@@ -110,6 +106,7 @@
             </div>
         </div>
     <script src="../../bootstrap-4.0.0/dist/js/bootstrap.bundle.js"></script>
+    <script src="../../bootstrap-4.0.0/assets/js/vendor/popper.min.js"></script>
     <script src="../../js/jquery.mask.min.js"></script>
     <script src="../../js/util.js"></script>
     </body>

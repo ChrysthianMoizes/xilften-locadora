@@ -59,6 +59,7 @@ public class CtrlCadastrarTitulo extends HttpServlet {
             case 2:
                 response.addHeader("status", "erro ao cadastrar");
                 break;
+            default: response.addHeader("status", "erro ao cadastrar");
         }
     }
     

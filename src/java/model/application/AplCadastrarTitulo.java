@@ -2,8 +2,11 @@ package model.application;
 
 import dao.GDTitulo;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+import model.domain.Ator;
 import model.domain.Classe;
 import model.domain.Diretor;
 import model.domain.Titulo;
@@ -21,12 +24,16 @@ public class AplCadastrarTitulo {
     }
     
     public int incluirTitulo(String nome, int idDiretor, int ano, String[] idAtores, String sinopse, String categoria, int idClasse){
- 
         try {
             
             Titulo titulo = new Titulo();
-        
-            Collection atores = null;
+            Collection<String> idsAtores = Arrays.asList(idAtores);
+            Collection atores = new ArrayList();
+            for(String id : idsAtores){
+                Ator ator = new Ator();
+                ator.setId(Integer.valueOf(id));
+                atores.add(ator);
+            }
             Classe classe = aplCadastrarClasse.filtrarClasse(idClasse);
             Diretor diretor = aplCadastrarDiretor.filtrarDiretor(idDiretor);
 
@@ -41,6 +48,7 @@ public class AplCadastrarTitulo {
             gDTitulo.incluir(titulo);
             return 1;
         } catch (SQLException | ClassNotFoundException ex) {
+            ex.printStackTrace();
             return 2;
         }
     }

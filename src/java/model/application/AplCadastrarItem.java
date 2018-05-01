@@ -20,4 +20,16 @@ public class AplCadastrarItem {
     public List listarItem(){
         return gdItem.consultar(Item.class);
     }
+
+    public int inserirItem(String numSerie, String idTitulo, String dtAquisicao, String tipoItem) {
+        try{
+            int nSerie = Integer.valueOf(numSerie);
+            int iDTitulo = Integer.valueOf(idTitulo);
+            int tItem = Integer.valueOf(tipoItem);
+            
+        } catch(Exception e){
+            return 0;
+        }
+        return 0;
+    }
 }
