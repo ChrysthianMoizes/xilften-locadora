@@ -44,13 +44,12 @@ public class CtrlCadastrarTitulo extends HttpServlet {
         String nome = request.getParameter("nome");
         String idDiretor = request.getParameter("idDiretor");
         String ano = request.getParameter("ano");
-        String idAtores = request.getParameter("idAtores");
-        String arquivo = request.getParameter("arquivo");
+        String idAtores[] = request.getParameterValues("idAtores");
         String sinopse = request.getParameter("sinopse");
         String categoria = request.getParameter("categoria");
         String idClasse = request.getParameter("idClasse");       
         
-        int op = aplCadastrarTitulo.incluirTitulo(nome, Integer.parseInt(idDiretor), Integer.parseInt(ano), idAtores, arquivo, sinopse, categoria, Integer.parseInt(idClasse));
+        int op = aplCadastrarTitulo.incluirTitulo(nome, Integer.parseInt(idDiretor), Integer.parseInt(ano), idAtores, sinopse, categoria, Integer.parseInt(idClasse));
         switch(op){
             //incluido 
             case 1:

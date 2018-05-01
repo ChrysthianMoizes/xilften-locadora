@@ -17,21 +17,17 @@ public class AplCadastrarClasse{
     }
 
     public int incluirClasse(String nome, String valor, String data) throws ParseException{
-        
         if(nome.equals("") || (valor.equals("")) || (data.equals("")))
             return 0;
         
-        Classe novaClasse = new Classe();
-        novaClasse.setNome(nome);
-        
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-        Date dtDevolucao = formatter.parse(data);
-        
-        novaClasse.setPrazoDevolucao(dtDevolucao);
-        valor = valor.replace(",", ".");
-        novaClasse.setValor(Float.parseFloat(valor));
-        
         try{
+            Classe novaClasse = new Classe();
+            novaClasse.setNome(nome);
+
+            novaClasse.setPrazoDevolucao(Integer.valueOf(data));
+            valor = valor.replace(",", ".");
+            novaClasse.setValor(Float.parseFloat(valor));
+        
             gdClasse.incluir(novaClasse);
             return 1;
         }catch(Exception e){
@@ -65,10 +61,7 @@ public class AplCadastrarClasse{
         classe.setId(Integer.valueOf(id));
         classe.setNome(nome);
         
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        Date dtDevolucao = formatter.parse(data);
-        
-        classe.setPrazoDevolucao(dtDevolucao);
+        classe.setPrazoDevolucao(Integer.valueOf(data));
         classe.setValor(Float.parseFloat(valor));
        
         try {

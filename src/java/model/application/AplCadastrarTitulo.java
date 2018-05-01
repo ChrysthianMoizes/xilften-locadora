@@ -12,8 +12,8 @@ public class AplCadastrarTitulo {
         gDTitulo = new GDTitulo();
     }
     
-    public int incluirTitulo(String nome, int idDiretor, int ano, String idAtores, String arquivo, String sinopse, String categoria, int idClasse){
-        return 0;
+    public int incluirTitulo(String nome, int idDiretor, int ano, String[] idAtores, String sinopse, String categoria, int idClasse) {
+      return 0;  
     }
     
     public int alterarTitulo(int id, String nome, int idDiretor, int ano, String idAtores, String arquivo, String sinopse, String categoria, int idClasse){

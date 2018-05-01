@@ -23,20 +23,19 @@ public class Classe implements Serializable {
     private float valor;
     
     @Column(nullable = false)
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date prazoDevolucao;
+    private int prazoDevolucao;
 
     public Classe() {
     }
 
-    public Classe(int id, String nome, float valor, Date prazoDevolucao) {
+    public Classe(int id, String nome, float valor, int prazoDevolucao) {
         this.id = id;
         this.nome = nome;
         this.valor = valor;
         this.prazoDevolucao = prazoDevolucao;
     }
 
-    public Classe(String nome, float valor, Date prazoDevolucao) {
+    public Classe(String nome, float valor, int prazoDevolucao) {
         this.nome = nome;
         this.valor = valor;
         this.prazoDevolucao = prazoDevolucao;
@@ -54,7 +53,7 @@ public class Classe implements Serializable {
         return valor;
     }
 
-    public Date getPrazoDevolucao() {
+    public int getPrazoDevolucao() {
         return prazoDevolucao;
     }
 
@@ -70,7 +69,7 @@ public class Classe implements Serializable {
         this.valor = valor;
     }
 
-    public void setPrazoDevolucao(Date prazoDevolucao) {
+    public void setPrazoDevolucao(int prazoDevolucao) {
         this.prazoDevolucao = prazoDevolucao;
     }   
 }

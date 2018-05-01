@@ -44,18 +44,18 @@
                                             <option value="<%= ((Diretor)listaDiretor.get(i)).getId() %>" > <%= ((Diretor)listaDiretor.get(i)).getNome() %> </option>
                                 <%      }%>
                             </select>
-                          </div>
-                          <div class="form-group col-xl-4">
-                              <label for="anoTitulo">Ano</label>
-                              <input type="number" name="ano" class="form-control" id="anoTituloTitulo" placeholder="Ano do titulo">
-                          </div> 
-                      </div>              
-                      <div class="row">
-                          <div class="form-group col-md-4">
-                              <label for="atoresTitulo">Atores</label>
-                              <div class="form-group">
-                                <select class="form-control" name="idAtor">
-                               <option value="0">Selecione um ator...</option>
+                        </div>
+                        <div class="form-group col-xl-4">
+                            <label for="anoTitulo">Ano</label>
+                            <input type="number" name="ano" class="form-control" id="anoTituloTitulo" placeholder="Ano do titulo">
+                        </div> 
+                    </div>              
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="atoresTitulo">Atores</label>
+                            <div class="form-group">
+                                <select multiple class="form-control" name="idAtores">
+                                    <option value="0">Selecione um ator...</option>
                                 <%  
                                     List listaAtores = new AplCadastrarAtor().listarAtor();
                                     if(listaAtores != null)
@@ -63,49 +63,32 @@
                                 %>
                                             <option value="<%= ((Ator)listaAtores.get(i)).getId() %>" > <%= ((Ator)listaAtores.get(i)).getNome() %> </option>
                                 <%      }%>
-                            </select>
-                              </div>
-                              <a href="" class="btn btn-light">Adicionar</a>
-                              <a href="" class="btn btn-light">Remover</a>
-                          </div>
-                          <div class="form-group col-md-4">
-                              <label for="sel2">Atores incluidos</label>
-                              <select multiple name="idAtores" class="form-control" id="sel2">
-                                  <option>1</option>
-                                  <option>2</option>
-                                  <option>3</option>
-                                  <option>4</option>
-                                  <option>5</option>
-                              </select>   
-                          </div>
-                          <div class="form-inline col-md-1">
-                            <input type="file" name="arquivo" class="upload btn-outline-dark" accept="image/png, image/jpeg">
-                          </div>
-                      </div>
-
-                      <div class="row">
-                          <div class="form-group col-md-4">
-                              <label for="sinopse">Sinopse</label>
-                              <textarea class="form-control" name="sinopse" rows="5" id="comment" placeholder="Escreva a sinopse"></textarea>
-                          </div>
-                          <div class="form-group col-xl-4">
-                              <label for="categoriaTituloTitulo">Categoria</label>
-                              <div class="form-group">
-                                  <select class="form-control" name="categoria" id="categoriaTitulo">
-                                      <option>Ação</option>
-                                      <option>Aventura</option>
-                                      <option>Comédia</option>
-                                      <option>Drama</option>
-                                      <option>Suspense</option>
-                                      <option>Terror</option>
-                                  </select>
-                              </div>
-                          </div>
-                          <div class="form-group col-xl-4">
-                              <label for="classeTituloTitulo">Classe</label>
-                              <div class="form-group">
-                                  <select class="form-control" name="idClasse">
-                               <option value="0">Selecione uma classe...</option>
+                                </select>
+                            </div>
+                        </div>
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="sinopse">Sinopse</label>
+                            <textarea class="form-control" name="sinopse" rows="5" id="comment" placeholder="Escreva a sinopse"></textarea>
+                        </div>
+                        <div class="form-group col-xl-4">
+                            <label for="categoriaTituloTitulo">Categoria</label>
+                            <div class="form-group">
+                                <select class="form-control" name="categoria" id="categoriaTitulo">
+                                    <option>Ação</option>
+                                    <option>Aventura</option>
+                                    <option>Comédia</option>
+                                    <option>Drama</option>
+                                    <option>Suspense</option>
+                                    <option>Terror</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-xl-4">
+                            <label for="classeTituloTitulo">Classe</label>
+                            <div class="form-group">
+                                <select class="form-control" name="idClasse">
+                                    <option value="0">Selecione uma classe...</option>
                                 <%  
                                     List listaClasse = new AplCadastrarClasse().listarClasse();
                                     if(listaClasse != null)
@@ -113,19 +96,19 @@
                                 %>
                                             <option value="<%= ((Classe)listaClasse.get(i)).getId() %>" > <%= ((Classe)listaClasse.get(i)).getNome() %> </option>
                                 <%      }%>
-                            </select>
-                              </div>
+                                </select>
+                            </div>
                         </div> 
-                      </div>           
-                      <hr />
-                      <input type="hidden" name="operacao" value="incluirTitulo">
-                      <div class="row">
+                    </div>           
+                    <hr />
+                    <input type="hidden" name="operacao" value="incluirTitulo">
+                    <div class="row">
                         <div class="col-md-12" align="center">
-                              <button type="submit" class="btn btn-primary">Salvar</button>
-                              <a href="dashboard.jsp" class="btn btn-outline-dark">Cancelar</a>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                            <a href="dashboard.jsp" class="btn btn-outline-dark">Cancelar</a>
                         </div>
-                      </div>
-                    </form>
+                    </div>
+                </form>
                     
                     <%
                     String msg = request.getParameter("msg");
