@@ -47,6 +47,10 @@ public class AplCadastrarDiretor {
         return gdDiretor.listarDiretor();
     }
     
+     public Diretor filtrarDiretor(int id){
+        return gdDiretor.filtrarDiretor(id);
+    }
+    
     public int alterarDiretor(int idDiretor, String nome){
         Diretor diretor = new Diretor(nome);
         diretor.setId(idDiretor);

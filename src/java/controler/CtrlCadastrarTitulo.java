@@ -56,7 +56,7 @@ public class CtrlCadastrarTitulo extends HttpServlet {
                 response.sendRedirect("Modulos/Titulo/cadastraTitulo.jsp?msg="+nome+" Cadastrado com Sucesso!");
                 break;
             //erro    
-            case 0:
+            case 2:
                 response.addHeader("status", "erro ao cadastrar");
                 break;
         }
@@ -68,15 +68,14 @@ public class CtrlCadastrarTitulo extends HttpServlet {
         String nome = request.getParameter("nome");
         String idDiretor = request.getParameter("idDiretor");
         String ano = request.getParameter("ano");
-        String idAtores = request.getParameter("idAtores");
-        String arquivo = request.getParameter("arquivo");
+        String[] idAtores = request.getParameterValues("idAtores");
         String sinopse = request.getParameter("sinopse");
         String categoria = request.getParameter("categoria");
         String idClasse = request.getParameter("idClasse");       
 
         int opAl = 0;
         if(!id.equals("0"))
-            opAl = aplCadastrarTitulo.alterarTitulo(Integer.parseInt(id), nome, Integer.parseInt(idDiretor), Integer.parseInt(ano), idAtores, arquivo, sinopse, categoria, Integer.parseInt(idClasse));
+            opAl = aplCadastrarTitulo.alterarTitulo(Integer.parseInt(id), nome, Integer.parseInt(idDiretor), Integer.parseInt(ano), idAtores, sinopse, categoria, Integer.parseInt(idClasse));
         switch(opAl){
             case 1:
                 response.sendRedirect("Modulos/Titulo/alteraTitulo.jsp?msg="+nome+" Alterado com Sucesso!");
