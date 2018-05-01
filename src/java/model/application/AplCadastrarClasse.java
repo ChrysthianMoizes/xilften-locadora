@@ -42,6 +42,11 @@ public class AplCadastrarClasse{
     public List listarClasse(){
         return gdClasse.consultar(Classe.class);
     }
+    
+        
+    public Classe filtrarClasse(int id){
+        return gdClasse.flitrarClasse(id);
+    }
 
     public int excluirClasse(int id) {
         
