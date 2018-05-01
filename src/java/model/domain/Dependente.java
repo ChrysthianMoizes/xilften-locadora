@@ -21,13 +21,13 @@ public class Dependente extends Cliente{
     public Dependente() {
     }
 
-    public Dependente(Socio socio, int id, int numInscricao, String nome, Date dtNascimento, char sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
-        super(id, numInscricao, nome, dtNascimento, sexo, estahAtivo, locacoes);
+    public Dependente(Socio socio, int id, String nome, Date dtNascimento, char sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
+        super(id, nome, dtNascimento, sexo, estahAtivo, locacoes);
         this.socio = socio;
     }
 
-    public Dependente(Socio socio, int numInscricao, String nome, Date dtNascimento, char sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
-        super(numInscricao, nome, dtNascimento, sexo, estahAtivo, locacoes);
+    public Dependente(Socio socio, String nome, Date dtNascimento, char sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
+        super(nome, dtNascimento, sexo, estahAtivo, locacoes);
         this.socio = socio;
     }
 

@@ -10,7 +10,7 @@ import org.hibernate.criterion.Restrictions;
 public class GDDiretor extends GDGenerico{
 
     public List listarDiretor() {
-          List lista = new ArrayList();
+        List lista = new ArrayList();
         Criteria crit = criarSessao().createCriteria(Diretor.class);
         lista = crit.list();
         return lista;

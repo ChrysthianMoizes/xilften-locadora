@@ -4,14 +4,8 @@ import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "socio")
@@ -35,35 +29,28 @@ public class Socio extends Cliente{
     
     @Column(nullable = false)
     private int numero;
-    
-    @OneToMany(mappedBy = "socio", fetch = FetchType.EAGER)
-    @OnDelete(action = OnDeleteAction.NO_ACTION)
-    @Cascade(CascadeType.SAVE_UPDATE)
-    private Collection<Dependente> dependentes;
 
     public Socio() {
     }
 
-    public Socio(int telefone, String logradouro, String bairro, String cidade, int cep, int numero, Collection<Dependente> dependentes, int id, int numInscricao, String nome, Date dtNascimento, char sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
-        super(id, numInscricao, nome, dtNascimento, sexo, estahAtivo, locacoes);
+    public Socio(int telefone, String logradouro, String bairro, String cidade, int cep, int numero, int id, String nome, Date dtNascimento, char sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
+        super(id, nome, dtNascimento, sexo, estahAtivo, locacoes);
         this.telefone = telefone;
         this.logradouro = logradouro;
         this.bairro = bairro;
         this.cidade = cidade;
         this.cep = cep;
         this.numero = numero;
-        this.dependentes = dependentes;
     }
 
-    public Socio(int telefone, String logradouro, String bairro, String cidade, int cep, int numero, Collection<Dependente> dependentes, int numInscricao, String nome, Date dtNascimento, char sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
-        super(numInscricao, nome, dtNascimento, sexo, estahAtivo, locacoes);
+    public Socio(int telefone, String logradouro, String bairro, String cidade, int cep, int numero, String nome, Date dtNascimento, char sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
+        super(nome, dtNascimento, sexo, estahAtivo, locacoes);
         this.telefone = telefone;
         this.logradouro = logradouro;
         this.bairro = bairro;
         this.cidade = cidade;
         this.cep = cep;
         this.numero = numero;
-        this.dependentes = dependentes;
     }
    
     public int getTelefone() {
@@ -90,10 +77,6 @@ public class Socio extends Cliente{
         return numero;
     }
 
-    public Collection<Dependente> getDependentes() {
-        return dependentes;
-    }
-
     public void setTelefone(int telefone) {
         this.telefone = telefone;
     }
@@ -117,8 +100,4 @@ public class Socio extends Cliente{
     public void setNumero(int numero) {
         this.numero = numero;
     }
-
-    public void setDependentes(Collection<Dependente> dependentes) {
-        this.dependentes = dependentes;
-    }  
 }

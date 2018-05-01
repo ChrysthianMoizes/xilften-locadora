@@ -25,10 +25,7 @@ public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    
-    @Column(nullable = false, unique = true)
-    private int numInscricao;
-    
+   
     @Column(nullable = false)
     private String nome;
     
@@ -39,7 +36,7 @@ public class Cliente implements Serializable {
     @Column(nullable = false)
     private char sexo;
     
-    @Column(nullable = false)
+    @Column(nullable = true)
     private boolean estahAtivo;
     
     @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
@@ -50,9 +47,8 @@ public class Cliente implements Serializable {
     public Cliente() {
     }
 
-    public Cliente(int id, int numInscricao, String nome, Date dtNascimento, char sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
+    public Cliente(int id, String nome, Date dtNascimento, char sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
         this.id = id;
-        this.numInscricao = numInscricao;
         this.nome = nome;
         this.dtNascimento = dtNascimento;
         this.sexo = sexo;
@@ -60,8 +56,7 @@ public class Cliente implements Serializable {
         this.locacoes = locacoes;
     }
 
-    public Cliente(int numInscricao, String nome, Date dtNascimento, char sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
-        this.numInscricao = numInscricao;
+    public Cliente(String nome, Date dtNascimento, char sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
         this.nome = nome;
         this.dtNascimento = dtNascimento;
         this.sexo = sexo;
@@ -71,10 +66,6 @@ public class Cliente implements Serializable {
 
     public int getId() {
         return id;
-    }
-
-    public int getNumInscricao() {
-        return numInscricao;
     }
 
     public String getNome() {
@@ -99,10 +90,6 @@ public class Cliente implements Serializable {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setNumInscricao(int numInscricao) {
-        this.numInscricao = numInscricao;
     }
 
     public void setNome(String nome) {
