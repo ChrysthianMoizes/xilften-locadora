@@ -1,3 +1,6 @@
+<%@page import="model.domain.Socio"%>
+<%@page import="model.application.AplCadastrarCliente"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 
 <html>
@@ -27,16 +30,17 @@
                     <div class="row">
 
                         <div class="form-group col-xl-4">
-                            <label for="nomeDiretorTitulo">Cliente</label>
-                            <input id="auto" class="form-control" list="browsers" name="browser" type="text" placeholder="Selecione um cliente">
-                            <datalist id="browsers">
-                                <option value="Fernando Collor">
-                                <option value="Dilma Rouself">
-                                <option value="Jair Messias">
-                                <option value="Luiz Inasil Lula">
-                                <option value="Ciro Gomez">
-                                <option value="Marina Silva">
-                            </datalist>
+                            <label for="socios">Cliente</label>
+                            <select class="form-control" name="id" id="socios">
+                               <option value="0">Selecione</option>
+                                <%  
+                                    List lista = new AplCadastrarCliente().listarSocio();
+                                    if(lista != null)
+                                        for(int i = 0; i < lista.size(); i++){
+                                %>
+                                            <option value="<%= ((Socio)lista.get(i)).getId() %>" > <%= ((Socio)lista.get(i)).getNome() %> </option>
+                                <%      }%>
+                            </select>
                         </div>
 
                         <div class="form-group col-md-4">

@@ -4,6 +4,10 @@
         <servlet-name>CtrlCadastrarAtor</servlet-name>
         <servlet-class>controler.CtrlCadastrarAtor</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CtrlCadastrarCliente</servlet-name>
+        <servlet-class>controler.CtrlCadastrarCliente</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CtrlCadastrarAtor</servlet-name>
         <url-pattern>/CtrlCadastrarAtor</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>CtrlCadastrarTitulo</servlet-name>
         <url-pattern>/CtrlCadastrarTitulo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CtrlCadastrarCliente</servlet-name>
+        <url-pattern>/CtrlCadastrarCliente</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

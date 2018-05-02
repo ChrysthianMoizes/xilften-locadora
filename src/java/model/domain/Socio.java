@@ -33,7 +33,7 @@ public class Socio extends Cliente{
     public Socio() {
     }
 
-    public Socio(String telefone, String logradouro, String bairro, String cidade, String cep, String numero, int id, String nome, Date dtNascimento, String sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
+    public Socio(String telefone, String logradouro, String bairro, String cidade, String cep, String numero, int id, String nome, Date dtNascimento, char sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
         super(id, nome, dtNascimento, sexo, estahAtivo, locacoes);
         this.telefone = telefone;
         this.logradouro = logradouro;
@@ -43,7 +43,7 @@ public class Socio extends Cliente{
         this.numero = numero;
     }
 
-    public Socio(String telefone, String logradouro, String bairro, String cidade, String cep, String numero, String nome, Date dtNascimento, String sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
+    public Socio(String telefone, String logradouro, String bairro, String cidade, String cep, String numero, String nome, Date dtNascimento, char sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
         super(nome, dtNascimento, sexo, estahAtivo, locacoes);
         this.telefone = telefone;
         this.logradouro = logradouro;

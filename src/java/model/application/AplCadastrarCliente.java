@@ -1,5 +1,6 @@
 package model.application;
 
+import static com.sun.corba.se.impl.util.Utility.printStackTrace;
 import dao.GDCliente;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -18,12 +19,8 @@ public class AplCadastrarCliente{
     }
 
     public int incluirSocio(String nome, String telefone, String cpf, String data, String sexo, String logradouro, String bairro, String cidade, String cep, String numero){
-        
-        if(nome.equals(""))
-            return 0;
-          
         try {
-            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             Date dt = formatter.parse(data);
         
             Socio socio = new Socio();
@@ -36,12 +33,14 @@ public class AplCadastrarCliente{
             socio.setLogradouro(logradouro);
             socio.setNome(nome);
             socio.setNumero(numero);
-            socio.setSexo(sexo);
+            socio.setSexo(sexo.charAt(0));
             socio.setTelefone(telefone);
         
             gdCliente.incluir(socio);
             return 1;
         }catch(Exception e){
+            System.out.println("Erro"+e.getMessage());
+            e.printStackTrace();
             return 2;
         }
     }
@@ -53,15 +52,23 @@ public class AplCadastrarCliente{
              Dependente dependente = new Dependente();
             Socio socio = new Socio();
             socio.setId(Integer.parseInt(idSocio));
+            List<Dependente> dependentes = gdCliente.filtrarPorSocio(Integer.parseInt(idSocio));
+            int cont = 0;
+            for(Dependente item : dependentes){
+                if(item.isEstahAtivo())
+                    cont++;
+                if(cont >= 3)
+                    return 3;
+            }
             
-            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             Date dt = formatter.parse(data);
         
         
             dependente.setDtNascimento(dt);
             dependente.setEstahAtivo(true);
             dependente.setNome(nome);
-            dependente.setSexo(sexo);
+            dependente.setSexo(sexo.charAt(0));
             dependente.setSocio(socio);
 
             gdCliente.incluir(dependente);
@@ -123,7 +130,7 @@ public class AplCadastrarCliente{
             socio.setLogradouro(logradouro);
             socio.setNome(nome);
             socio.setNumero(numero);
-            socio.setSexo(sexo);
+            socio.setSexo(sexo.charAt(0));
             socio.setTelefone(numero);
             
             gdCliente.alterar(socio);
