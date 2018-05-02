@@ -34,7 +34,7 @@ public class Cliente implements Serializable {
     private Date dtNascimento;
     
     @Column(nullable = false)
-    private char sexo;
+    private String sexo;
     
     @Column(nullable = true)
     private boolean estahAtivo;
@@ -47,7 +47,7 @@ public class Cliente implements Serializable {
     public Cliente() {
     }
 
-    public Cliente(int id, String nome, Date dtNascimento, char sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
+    public Cliente(int id, String nome, Date dtNascimento, String sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
         this.id = id;
         this.nome = nome;
         this.dtNascimento = dtNascimento;
@@ -56,7 +56,7 @@ public class Cliente implements Serializable {
         this.locacoes = locacoes;
     }
 
-    public Cliente(String nome, Date dtNascimento, char sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
+    public Cliente(String nome, Date dtNascimento, String sexo, boolean estahAtivo, Collection<Locacao> locacoes) {
         this.nome = nome;
         this.dtNascimento = dtNascimento;
         this.sexo = sexo;
@@ -76,7 +76,7 @@ public class Cliente implements Serializable {
         return dtNascimento;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
@@ -100,7 +100,7 @@ public class Cliente implements Serializable {
         this.dtNascimento = dtNascimento;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
