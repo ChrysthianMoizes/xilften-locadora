@@ -28,7 +28,7 @@
             
                 <h3 class="page-header">Alterar Título</h3>
                 <br><hr />
-                <form action="index.html">
+                <form method="POST" action="/locadora/CtrlCadastrarTitulo">
                     <div class="row">
                         <div class="form-group col-md-4">
                             <label>Busca</label> 
@@ -123,7 +123,7 @@
                         </div> 
                     </div>           
                     <hr />
-                    <input type="hidden" name="operacao" value="incluirTitulo">
+                    <input type="hidden" name="operacao" value="alterarTitulo">
                     <div class="row">
                         <div class="col-md-12" align="center">
                             <button type="submit" class="btn btn-primary">Salvar</button>

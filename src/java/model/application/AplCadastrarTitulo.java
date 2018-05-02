@@ -1,5 +1,6 @@
 package model.application;
 
+import static com.sun.corba.se.impl.util.Utility.printStackTrace;
 import dao.GDTitulo;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -53,18 +54,18 @@ public class AplCadastrarTitulo {
         }
     }
     
-    public int alterarTitulo(int id, String nome, int idDiretor, int ano, String[] idAtores, String sinopse, String categoria, int idClasse){
+    public int alterarTitulo(String id, String nome, String idDiretor, String ano, String[] idAtores, String sinopse, String categoria, String idClasse){
         
         try {
             
             Titulo titulo = new Titulo();
-            titulo.setId(id);
+            titulo.setId(Integer.valueOf(id));
         
             Collection atores = null;
-            Classe classe = aplCadastrarClasse.filtrarClasse(idClasse);
-            Diretor diretor = aplCadastrarDiretor.filtrarDiretor(idDiretor);
+            Classe classe = aplCadastrarClasse.filtrarClasse(Integer.valueOf(idClasse));
+            Diretor diretor = aplCadastrarDiretor.filtrarDiretor(Integer.valueOf(idDiretor));
 
-            titulo.setAno(ano);
+            titulo.setAno(Integer.valueOf(ano));
             titulo.setAtores(atores);
             titulo.setCategoria(categoria);
             titulo.setClasse(classe);
@@ -88,6 +89,7 @@ public class AplCadastrarTitulo {
             return 1;
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
+            printStackTrace();
             return 2;
         }
     }

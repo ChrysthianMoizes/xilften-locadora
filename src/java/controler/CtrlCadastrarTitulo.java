@@ -76,7 +76,7 @@ public class CtrlCadastrarTitulo extends HttpServlet {
 
         int opAl = 0;
         if(!id.equals("0"))
-            opAl = aplCadastrarTitulo.alterarTitulo(Integer.parseInt(id), nome, Integer.parseInt(idDiretor), Integer.parseInt(ano), idAtores, sinopse, categoria, Integer.parseInt(idClasse));
+            opAl = aplCadastrarTitulo.alterarTitulo(id, nome, idDiretor, ano, idAtores, sinopse, categoria, idClasse);
         switch(opAl){
             case 1:
                 response.sendRedirect("Modulos/Titulo/alteraTitulo.jsp?msg="+nome+" Alterado com Sucesso!");
@@ -93,7 +93,6 @@ public class CtrlCadastrarTitulo extends HttpServlet {
     private void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException{
         
         String idS = request.getParameter("id");
-        String nome = request.getParameter("nome");
         
         int id = Integer.valueOf(idS);
         
@@ -102,11 +101,11 @@ public class CtrlCadastrarTitulo extends HttpServlet {
         switch(opEx){
             //exluido 
             case 1:
-                response.sendRedirect("Modulos/Titulo/excluiTitulo.jsp?msg="+nome+" Excluido com Sucesso!");
+                response.sendRedirect("Modulos/Titulo/excluiTitulo.jsp?msg=Excluido com Sucesso!");
                 break;
             //erro    
             case 2:
-                response.addHeader("status", "Erro ao excluir "+nome);
+                response.addHeader("status", "Erro ao excluir ");
                 break;
         }
     }

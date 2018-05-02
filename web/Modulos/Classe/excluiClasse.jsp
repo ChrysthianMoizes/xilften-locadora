@@ -76,11 +76,11 @@
                         </div><!-- DIV CLASS -->
                     </div><!-- DIV ROW -->
                 </form>
-                            <%
+                <%
                    String err = request.getHeader("status");
                    String msg = request.getParameter("msg");
                    if(err != null || msg != null){
-               %>
+                %>
                <!-- Modal -->
                <div class="modal fade" id="modalErrExcluir">
                    <div class="modal-dialog">
