@@ -65,7 +65,7 @@ public class CtrlCadastrarTitulo extends HttpServlet {
     
     private void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException, ParseException{
         
-        String id = request.getParameter("id");
+        String id = request.getParameter("idTitulo");
         String nome = request.getParameter("nome");
         String idDiretor = request.getParameter("idDiretor");
         String ano = request.getParameter("ano");

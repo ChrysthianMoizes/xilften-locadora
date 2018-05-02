@@ -4,13 +4,12 @@
 
     <head>
         <meta charset="utf-8">
-        <title>Consultar TÃ­tulo</title>
+        <title>Consultar Título</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/4-col-portfolio.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        
     </head>
     <body>
         <div id="cabecalhoFilmes"></div>
@@ -65,7 +64,8 @@
         
         <div id="paginacao"></div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-         <script src="../../js/jquery.mask.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="../../js/jquery.mask.min.js"></script>
         <script src="../../js/util.js"></script>
     </body>
 </html>

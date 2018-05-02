@@ -36,11 +36,11 @@ public class Titulo implements Serializable {
     @Column(nullable = false)
     private String categoria;
     
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "ator_titulo",
             joinColumns = @JoinColumn(name = "titulo_id", nullable = true),
             inverseJoinColumns = @JoinColumn(name = "ator_id"))
-    @Cascade(CascadeType.SAVE_UPDATE)
+    @Cascade(CascadeType.PERSIST)
     private Collection<Ator> atores;
     
     @ManyToOne(fetch = FetchType.EAGER)

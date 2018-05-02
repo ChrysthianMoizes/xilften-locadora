@@ -1,16 +1,23 @@
+<%@page import="model.domain.Titulo"%>
+<%@page import="model.application.AplCadastrarTitulo"%>
+<%@page import="model.application.AplCadastrarDiretor"%>
+<%@page import="model.domain.Diretor"%>
+<%@page import="model.domain.Ator"%>
+<%@page import="model.application.AplCadastrarAtor"%>
+<%@page import="model.domain.Classe"%>
+<%@page import="model.application.AplCadastrarClasse"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 
 <html lang="pt-br">
     <head>
         <meta charset="utf-8">
-        <title>Alterar TÃ­tulo</title>
+        <title>Alterar Título</title>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/4-col-portfolio.css">
-        <script src=../../bootstrap-4.0.0/assets/js/vendor/jquery-slim.min.js"></script>
-        <script src="../../bootstrap-4.0.0/assets/js/vendor/popper.min.js"></script>
         <link href="../../bootstrap-4.0.0/dist/css/style.css" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
         
     </head>
     <body>
@@ -19,101 +26,146 @@
         <div class="container">
         <div id="main" class="container-fluid">
             
-                <h3 class="page-header">Alterar TÃ­tulo</h3>
-<br><hr />
+                <h3 class="page-header">Alterar Título</h3>
+                <br><hr />
                 <form action="index.html">
                     <div class="row">
                         <div class="form-group col-md-4">
-                            <label for="exampleInputEmail1">Busca</label> 
+                            <label>Busca</label> 
                         </div>
                     </div>
                     <div class="row">
                         <div class="form-group col-md-4">
-                            <input type="text" name="browser" list="titulos" class="form-control" id="noemDiretor" placeholder="Nome do titulo">
-                            <datalist id="titulos">
-                                <option value="Fernando Collor">
-                                <option value="Dilma Rouself">
-                                <option value="Jair Messias">
-                                <option value="Luiz Inasil Lula">
-                                <option value="Ciro Gomez">
-                                <option value="Marina Silva">
-                            </datalist>
+                            <select class="form-control" id="titulos" name="idTitulo">
+                                <option value="0">Selecione...</option>
+                                <%
+                                    List listaTitulos = new AplCadastrarTitulo().listarTitulos();
+                                    if(listaTitulos != null)
+                                        for(int i = 0; i < listaTitulos.size(); i++){
+                                %>
+                                            <option value="<%= ((Titulo)listaTitulos.get(i)).getId()%>"><%= ((Titulo)listaTitulos.get(i)).getNome() %></option>
+                                <%  } %>
+                            </select>
                         </div>  
                     </div>
                     <hr />  
                     <div class="row">
                         <div class="form-group col-xl-4">
-                            <label for="nomeTitulo">Nome</label>
-                            <input type="email" class="form-control" id="nomeTituloTitulo" placeholder="Nome do titulo">
+                            <label>Nome</label>
+                            <input type="text" name="nome" class="form-control" id="nomeTituloTitulo" placeholder="Nome do titulo">
                         </div>
                         <div class="form-group col-xl-4">
-                            <label for="nomeDiretorTitulo">Diretor</label>
-                            <input id="auto" class="form-control" list="browsers" name="browser" type="text" placeholder="Nome do Diretor">
-                            <datalist id="browsers">
-                                <option value="Fernando Collor">
-                                <option value="Dilma Rouself">
-                                <option value="Jair Messias">
-                                <option value="Luiz Inasil Lula">
-                                <option value="Ciro Gomez">
-                                <option value="Marina Silva">
-                            </datalist>
+                              <label for="nomeDiretorTitulo">Diretor</label>
+                              <select class="form-control" name="idDiretor">
+                               <option value="0">Selecione um diretor...</option>
+                                <%  
+                                    List listaDiretor = new AplCadastrarDiretor().listarDiretor();
+                                    if(listaDiretor != null)
+                                        for(int i = 0; i < listaDiretor.size(); i++){
+                                %>
+                                            <option value="<%= ((Diretor)listaDiretor.get(i)).getId() %>" > <%= ((Diretor)listaDiretor.get(i)).getNome() %> </option>
+                                <%      }%>
+                            </select>
                         </div>
                         <div class="form-group col-xl-4">
                             <label for="anoTitulo">Ano</label>
-                                <input type="date" class="form-control" id="anoTituloTitulo" placeholder="Ano do titulo">
+                            <input type="number" name="ano" class="form-control" id="anoTituloTitulo" placeholder="Ano do titulo">
                         </div> 
                     </div>              
                     <div class="row">
                         <div class="form-group col-md-4">
                             <label for="atoresTitulo">Atores</label>
                             <div class="form-group">
-                                <select class="form-control" id="atoresTitulo">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
+                                <select multiple class="form-control" name="idAtores">
+                                    <option value="0">Selecione um ator...</option>
+                                <%  
+                                    List listaAtores = new AplCadastrarAtor().listarAtor();
+                                    if(listaAtores != null)
+                                        for(int i = 0; i < listaAtores.size(); i++){
+                                %>
+                                            <option value="<%= ((Ator)listaAtores.get(i)).getId() %>" > <%= ((Ator)listaAtores.get(i)).getNome() %> </option>
+                                <%      }%>
                                 </select>
                             </div>
-                            <a href="" class="btn btn-light">Adicionar</a>
-                            <a href="" class="btn btn-light">Remover</a>
                         </div>
-                        <div class="form-group col-md-4">
-                            <label for="sel2">Atores incluidos</label>
-                            <select multiple class="form-control" id="sel2">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </select>   
-                        </div>
-                    </div>
-
                     <div class="row">
                         <div class="form-group col-md-4">
-                        <label for="sinopse">Sinopse</label>
-                            <textarea class="form-control" rows="5" id="comment" placeholder="Sinopse do titulo"></textarea>
+                            <label for="sinopse">Sinopse</label>
+                            <textarea class="form-control" name="sinopse" rows="5" id="comment" placeholder="Escreva a sinopse"></textarea>
                         </div>
                         <div class="form-group col-xl-4">
                             <label for="categoriaTituloTitulo">Categoria</label>
-                            <input type="search" class="form-control" id="categoriaTituloTitulo" placeholder="Escreva a nova categoria deste tÃ­tulo">
+                            <div class="form-group">
+                                <select class="form-control" name="categoria" id="categoriaTitulo">
+                                    <option>Ação</option>
+                                    <option>Aventura</option>
+                                    <option>Comédia</option>
+                                    <option>Drama</option>
+                                    <option>Suspense</option>
+                                    <option>Terror</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group col-xl-4">
                             <label for="classeTituloTitulo">Classe</label>
-                            <input type="search" class="form-control" id="classeTituloTitulo" placeholder="Classe do titulo">
+                            <div class="form-group">
+                                <select class="form-control" name="idClasse">
+                                    <option value="0">Selecione uma classe...</option>
+                                <%  
+                                    List listaClasse = new AplCadastrarClasse().listarClasse();
+                                    if(listaClasse != null)
+                                        for(int i = 0; i < listaClasse.size(); i++){
+                                %>
+                                            <option value="<%= ((Classe)listaClasse.get(i)).getId() %>" > <%= ((Classe)listaClasse.get(i)).getNome() %> </option>
+                                <%      }%>
+                                </select>
+                            </div>
                         </div> 
                     </div>           
                     <hr />
+                    <input type="hidden" name="operacao" value="incluirTitulo">
                     <div class="row">
                         <div class="col-md-12" align="center">
                             <button type="submit" class="btn btn-primary">Salvar</button>
-                            <a href="template.html" class="btn btn-outline-dark">Cancelar</a>
+                            <a href="dashboard.jsp" class="btn btn-outline-dark">Cancelar</a>
                         </div>
                     </div>
                 </form>
-                <br>
+                                <%
+                    String msg = request.getParameter("msg");
+                    if(msg != null){
+                    %>
+                    <!-- Modal -->
+                    <div class="modal fade" id="modalAlterar">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Alterar Título</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <%= msg %>
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-info" data-dismiss="modal">Fechar</button>
+                                </div>
+
+                            </div><!-- DIV MODAL CONTENT-->
+                        </div>
+                    </div>
+                <%
+                    }
+                %>           
             </div>
+        <br>
         </div>
+        <script src="../../bootstrap-4.0.0/dist/js/bootstrap.bundle.js"></script>
+        <script src="../../js/jquery.mask.min.js"></script>
         <script src="../../js/util.js"></script>
     </body>
 </html>

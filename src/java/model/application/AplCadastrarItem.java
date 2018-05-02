@@ -1,6 +1,8 @@
 package model.application;
 
 import dao.GDItem;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import model.domain.Item;
 
@@ -26,6 +28,8 @@ public class AplCadastrarItem {
             int nSerie = Integer.valueOf(numSerie);
             int iDTitulo = Integer.valueOf(idTitulo);
             int tItem = Integer.valueOf(tipoItem);
+            SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+            Date data = format.parse(dtAquisicao);
             
         } catch(Exception e){
             return 0;
