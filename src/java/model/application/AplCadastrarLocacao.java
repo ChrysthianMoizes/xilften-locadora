@@ -16,13 +16,18 @@ public class AplCadastrarLocacao{
         gdLocacao = new GDLocacao();
     }
 
-    public int efetuarLocacao(String dataLocacao, String dataDevolucaoPrevista, String valor, String idItem, String idCliente){
+    public int efetuarLocacao(String dataLocacao, String idItem, String idCliente){
         
         try{
             
+            List listaDebito = gdLocacao.verificarDebito(Integer.parseInt(idCliente));
+            
+            if(listaDebito.size() > 0)
+                return 3;
+            
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             Date dtLocacao = formatter.parse(dataLocacao);
-            Date dtDevolucao = formatter.parse(dataDevolucaoPrevista);
+            //Date dtDevolucao = formatter.parse(dataDevolucaoPrevista);
 
             Locacao locacao = new Locacao();
             Cliente cliente = new Cliente();
@@ -32,10 +37,10 @@ public class AplCadastrarLocacao{
             item.setId(Integer.parseInt(idItem));
 
             locacao.setCliente(cliente);
-            locacao.setDtDevolucaoPrevista(dtDevolucao);
+            //locacao.setDtDevolucaoPrevista(dtDevolucao);
             locacao.setDtLocacao(dtLocacao);
             locacao.setItem(item);
-            locacao.setValorCobrado(Float.parseFloat(valor));
+            //locacao.setValorCobrado(Float.parseFloat(valor));
             
             gdLocacao.incluir(locacao);
             return 1;
