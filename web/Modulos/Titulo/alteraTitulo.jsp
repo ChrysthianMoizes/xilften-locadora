@@ -131,10 +131,10 @@
                         </div>
                     </div>
                 </form>
-                                <%
+                <%
                     String msg = request.getParameter("msg");
                     if(msg != null){
-                    %>
+                %>
                     <!-- Modal -->
                     <div class="modal fade" id="modalAlterar">
                         <div class="modal-dialog">

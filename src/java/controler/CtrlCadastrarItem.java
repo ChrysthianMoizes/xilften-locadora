@@ -89,7 +89,7 @@ public class CtrlCadastrarItem extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException, Exception {
         String numSerie = request.getParameter("numSerie");
         String idTitulo = request.getParameter("titulo");//tem que ser diferente de 0
         String dtAquisicao = request.getParameter("dtAquisicao");
@@ -103,16 +103,46 @@ public class CtrlCadastrarItem extends HttpServlet {
             //erro    
             case 2:
                 response.addHeader("status", "erro ao cadastrar");
-                break;
+                throw new Exception();
         }
     }
 
-    private void excluir(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException, Exception {
+        String id = request.getParameter("id");
+        int op = 0;
+        op = aplCadastrarItem.excluirItem(id);
+        switch(op){
+            //exluido 
+            case 1:
+                response.sendRedirect("Modulos/Item/excluiItem.jsp?msg=Excluido com Sucesso!");
+                break;
+            //erro    
+            case 2:
+                response.addHeader("status", "Erro ao excluir ");
+                throw new Exception();
+        }
     }
 
-    private void alterar(HttpServletRequest request, HttpServletResponse response) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private void alterar(HttpServletRequest request, HttpServletResponse response)throws Exception {
+        String id = request.getParameter("id");
+        String tipoItem = request.getParameter("tipoItem");
+        String ano = request.getParameter("ano");
+        String nSerie = request.getParameter("nSerie");
+        String titulo = request.getParameter("titulo");
+        int op = 0;
+        if(!id.equals("0"))
+            op = aplCadastrarItem.alterarItem(id,tipoItem, ano, nSerie, titulo);
+        switch(op){
+            case 1:
+                response.sendRedirect("Modulos/Item/alteraItem.jsp?msg="+nSerie+" Alterado com Sucesso!");
+                break;
+            case 2:
+                response.addHeader("status", "Erro ao alterar "+nSerie);
+                break;
+            default:
+                response.sendRedirect("Modulos/Item/alteraItem.jsp");
+                throw new Exception();
+        }
     }
 
 }

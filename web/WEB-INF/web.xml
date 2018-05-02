@@ -9,12 +9,12 @@
         <url-pattern>/CtrlCadastrarAtor</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>AplCadastrarItem</servlet-name>
-        <servlet-class>model.application.AplCadastrarItem</servlet-class>
+        <servlet-name>CtrlCadastrarItem</servlet-name>
+        <servlet-class>controler.CtrlCadastrarItem</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>AplCadastrarItem</servlet-name>
-        <url-pattern>/AplCadastrarItem</url-pattern>
+        <servlet-name>CtrlCadastrarItem</servlet-name>
+        <url-pattern>/CtrlCadastrarItem</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>CtrlCadastrarClasse</servlet-name>

@@ -56,10 +56,10 @@
                             <div class="form-group">
                                 <select class="form-control" name="tipoItem" id="tipoItem">
                                     <option value="0">Selecione</option>
-                                    <option value="1">DVD</option>
-                                    <option value="2">Blur-Ray</option>
-                                    <option value="3">Fita</option>
-                                    <option value="4">Digital</option>
+                                    <option value="DVD">DVD</option>
+                                    <option value="Blur-Ray">Blur-Ray</option>
+                                    <option value="Fita">Fita</option>
+                                    <option value="Digital">Digital</option>
                                 </select>
                             </div>
                         </div> 

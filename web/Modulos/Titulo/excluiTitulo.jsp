@@ -71,7 +71,7 @@
                     <%
                        String err = request.getHeader("status");
                        String msg = request.getParameter("msg");
-                       if(err != null || msg != null){
+                       if(err != null || msg != null && !msg.equals("") && !err.equals("")){
                     %>
                    <!-- Modal -->
                    <div class="modal fade" id="modalErrExcluir">
