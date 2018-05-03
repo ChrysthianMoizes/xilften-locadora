@@ -16,4 +16,13 @@ public class GDLocacao extends GDGenerico{
         return lista;
     }
     
+    public Locacao flitrarLocacao(int id) {
+        Criteria crit = criarSessao().createCriteria(Locacao.class);
+        crit.add(Restrictions.eq("id", id));
+        crit.setMaxResults(1);
+        Locacao locacao = (Locacao) crit.uniqueResult();
+        sessao.close();
+        return locacao;
+    }
+    
 }
