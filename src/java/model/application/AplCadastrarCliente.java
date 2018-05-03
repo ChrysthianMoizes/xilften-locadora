@@ -96,6 +96,10 @@ public class AplCadastrarCliente{
     public List listarSocio(){
         return gdCliente.consultar(Socio.class);
     }
+    
+    public List listarDependentes(String id){
+        return gdCliente.filtrarPorSocio(Integer.parseInt(id));
+    }
 
     public int excluirSocio(String id) {
         

@@ -8,6 +8,10 @@
         <servlet-name>CtrlCadastrarCliente</servlet-name>
         <servlet-class>controler.CtrlCadastrarCliente</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CtrlCadastrarLocacao</servlet-name>
+        <servlet-class>controler.CtrlCadastrarLocacao</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CtrlCadastrarAtor</servlet-name>
         <url-pattern>/CtrlCadastrarAtor</url-pattern>
@@ -47,6 +51,10 @@
     <servlet-mapping>
         <servlet-name>CtrlCadastrarCliente</servlet-name>
         <url-pattern>/CtrlCadastrarCliente</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CtrlCadastrarLocacao</servlet-name>
+        <url-pattern>/CtrlCadastrarLocacao</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

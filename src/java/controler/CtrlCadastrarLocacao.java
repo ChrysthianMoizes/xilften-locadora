@@ -1,23 +1,25 @@
 package controler;
 
-import static com.sun.corba.se.impl.util.Utility.printStackTrace;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Calendar;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.application.AplCadastrarCliente;
+import model.application.AplCadastrarLocacao;
 
-@WebServlet(name = "CtrlCadastrarCliente", urlPatterns = {"/CtrlCadastrarCliente"})
-public class CtrlCadastrarCliente extends HttpServlet {
+@WebServlet(name = "CtrlCadastrarLocacao", urlPatterns = {"/CtrlCadastrarLocacao"})
+public class CtrlCadastrarLocacao extends HttpServlet {
 
-    AplCadastrarCliente aplCadastrarCliente;
+    AplCadastrarLocacao aplCadastrarLocacao;
     
-    public CtrlCadastrarCliente(){
-        aplCadastrarCliente = new AplCadastrarCliente();
+    public CtrlCadastrarLocacao(){
+        aplCadastrarLocacao = new AplCadastrarLocacao();
     }
+    
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,15 +36,8 @@ public class CtrlCadastrarCliente extends HttpServlet {
         PrintWriter out = response.getWriter();
          try{
             switch(operacao){
-                case "incluirSocio":
-                    cadastrarSocio(request, response);break;
-                case  "incluirDependente":
-                    incluirDependente(request, response);break;
-                case "listar": 
-                    String id = request.getParameter("id");
-                    request.setAttribute("lista", aplCadastrarCliente.listarDependentes(id));
-                    //response.sendRedirect("Modulos/Cliente/incluirDependente.jsp");
-                    break;
+                case "locar":
+                    locar(request, response);break;
                               
             }
         }catch(Exception e){
@@ -89,46 +84,26 @@ public class CtrlCadastrarCliente extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private void cadastrarSocio(HttpServletRequest request, HttpServletResponse response) throws Exception {
-       String nome = request.getParameter("nome");
-       String tel = request.getParameter("telefone");
-       String cpf = request.getParameter("cpf");
-       String sexo = request.getParameter("sexo");
-       String data = request.getParameter("data");
-       String log = request.getParameter("logradouro");
-       String bair = request.getParameter("bairro");
-       String cida = request.getParameter("cidade");
-       String cep = request.getParameter("cep");
-       String num = request.getParameter("numero");
-       if(  nome.equals("") ||
-            tel.equals("") || 
-            cpf.equals("") ||
-            sexo.equals("") ||
-            data.equals("") ||
-            log.equals("") ||
-            bair.equals("") ||
-            cida.equals("") ||
-            cep.equals("") ||
-            num.equals("")  ){
-                response.addHeader("status", "Um ou mais campos vazio(s)");
-                throw new Exception("Campos vazios ou nulos");
-       }
-       int op = aplCadastrarCliente.incluirSocio(nome, tel, cpf, data, sexo, log, bair, cida, cep, num);
-       switch(op){
+    private void locar(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String idItem = request.getParameter("idItem");
+        String idCliente = request.getParameter("idSocio");
+        
+        int op = aplCadastrarLocacao.efetuarLocacao(new Date(System.currentTimeMillis()), idItem, idCliente);
+        switch(op){
             case 1:
-                response.sendRedirect("Modulos/Cliente/cadastraCliente.jsp?msg="+nome+" Cadastrado com Sucesso!");
+                response.sendRedirect("Modulos/Locacao/efetuaLocacao.jsp?msg= Locação efetuada com Sucesso!");
                 break;
             case 2:
-                response.addHeader("status", "Erro ao cadastrar "+nome);
+                response.addHeader("status", "Erro ao efeturar locação ");
+                break;
+            case 3:
+                response.addHeader("status", "Socio possui pendências");
+                response.sendRedirect("Modulos/Locacao/efetuaLocacao.jsp");
                 break;
             default:
-                response.sendRedirect("Modulos/Cliente/cadastraCliente.jsp");
+                response.sendRedirect("Modulos/Locacao/efetuaLocacao.jsp");
                 break;
         }
-    }
-
-    private void incluirDependente(HttpServletRequest request, HttpServletResponse response) {
-        
     }
 
 }

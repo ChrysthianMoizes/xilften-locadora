@@ -22,7 +22,7 @@ public class AplCadastrarLocacao{
         gdItem = new GDItem();
     }
 
-    public int efetuarLocacao(String dataLocacao, String idItem, String idCliente){
+    public int efetuarLocacao(Date dataLocacao, String idItem, String idCliente){
         
         try{
             
@@ -33,7 +33,7 @@ public class AplCadastrarLocacao{
                 return 3;
             
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-            Date dtLocacao = formatter.parse(dataLocacao);
+            //Date dtLocacao = formatter.parse(dataLocacao);
             Date dtDevolucao = somaDias(dataLocacao, item.getTitulo().getClasse().getPrazoDevolucao());
 
             Locacao locacao = new Locacao();
@@ -41,30 +41,31 @@ public class AplCadastrarLocacao{
             cliente.setId(Integer.parseInt(idCliente));
             locacao.setCliente(cliente);
             locacao.setDtDevolucaoPrevista(dtDevolucao);
-            locacao.setDtLocacao(dtLocacao);
+            locacao.setDtLocacao(dataLocacao);
             locacao.setItem(item);
             locacao.setValorCobrado(item.getTitulo().getClasse().getValor());
             
             gdLocacao.incluir(locacao);
             return 1;
         }catch(Exception e){
+            e.printStackTrace();
             return 2;
         }
     }
     
-    public Date somaDias(String dt, int dias) {
+    public Date somaDias(Date dt, int dias) {
         
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        Date data = null;
-        
-        try {
-            data = formatter.parse(dt);
-        } catch (ParseException ex) {
-            
-        }
+//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+//        Date data = null;
+//        
+//        try {
+//            data = formatter.parse(dt);
+//        } catch (ParseException ex) {
+//            
+//        }
         
 	Calendar cal = new GregorianCalendar();
-	cal.setTime(data);
+	cal.setTime(dt);
 	cal.add(Calendar.DAY_OF_MONTH, dias);
 	return cal.getTime();
 }
@@ -114,14 +115,14 @@ public class AplCadastrarLocacao{
         }
     }
     
-    public int alterarLocacao(String id, String dataLocacao, String idItem, String idCliente) {
+    public int alterarLocacao(String id, Date dataLocacao, String idItem, String idCliente) {
 
         try {
             
             Item item = gdItem.flitrarItem(Integer.parseInt(idItem));
             
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-            Date dtLocacao = formatter.parse(dataLocacao);
+            //Date dtLocacao = formatter.parse(dataLocacao);
             Date dtDevolucao = somaDias(dataLocacao, item.getTitulo().getClasse().getPrazoDevolucao());
             
             Locacao locacao = new Locacao();
@@ -132,7 +133,7 @@ public class AplCadastrarLocacao{
 
             locacao.setCliente(cliente);
             locacao.setDtDevolucaoPrevista(dtDevolucao);
-            locacao.setDtLocacao(dtLocacao);
+            locacao.setDtLocacao(dataLocacao);
             locacao.setItem(item);
             locacao.setValorCobrado(item.getTitulo().getClasse().getValor());
             

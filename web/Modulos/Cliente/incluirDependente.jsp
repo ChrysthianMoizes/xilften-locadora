@@ -17,18 +17,13 @@
     </head>
     <body>
         <div id="cabecalhoEx"></div>
-
         <div class="container">
-
             <div id="main" class="container-fluid">
-
                 <h3 class="page-header">Incluir Dependentes</h3>
-                <br><hr />
-
-                <form action="index.html">
-
+                <br>
+                <hr />
+                <form method="POST" action="/locadora/CtrlCadastrarCliente">
                     <div class="row">
-
                         <div class="form-group col-xl-4">
                             <label for="socios">Cliente</label>
                             <select class="form-control" name="id" id="socios">
@@ -41,19 +36,31 @@
                                             <option value="<%= ((Socio)lista.get(i)).getId() %>" > <%= ((Socio)lista.get(i)).getNome() %> </option>
                                 <%      }%>
                             </select>
+                            <br>
+                             <button type="submit" class="btn btn-primary">Adicionar</button>
                         </div>
-
+                        <input type="hidden" name="operacao" value="listar">
                         <div class="form-group col-md-4">
-                            <label for="sel2">Dependentes incluidos</label>
-                            <select multiple class="form-control" id="sel2">
-                                <option>Dependente 1</option>
-                                <option>Dependente 2</option>
+                            <label for="dependentes">Dependentes incluidos</label>
+                            <select multiple class="form-control" name="depentes" id="dependentes">
+                                <%  
+                                   //String id = request.getParameter("id");
+                                   List dependentes = (List)request.getAttribute("lista");
+                                    //if(id != null && !id.equals("")){
+                                    if(dependentes != null){
+                                        //List dependentes = new AplCadastrarCliente().listarDependentes(id);
+                                        for(int i = 0; i < dependentes.size(); i++){
+                                %>
+                                            <option value="<%= ((Socio)dependentes.get(i)).getId() %>" > <%= ((Socio)dependentes.get(i)).getNome() %> </option>
+                                <%      }
+                                    }%>
                             </select>   
                         </div>
                         <a href="" class="btn btn-link">Remover</a>
                     </div>
                     <hr />
-
+                </form>
+                <form method="POST">
                     <div class="row"> 
 
                         <div class="form-group col-xl-4">
