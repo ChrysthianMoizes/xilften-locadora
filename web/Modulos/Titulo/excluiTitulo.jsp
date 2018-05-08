@@ -88,9 +88,10 @@
                                <!-- Modal body -->
                                <div class="modal-body">
                                   <%   
-                                      if(err != null)err.toString();
-                                       else msg.toString(); 
-                                  %>
+                                      if(err != null) %>
+                                        <%= err %>
+                                  <%   else %>
+                                        <%= msg  %>
                                </div>
 
                                <!-- Modal footer -->

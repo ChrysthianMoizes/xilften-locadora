@@ -17,11 +17,13 @@ public class AplCadastrarTitulo {
     private GDTitulo gDTitulo;
     private AplCadastrarClasse aplCadastrarClasse;
     private AplCadastrarDiretor aplCadastrarDiretor;
+    private AplCadastrarAtor aplCadastrarAtor;
     
     public AplCadastrarTitulo(){
         gDTitulo = new GDTitulo();
         aplCadastrarClasse = new AplCadastrarClasse();
         aplCadastrarDiretor = new AplCadastrarDiretor();
+        aplCadastrarAtor = new AplCadastrarAtor();
     }
     
     public int incluirTitulo(String nome, int idDiretor, int ano, String[] idAtores, String sinopse, String categoria, int idClasse){
@@ -31,8 +33,7 @@ public class AplCadastrarTitulo {
             Collection<String> idsAtores = Arrays.asList(idAtores);
             Collection atores = new ArrayList();
             for(String id : idsAtores){
-                Ator ator = new Ator();
-                ator.setId(Integer.valueOf(id));
+                Ator ator = aplCadastrarAtor.filtrarAtor(Integer.parseInt(id));
                 atores.add(ator);
             }
             Classe classe = aplCadastrarClasse.filtrarClasse(idClasse);
