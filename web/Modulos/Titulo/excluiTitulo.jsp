@@ -68,7 +68,10 @@
                             </div>
                         </div>
                     </div>
-                    <%
+                    
+                </form>
+                            
+                            <%
                        String err = request.getHeader("status");
                        String msg = request.getParameter("msg");
                        if(err != null || msg != null && !msg.equals("") && !err.equals("")){
@@ -103,7 +106,6 @@
                    <%
                        }
                    %>
-                </form>
             </div>
         </div>
         <script src="../../bootstrap-4.0.0/dist/js/bootstrap.bundle.js"></script>

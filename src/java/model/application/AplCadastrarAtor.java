@@ -26,7 +26,11 @@ public class AplCadastrarAtor{
         }catch(Exception e){
             return 2;
         }
-    } 
+    }
+    
+    public Ator filtrarAtor(int id){
+        return gdAtor.filtrarAtor(id);
+    }
     
     public List listarAtor(){
         return gdAtor.consultar(Ator.class);

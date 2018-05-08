@@ -112,7 +112,8 @@
                     
                     <%
                     String msg = request.getParameter("msg");
-                    if(msg != null){
+                    String err = request.getParameter("status");
+                    if((err != null && !err.equals("")) || (msg != null && !msg.equals(""))){
                     %>
                     <!-- Modal -->
                     <div class="modal fade" id="modalCadastro">
@@ -126,7 +127,10 @@
 
                                 <!-- Modal body -->
                                 <div class="modal-body">
-                                    <%= msg %>
+                                    <%
+                                        if(err != null)err.toString();
+                                        else msg.toString(); 
+                                    %>
                                 </div>
 
                                 <!-- Modal footer -->
