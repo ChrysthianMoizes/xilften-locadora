@@ -37,7 +37,7 @@
                                 <%      }%>
                             </select>
                             <br>
-                             <button type="submit" class="btn btn-primary">Adicionar</button>
+                             <button type="submit" class="btn btn-primary">Listar Dependentes</button>
                         </div>
                         <input type="hidden" name="operacao" value="listar">
                         <div class="form-group col-md-4">
@@ -56,7 +56,7 @@
                                     }%>
                             </select>   
                         </div>
-                        <a href="" class="btn btn-link">Remover</a>
+                        <button type="text" class="btn btn-primary">Excluir Dependente</button>
                     </div>
                     <hr />
                 </form>
