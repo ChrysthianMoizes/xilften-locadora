@@ -39,7 +39,7 @@ public class Cliente implements Serializable {
     @Column(nullable = true)
     private boolean estahAtivo;
     
-    @OneToMany(mappedBy = "cliente", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
     @OnDelete(action = OnDeleteAction.NO_ACTION)
     @Cascade(CascadeType.SAVE_UPDATE)
     private Collection<Locacao> locacoes;

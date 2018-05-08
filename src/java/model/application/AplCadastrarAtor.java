@@ -40,7 +40,7 @@ public class AplCadastrarAtor{
             return 1;
         } catch (Exception ex) {
             Logger.getLogger(AplCadastrarAtor.class.getName()).log(Level.SEVERE, null, ex);
-            return 0;
+            return 2;
         }
     }
     

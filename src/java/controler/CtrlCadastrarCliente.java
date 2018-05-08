@@ -41,7 +41,7 @@ public class CtrlCadastrarCliente extends HttpServlet {
                 case "listar": 
                     String id = request.getParameter("id");
                     request.setAttribute("lista", aplCadastrarCliente.listarDependentes(id));
-                    //response.sendRedirect("Modulos/Cliente/incluirDependente.jsp");
+                    response.sendRedirect("Modulos/Cliente/incluirDependente.jsp");
                     break;
                               
             }
