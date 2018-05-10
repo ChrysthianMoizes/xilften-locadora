@@ -56,7 +56,9 @@
                                     }%>
                             </select>   
                         </div>
-                        <button type="text" class="btn btn-primary">Excluir Dependente</button>
+                        <div class="form-group col-xl-4">
+                            <button type="text" class="btn btn-primary">Excluir Dependente</button>
+                        </div>
                     </div>
                     <hr />
                 </form>
@@ -65,7 +67,7 @@
 
                         <div class="form-group col-xl-4">
                             <label for="nomeTitulo">Dependente</label>
-                            <input type="email" class="form-control" id="nomeTituloTitulo" placeholder="Digite o nome do dependente">
+                            <input type="text" class="form-control" id="nomeTituloTitulo" placeholder="Digite o nome do dependente">
                         </div>
 
                         <div class="form-group col-xl-4">
@@ -85,7 +87,6 @@
 
                     </div>
                     <hr />
-
                     <center>
                         <div class="row">
                             <div class="col-md-12">
