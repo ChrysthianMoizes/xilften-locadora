@@ -71,7 +71,7 @@
                         </div>
                     </div>
                 </form>
-                            <%
+                <%
                    String err = request.getHeader("status");
                    String msg = request.getParameter("msg");
                    if(err != null || msg != null){

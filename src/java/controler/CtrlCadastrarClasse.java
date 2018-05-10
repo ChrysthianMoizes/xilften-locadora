@@ -3,6 +3,9 @@ package controler;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -52,7 +55,7 @@ public class CtrlCadastrarClasse extends HttpServlet {
                 break;
             //erro    
             case 0:
-                response.addHeader("status", "erro ao cadastrar");
+                response.sendRedirect("Modulos/Classe/cadastraClasse.jsp?err= Erro ao cadastrar");
                 break;
         }
     }

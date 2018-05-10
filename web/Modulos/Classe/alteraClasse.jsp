@@ -55,8 +55,8 @@
                             <input type="text" name="valor" id="valor" class="form-control" placeholder="R$">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="exampleInputEmail1">Data</label>
-                            <input type="date" name="data" id="telefone" class="form-control" placeholder="__/__/____">
+                            <label for="exampleInputEmail1">Prazo de Devolução (Dias)</label>
+                            <input type="text" name="data" id="dataClasse" class="form-control">
                         </div>
                     </div>
 
