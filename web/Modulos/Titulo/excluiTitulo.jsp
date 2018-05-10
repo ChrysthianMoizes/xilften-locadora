@@ -88,9 +88,9 @@
                                <!-- Modal body -->
                                <div class="modal-body">
                                   <%   
-                                      if(err != null) %>
+                                      if(err != null){ %>
                                         <%= err %>
-                                  <%   else %>
+                                  <%   }else %>
                                         <%= msg  %>
                                </div>
 

@@ -37,8 +37,9 @@ public class AplCadastrarAtor{
     }
 
     public int excluirAtor(int id) {
-        Ator ator = new Ator();
-        ator.setId(id);
+        
+        Ator ator = gdAtor.filtrarAtor(id);
+        
         try {
             gdAtor.excluir(ator);
             return 1;
