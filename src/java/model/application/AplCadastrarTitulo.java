@@ -50,7 +50,6 @@ public class AplCadastrarTitulo {
             gDTitulo.incluir(titulo);
             return 1;
         } catch (SQLException | ClassNotFoundException ex) {
-            ex.printStackTrace();
             return 2;
         }
     }
