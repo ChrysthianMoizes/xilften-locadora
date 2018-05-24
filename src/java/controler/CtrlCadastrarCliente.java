@@ -3,6 +3,8 @@ package controler;
 import static com.sun.corba.se.impl.util.Utility.printStackTrace;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,8 +42,11 @@ public class CtrlCadastrarCliente extends HttpServlet {
                     incluirDependente(request, response);break;
                 case "listar": 
                     String id = request.getParameter("id");
-                    request.setAttribute("lista", aplCadastrarCliente.listarDependentes(id));
-                    response.sendRedirect("Modulos/Cliente/incluirDependente.jsp");
+                    List listarDependentes = aplCadastrarCliente.listarDependentes(id);
+                    request.setAttribute("lista", listarDependentes);
+                    RequestDispatcher dispacher = request.getRequestDispatcher("Modulos/Cliente/incluirDependente.jsp");
+                    dispacher.forward(request, response);
+                    //response.sendRedirect("Modulos/Cliente/incluirDependente.jsp");
                     break;
                               
             }
@@ -110,7 +115,7 @@ public class CtrlCadastrarCliente extends HttpServlet {
             cida.equals("") ||
             cep.equals("") ||
             num.equals("")  ){
-                response.addHeader("status", "Um ou mais campos vazio(s)");
+                response.addHeader("msg", "Um ou mais campos vazio(s)");
                 throw new Exception("Campos vazios ou nulos");
        }
        int op = aplCadastrarCliente.incluirSocio(nome, tel, cpf, data, sexo, log, bair, cida, cep, num);
@@ -127,8 +132,28 @@ public class CtrlCadastrarCliente extends HttpServlet {
         }
     }
 
-    private void incluirDependente(HttpServletRequest request, HttpServletResponse response) {
+    private void incluirDependente(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String nome = request.getParameter("nome");
+        String data = request.getParameter("data");
+        String sexo = request.getParameter("sexo");
+        String idSocio = request.getParameter("id");
         
+        if( nome.equals("") || data.equals("") || sexo.equals("") || idSocio.equals("") ){
+                response.addHeader("msg", "Um ou mais campos vazio(s)");
+                throw new Exception("Campos vazios ou nulos");
+        }
+        int op = aplCadastrarCliente.incluirDependente(idSocio, nome, data, sexo);
+        switch(op){
+            case 1: 
+                response.sendRedirect("Modulos/Cliente/incluirDependente.jsp?msg="+nome+" Dependente Incluido com sucesso!");
+                break;
+                case 2:
+                response.addHeader("msg", "Erro ao cadastrar "+nome);
+                break;
+                case 3:
+                response.addHeader("msg", "O sócio possui mais de 3 dependentes");
+                break;
+        }
     }
 
 }
