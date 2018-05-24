@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.application.AplCadastrarTitulo;
+import org.hibernate.Session;
 
 @WebServlet(name = "CtrlCadastrarTitulo", urlPatterns = {"/CtrlCadastrarTitulo"})
 public class CtrlCadastrarTitulo extends HttpServlet {
@@ -47,9 +48,10 @@ public class CtrlCadastrarTitulo extends HttpServlet {
         String idAtores[] = request.getParameterValues("idAtores");
         String sinopse = request.getParameter("sinopse");
         String categoria = request.getParameter("categoria");
-        String idClasse = request.getParameter("idClasse");       
+        String idClasse = request.getParameter("idClasse");
+        Session s = (Session)request.getAttribute("SessionDB");
         
-        int op = aplCadastrarTitulo.incluirTitulo(nome, Integer.parseInt(idDiretor), Integer.parseInt(ano), idAtores, sinopse, categoria, Integer.parseInt(idClasse));
+        int op = aplCadastrarTitulo.incluirTitulo(s, nome, Integer.parseInt(idDiretor), Integer.parseInt(ano), idAtores, sinopse, categoria, Integer.parseInt(idClasse));
         switch(op){
             //incluido 
             case 1:
@@ -72,11 +74,12 @@ public class CtrlCadastrarTitulo extends HttpServlet {
         String[] idAtores = request.getParameterValues("idAtores");
         String sinopse = request.getParameter("sinopse");
         String categoria = request.getParameter("categoria");
-        String idClasse = request.getParameter("idClasse");       
+        String idClasse = request.getParameter("idClasse");
+        Session s = (Session)request.getAttribute("SessionDB");
 
         int opAl = 0;
         if(!id.equals("0"))
-            opAl = aplCadastrarTitulo.alterarTitulo(id, nome, idDiretor, ano, idAtores, sinopse, categoria, idClasse);
+            opAl = aplCadastrarTitulo.alterarTitulo(s, id, nome, idDiretor, ano, idAtores, sinopse, categoria, idClasse);
         switch(opAl){
             case 1:
                 response.sendRedirect("Modulos/Titulo/alteraTitulo.jsp?msg="+nome+" Alterado com Sucesso!");
@@ -93,10 +96,11 @@ public class CtrlCadastrarTitulo extends HttpServlet {
     private void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException{
         
         String idS = request.getParameter("id");
+        Session s = (Session)request.getAttribute("SessionDB");
         
         int id = Integer.valueOf(idS);
         
-        int opEx = aplCadastrarTitulo.excluirTitulo(id);
+        int opEx = aplCadastrarTitulo.excluirTitulo(s, id);
         
         switch(opEx){
             //exluido 

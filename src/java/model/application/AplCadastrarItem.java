@@ -7,6 +7,7 @@ import java.util.Date;
 import java.util.List;
 import model.domain.Item;
 import model.domain.Titulo;
+import org.hibernate.Session;
 
 public class AplCadastrarItem {
     GDItem gdItem;
@@ -15,11 +16,11 @@ public class AplCadastrarItem {
         this.gdItem = new GDItem();
     }
     
-    public List listarItem(){
-        return gdItem.consultar(Item.class);
+    public List listarItem(Session s){
+        return gdItem.consultar(s, Item.class);
     }
 
-    public int inserirItem(String numSerie, String idTitulo, String dtAquisicao, String tipoItem) {
+    public int inserirItem(Session s, String numSerie, String idTitulo, String dtAquisicao, String tipoItem) {
         
         try{
             if(tipoItem.equals("0"))
@@ -37,7 +38,7 @@ public class AplCadastrarItem {
             item.setDtAquisicao(data);
             item.setTipoItem(tipoItem);
             
-            gdItem.incluir(item);
+            s.save(item);
             return 1;
             
         } catch(Exception e){
@@ -47,7 +48,7 @@ public class AplCadastrarItem {
         }
     }
 
-    public int alterarItem(String id, String tipoItem, String ano, String nSerie, String idTitulo) {
+    public int alterarItem(Session s, String id, String tipoItem, String ano, String nSerie, String idTitulo) {
         try{
             if(tipoItem.equals("0"))
                 return 2;
@@ -65,7 +66,7 @@ public class AplCadastrarItem {
             titulo.setId(idTItulo);
             item.setTitulo(titulo);
             
-            gdItem.alterar(item);
+            s.update(item);
             return 1;
             
         }catch(Exception e){
@@ -75,13 +76,13 @@ public class AplCadastrarItem {
         }
     }
 
-    public int excluirItem(String id) {
+    public int excluirItem(Session s, String id) {
         try{
             if(!id.equals("0")){
                 Item item = new Item();
                 item.setId(Integer.valueOf(id));
                 
-                gdItem.excluir(item);
+                s.delete(item);
                 return 1;
             }
             return 2;

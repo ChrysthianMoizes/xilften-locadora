@@ -89,14 +89,19 @@ public class FiltroDAO implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
+        
         Session session = NewHibernateUtil.getSessionFactory().openSession();
+        
         try{
+            
             session.beginTransaction();
             request.setAttribute("sessionDB", session);
             chain.doFilter(request, response);
             session.getTransaction().commit();
-        }catch (Exception e){
+            
+        }catch (IOException | ServletException e){
             session.getTransaction().rollback();
+            session.close();
             e.printStackTrace();
         }finally{
             if(session != null && session.isOpen())

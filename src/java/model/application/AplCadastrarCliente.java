@@ -1,14 +1,12 @@
 package model.application;
 
-import static com.sun.corba.se.impl.util.Utility.printStackTrace;
 import dao.GDCliente;
-import java.sql.SQLException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import model.domain.Dependente;
 import model.domain.Socio;
+import org.hibernate.Session;
 
 public class AplCadastrarCliente{
     
@@ -18,7 +16,7 @@ public class AplCadastrarCliente{
         gdCliente = new GDCliente();
     }
 
-    public int incluirSocio(String nome, String telefone, String cpf, String data, String sexo, String logradouro, String bairro, String cidade, String cep, String numero){
+    public int incluirSocio(Session s, String nome, String telefone, String cpf, String data, String sexo, String logradouro, String bairro, String cidade, String cep, String numero){
         try {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             Date dt = formatter.parse(data);
@@ -36,7 +34,7 @@ public class AplCadastrarCliente{
             socio.setSexo(sexo.charAt(0));
             socio.setTelefone(telefone);
         
-            gdCliente.incluir(socio);
+            s.save(socio);
             return 1;
         }catch(Exception e){
             System.out.println("Erro"+e.getMessage());
@@ -45,14 +43,14 @@ public class AplCadastrarCliente{
         }
     }
     
-    public int incluirDependente(String idSocio, String nome, String data, String sexo){
+    public int incluirDependente(Session s, String idSocio, String nome, String data, String sexo){
         
         try {
             
              Dependente dependente = new Dependente();
             Socio socio = new Socio();
             socio.setId(Integer.parseInt(idSocio));
-            List<Dependente> dependentes = gdCliente.filtrarPorSocio(Integer.parseInt(idSocio));
+            List<Dependente> dependentes = gdCliente.filtrarPorSocio(s, Integer.parseInt(idSocio));
             int cont = 0;
             for(Dependente item : dependentes){
                 if(item.isEstahAtivo())
@@ -71,7 +69,7 @@ public class AplCadastrarCliente{
             dependente.setSexo(sexo.charAt(0));
             dependente.setSocio(socio);
 
-            gdCliente.incluir(dependente);
+            s.save(dependente);
             return 1;
             
         }catch(Exception e){
@@ -79,43 +77,43 @@ public class AplCadastrarCliente{
         }
     }
     
-    public int ativarDesativarSocio(String idSocio, String ativado){
+    public int ativarDesativarSocio(Session s, String idSocio, String ativado){
         
         Socio socio = new Socio();
         socio.setId(Integer.parseInt(idSocio));
         socio.setEstahAtivo(Boolean.valueOf(ativado));
         
         try {
-            gdCliente.alterar(socio);
+            s.update(socio);
             return 1;
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (Exception ex) {
             return 0;
         }   
     }
     
-    public List listarSocio(){
-        return gdCliente.consultar(Socio.class);
+    public List listarSocio(Session s){
+        return gdCliente.consultar(s, Socio.class);
     }
     
-    public List listarDependentes(String id){
-        return gdCliente.filtrarPorSocio(Integer.parseInt(id));
+    public List listarDependentes(Session s, String id){
+        return gdCliente.filtrarPorSocio(s, Integer.parseInt(id));
     }
 
-    public int excluirSocio(String id) {
+    public int excluirSocio(Session s, String id) {
         
-        gdCliente.excluirDependentes(Integer.valueOf(id));
+        gdCliente.excluirDependentes(s, Integer.valueOf(id));
         Socio socio = new Socio();
         socio.setId(Integer.valueOf(id));
         
         try {
-            gdCliente.excluir(socio);
+            s.delete(socio);
             return 1;
         } catch (Exception ex) {
             return 0;
         }
     }
     
-    public int alterarSocio(String id, String nome, String telefone, String cpf, String data, String sexo, String logradouro, String bairro, String cidade, String cep, String numero) {
+    public int alterarSocio(Session s, String id, String nome, String telefone, String cpf, String data, String sexo, String logradouro, String bairro, String cidade, String cep, String numero) {
         
         try {
             
@@ -137,9 +135,9 @@ public class AplCadastrarCliente{
             socio.setSexo(sexo.charAt(0));
             socio.setTelefone(numero);
             
-            gdCliente.alterar(socio);
+            s.update(socio);
             return 1;
-        } catch (ClassNotFoundException | NumberFormatException | SQLException | ParseException e) {
+        } catch (Exception e) {
             return 0;
         }
     }

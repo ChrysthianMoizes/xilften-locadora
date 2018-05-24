@@ -2,11 +2,9 @@ package model.application;
 
 import static com.sun.corba.se.impl.util.Utility.printStackTrace;
 import dao.GDDiretor;
-import java.sql.SQLException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import model.domain.Diretor;
+import org.hibernate.Session;
 
 
 public class AplCadastrarDiretor {
@@ -17,12 +15,12 @@ public class AplCadastrarDiretor {
         gdDiretor = new GDDiretor();
     }
     
-    public int incluirDiretor(String nomeDiretor) {
+    public int incluirDiretor(Session s, String nomeDiretor) {
         if(nomeDiretor.equals(""))
             return 0;
         Diretor diretor = new Diretor(nomeDiretor);
         try{
-            gdDiretor.incluir(diretor);
+            s.save(diretor);
             return 1;
         }catch (Exception e){
             printStackTrace();
@@ -30,35 +28,33 @@ public class AplCadastrarDiretor {
         }
     }
     
-    public int excluirDiretor(int idDiretor){
+    public int excluirDiretor(Session s, int idDiretor){
         Diretor diretor = new Diretor();
         diretor.setId(idDiretor);
         try{
-            gdDiretor.excluir(diretor);
+            s.delete(diretor);
             return 1;
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(AplCadastrarDiretor.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
             ex.printStackTrace();
             return 0;
         }   
     }
     
-    public List listarDiretor(){
-        return gdDiretor.listarDiretor();
+    public List listarDiretor(Session s){
+        return gdDiretor.listarDiretor(s);
     }
     
-     public Diretor filtrarDiretor(int id){
-        return gdDiretor.filtrarDiretor(id);
+     public Diretor filtrarDiretor(Session s, int id){
+        return gdDiretor.filtrarDiretor(s, id);
     }
     
-    public int alterarDiretor(int idDiretor, String nome){
+    public int alterarDiretor(Session s, int idDiretor, String nome){
         Diretor diretor = new Diretor(nome);
         diretor.setId(idDiretor);
         try{
-            gdDiretor.alterar(diretor);
+            s.update(diretor);
             return 1;
-        }catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(AplCadastrarAtor.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (Exception ex) {
             ex.printStackTrace();
             return 0;
         }

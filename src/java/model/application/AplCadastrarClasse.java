@@ -1,10 +1,10 @@
 package model.application;
 
 import dao.GDClasse;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
 import model.domain.Classe;
+import org.hibernate.Session;
 
 public class AplCadastrarClasse{
     
@@ -14,7 +14,7 @@ public class AplCadastrarClasse{
         gdClasse = new GDClasse();
     }
 
-    public int incluirClasse(String nome, String valor, String data) throws ParseException{
+    public int incluirClasse(Session s, String nome, String valor, String data) throws ParseException{
         if(nome.equals("") || (valor.equals("")) || (data.equals("")))
             return 0;
         
@@ -26,28 +26,28 @@ public class AplCadastrarClasse{
             valor = valor.replace(",", ".");
             novaClasse.setValor(Float.parseFloat(valor));
         
-            gdClasse.incluir(novaClasse);
+            s.save(novaClasse);
             return 1;
         }catch(Exception e){
             return 2;
         }
     } 
     
-    public List listarClasse(){
-        return gdClasse.consultar(Classe.class);
+    public List listarClasse(Session s){
+        return gdClasse.consultar(s, Classe.class);
     }
     
         
-    public Classe filtrarClasse(int id){
-        return gdClasse.flitrarClasse(id);
+    public Classe filtrarClasse(Session s, int id){
+        return gdClasse.flitrarClasse(s, id);
     }
 
-    public int excluirClasse(int id) {
+    public int excluirClasse(Session s, int id) {
         
         Classe classe = new Classe();
         classe.setId(id);
         try {
-            gdClasse.excluir(classe);
+            s.delete(classe);
             return 1;
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -55,7 +55,7 @@ public class AplCadastrarClasse{
         }
     }
     
-    public int alterarClasse(String id, String nome, String valor, String data) throws ParseException {
+    public int alterarClasse(Session s, String id, String nome, String valor, String data) throws ParseException {
         
         if(nome.equals("") || (valor.equals("")) || (data.equals("")))
             return 0;
@@ -68,9 +68,9 @@ public class AplCadastrarClasse{
         classe.setValor(Float.parseFloat(valor));
        
         try {
-            gdClasse.alterar(classe);
+            s.update(classe);
             return 1;
-        } catch (ClassNotFoundException | SQLException ex) {
+        } catch (Exception ex) {
             System.out.println(ex.getMessage());
             return 0;
         }

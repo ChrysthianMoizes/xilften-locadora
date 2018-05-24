@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.application.AplCadastrarItem;
+import org.hibernate.Session;
 
 @WebServlet(name = "CtrlCadastrarItem", urlPatterns = {"/CtrlCadastrarItem"})
 public class CtrlCadastrarItem extends HttpServlet {
@@ -63,7 +64,8 @@ public class CtrlCadastrarItem extends HttpServlet {
         String idTitulo = request.getParameter("titulo");//tem que ser diferente de 0
         String dtAquisicao = request.getParameter("dtAquisicao");
         String tipoItem = request.getParameter("tipoItem");
-        int op = aplCadastrarItem.inserirItem(numSerie, idTitulo, dtAquisicao, tipoItem);
+        Session s = (Session)request.getAttribute("SessionDB");
+        int op = aplCadastrarItem.inserirItem(s, numSerie, idTitulo, dtAquisicao, tipoItem);
         switch(op){
             //incluido 
             case 1:
@@ -78,8 +80,9 @@ public class CtrlCadastrarItem extends HttpServlet {
 
     private void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException, Exception {
         String id = request.getParameter("id");
+        Session s = (Session)request.getAttribute("SessionDB");
         int op = 0;
-        op = aplCadastrarItem.excluirItem(id);
+        op = aplCadastrarItem.excluirItem(s, id);
         switch(op){
             //exluido 
             case 1:
@@ -98,9 +101,10 @@ public class CtrlCadastrarItem extends HttpServlet {
         String ano = request.getParameter("ano");
         String nSerie = request.getParameter("nSerie");
         String titulo = request.getParameter("titulo");
+        Session s = (Session)request.getAttribute("SessionDB");
         int op = 0;
         if(!id.equals("0"))
-            op = aplCadastrarItem.alterarItem(id,tipoItem, ano, nSerie, titulo);
+            op = aplCadastrarItem.alterarItem(s, id,tipoItem, ano, nSerie, titulo);
         switch(op){
             case 1:
                 response.sendRedirect("Modulos/Item/alteraItem.jsp?msg="+nSerie+" Alterado com Sucesso!");

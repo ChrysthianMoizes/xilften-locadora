@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.application.AplCadastrarCliente;
+import org.hibernate.Session;
 
 @WebServlet(name = "CtrlCadastrarCliente", urlPatterns = {"/CtrlCadastrarCliente"})
 public class CtrlCadastrarCliente extends HttpServlet {
@@ -33,6 +34,7 @@ public class CtrlCadastrarCliente extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         String operacao = request.getParameter("operacao");
+        Session s = (Session)request.getAttribute("SessionDB");
         PrintWriter out = response.getWriter();
          try{
             switch(operacao){
@@ -42,7 +44,7 @@ public class CtrlCadastrarCliente extends HttpServlet {
                     incluirDependente(request, response);break;
                 case "listar": 
                     String id = request.getParameter("id");
-                    List listarDependentes = aplCadastrarCliente.listarDependentes(id);
+                    List listarDependentes = aplCadastrarCliente.listarDependentes(s, id);
                     request.setAttribute("lista", listarDependentes);
                     RequestDispatcher dispacher = request.getRequestDispatcher("Modulos/Cliente/incluirDependente.jsp");
                     dispacher.forward(request, response);
@@ -105,6 +107,7 @@ public class CtrlCadastrarCliente extends HttpServlet {
        String cida = request.getParameter("cidade");
        String cep = request.getParameter("cep");
        String num = request.getParameter("numero");
+       Session s = (Session)request.getAttribute("SessionDB");
        if(  nome.equals("") ||
             tel.equals("") || 
             cpf.equals("") ||
@@ -118,7 +121,7 @@ public class CtrlCadastrarCliente extends HttpServlet {
                 response.addHeader("msg", "Um ou mais campos vazio(s)");
                 throw new Exception("Campos vazios ou nulos");
        }
-       int op = aplCadastrarCliente.incluirSocio(nome, tel, cpf, data, sexo, log, bair, cida, cep, num);
+       int op = aplCadastrarCliente.incluirSocio(s, nome, tel, cpf, data, sexo, log, bair, cida, cep, num);
        switch(op){
             case 1:
                 response.sendRedirect("Modulos/Cliente/cadastraCliente.jsp?msg="+nome+" Cadastrado com Sucesso!");
@@ -137,12 +140,13 @@ public class CtrlCadastrarCliente extends HttpServlet {
         String data = request.getParameter("data");
         String sexo = request.getParameter("sexo");
         String idSocio = request.getParameter("id");
+        Session s = (Session)request.getAttribute("SessionDB");
         
         if( nome.equals("") || data.equals("") || sexo.equals("") || idSocio.equals("") ){
                 response.addHeader("msg", "Um ou mais campos vazio(s)");
                 throw new Exception("Campos vazios ou nulos");
         }
-        int op = aplCadastrarCliente.incluirDependente(idSocio, nome, data, sexo);
+        int op = aplCadastrarCliente.incluirDependente(s, idSocio, nome, data, sexo);
         switch(op){
             case 1: 
                 response.sendRedirect("Modulos/Cliente/incluirDependente.jsp?msg="+nome+" Dependente Incluido com sucesso!");
