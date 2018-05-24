@@ -78,7 +78,6 @@ public class AplCadastrarTitulo {
         } catch (SQLException | ClassNotFoundException ex) {
             return 2;
         }
-
     }
     
     public int excluirTitulo(int id){

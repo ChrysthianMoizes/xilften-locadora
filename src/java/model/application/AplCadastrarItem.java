@@ -20,6 +20,7 @@ public class AplCadastrarItem {
     }
 
     public int inserirItem(String numSerie, String idTitulo, String dtAquisicao, String tipoItem) {
+        
         try{
             if(tipoItem.equals("0"))
                 return 2;
