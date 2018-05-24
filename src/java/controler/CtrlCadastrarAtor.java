@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.application.AplCadastrarAtor;
-import org.hibernate.Session;
 
 @WebServlet(name = "CtrlCadastrarAtor", urlPatterns = {"/CtrlCadastrarAtor"})
 public class CtrlCadastrarAtor extends HttpServlet {
 
     private AplCadastrarAtor aplCadastrarAtor;
+
 
     public CtrlCadastrarAtor() {
         aplCadastrarAtor = new AplCadastrarAtor();
@@ -36,16 +36,14 @@ public class CtrlCadastrarAtor extends HttpServlet {
                 case "alterarAtor":
                     alterar(request, response); break;
             }
-        }catch(IOException e){
+        }catch(Exception e){
             out.print("Erro "+e.getMessage());
         }
     }
     
     public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException{
         String nomeAtor = request.getParameter("nome");
-        Session s = (Session)request.getAttribute("SessionDB");
-        int op = aplCadastrarAtor.incluirAtor(s, nomeAtor);
-        
+        int op = aplCadastrarAtor.incluirAtor(nomeAtor);
         switch(op){
             //incluido 
             case 1:
@@ -61,10 +59,9 @@ public class CtrlCadastrarAtor extends HttpServlet {
     public void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException{
         String nomeAtorA = request.getParameter("nome");
         String idA = request.getParameter("id");
-        Session s = (Session)request.getAttribute("SessionDB");
         int opAl = 0;
         if(!idA.equals("0"))
-            opAl = aplCadastrarAtor.alterarAtor(s, idA, nomeAtorA);
+            opAl = aplCadastrarAtor.alterarAtor(idA, nomeAtorA);
         switch(opAl){
             case 1:
                 response.sendRedirect("Modulos/Ator/alteraAtor.jsp?msg="+nomeAtorA+" Alterado com Sucesso!");
@@ -80,9 +77,8 @@ public class CtrlCadastrarAtor extends HttpServlet {
     
     public void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException{
         String idS = request.getParameter("id");
-        Session s = (Session)request.getAttribute("SessionDB");
         int id = Integer.valueOf(idS);
-        int opEx = aplCadastrarAtor.excluirAtor(s, id);
+        int opEx = aplCadastrarAtor.excluirAtor(id);
         switch(opEx){
             //exluido 
             case 1:

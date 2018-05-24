@@ -2,6 +2,7 @@ package model.application;
 
 import dao.GDItem;
 import dao.GDLocacao;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -10,7 +11,6 @@ import java.util.List;
 import model.domain.Cliente;
 import model.domain.Item;
 import model.domain.Locacao;
-import org.hibernate.Session;
 
 public class AplCadastrarLocacao{
     
@@ -22,12 +22,12 @@ public class AplCadastrarLocacao{
         gdItem = new GDItem();
     }
 
-    public int efetuarLocacao(Session s, Date dataLocacao, String idItem, String idCliente){
+    public int efetuarLocacao(Date dataLocacao, String idItem, String idCliente){
         
         try{
             
-            List listaDebito = gdLocacao.verificarDebito(s, Integer.parseInt(idCliente));
-            Item item = gdItem.flitrarItem(s, Integer.parseInt(idItem));
+            List listaDebito = gdLocacao.verificarDebito(Integer.parseInt(idCliente));
+            Item item = gdItem.flitrarItem(Integer.parseInt(idItem));
             
             if(listaDebito.size() > 0)
                 return 3;
@@ -45,7 +45,7 @@ public class AplCadastrarLocacao{
             locacao.setItem(item);
             locacao.setValorCobrado(item.getTitulo().getClasse().getValor());
             
-            s.save(locacao);
+            gdLocacao.incluir(locacao);
             return 1;
         }catch(Exception e){
             e.printStackTrace();
@@ -70,11 +70,11 @@ public class AplCadastrarLocacao{
 	return cal.getTime();
 }
     
-    public int efetuarDevolucao(Session s, String id, String dtDevolucaoEfetiva, String multa){
+    public int efetuarDevolucao(String id, String dtDevolucaoEfetiva, String multa){
         
         try {
             
-            Locacao locacao = gdLocacao.flitrarLocacao(s, Integer.parseInt(id));
+            Locacao locacao = gdLocacao.flitrarLocacao(Integer.parseInt(id));
 
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             Date dtDevolucao = formatter.parse(dtDevolucaoEfetiva);
@@ -88,24 +88,24 @@ public class AplCadastrarLocacao{
                 locacao.setValorCobrado(locacao.getItem().getTitulo().getClasse().getValor());
             }
             
-            s.update(locacao);
+            gdLocacao.alterar(locacao);
             return 1;
         } catch (Exception ex) {
             return 0;
         }
     }
     
-    public List listarLocacao(Session s){
-        return gdLocacao.consultar(s, Locacao.class);
+    public List listarLocacao(){
+        return gdLocacao.consultar(Locacao.class);
     }
 
-    public int cancelarLocacao(Session s, String id) {
+    public int cancelarLocacao(String id) {
 
         try {
             
-            Locacao locacao = gdLocacao.flitrarLocacao(s, Integer.parseInt(id));
+            Locacao locacao = gdLocacao.flitrarLocacao(Integer.parseInt(id));
             if(locacao.getDtDevolucaoEfetiva() == null){
-                s.delete(locacao);            
+                gdLocacao.excluir(locacao);            
                 return 1;
                 
             }else
@@ -115,11 +115,11 @@ public class AplCadastrarLocacao{
         }
     }
     
-    public int alterarLocacao(Session s, String id, Date dataLocacao, String idItem, String idCliente) {
+    public int alterarLocacao(String id, Date dataLocacao, String idItem, String idCliente) {
 
         try {
             
-            Item item = gdItem.flitrarItem(s, Integer.parseInt(idItem));
+            Item item = gdItem.flitrarItem(Integer.parseInt(idItem));
             
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             //Date dtLocacao = formatter.parse(dataLocacao);
@@ -137,7 +137,7 @@ public class AplCadastrarLocacao{
             locacao.setItem(item);
             locacao.setValorCobrado(item.getTitulo().getClasse().getValor());
             
-            s.update(locacao);
+            gdLocacao.alterar(locacao);
             return 1;
         } catch (Exception e) {
             return 0;

@@ -11,7 +11,6 @@ import model.domain.Ator;
 import model.domain.Classe;
 import model.domain.Diretor;
 import model.domain.Titulo;
-import org.hibernate.Session;
 
 public class AplCadastrarTitulo {
     
@@ -27,18 +26,18 @@ public class AplCadastrarTitulo {
         aplCadastrarAtor = new AplCadastrarAtor();
     }
     
-    public int incluirTitulo(Session s, String nome, int idDiretor, int ano, String[] idAtores, String sinopse, String categoria, int idClasse){
+    public int incluirTitulo(String nome, int idDiretor, int ano, String[] idAtores, String sinopse, String categoria, int idClasse){
         try {
             
             Titulo titulo = new Titulo();
             Collection<String> idsAtores = Arrays.asList(idAtores);
             Collection atores = new ArrayList();
             for(String id : idsAtores){
-                Ator ator = aplCadastrarAtor.filtrarAtor(s, Integer.parseInt(id));
+                Ator ator = aplCadastrarAtor.filtrarAtor(Integer.parseInt(id));
                 atores.add(ator);
             }
-            Classe classe = aplCadastrarClasse.filtrarClasse(s, idClasse);
-            Diretor diretor = aplCadastrarDiretor.filtrarDiretor(s, idDiretor);
+            Classe classe = aplCadastrarClasse.filtrarClasse(idClasse);
+            Diretor diretor = aplCadastrarDiretor.filtrarDiretor(idDiretor);
 
             titulo.setAno(ano);
             titulo.setAtores(atores);
@@ -48,14 +47,14 @@ public class AplCadastrarTitulo {
             titulo.setNome(nome);
             titulo.setSinopse(sinopse);
             
-            s.save(titulo);
+            gDTitulo.incluir(titulo);
             return 1;
-        } catch (Exception ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             return 2;
         }
     }
     
-    public int alterarTitulo(Session s, String id, String nome, String idDiretor, String ano, String[] idAtores, String sinopse, String categoria, String idClasse){
+    public int alterarTitulo(String id, String nome, String idDiretor, String ano, String[] idAtores, String sinopse, String categoria, String idClasse){
         
         try {
             
@@ -63,8 +62,8 @@ public class AplCadastrarTitulo {
             titulo.setId(Integer.valueOf(id));
         
             Collection atores = null;
-            Classe classe = aplCadastrarClasse.filtrarClasse(s, Integer.valueOf(idClasse));
-            Diretor diretor = aplCadastrarDiretor.filtrarDiretor(s, Integer.valueOf(idDiretor));
+            Classe classe = aplCadastrarClasse.filtrarClasse(Integer.valueOf(idClasse));
+            Diretor diretor = aplCadastrarDiretor.filtrarDiretor(Integer.valueOf(idDiretor));
 
             titulo.setAno(Integer.valueOf(ano));
             titulo.setAtores(atores);
@@ -74,18 +73,18 @@ public class AplCadastrarTitulo {
             titulo.setNome(nome);
             titulo.setSinopse(sinopse);
             
-            s.update(titulo);
+            gDTitulo.alterar(titulo);
             return 1;
-        } catch (Exception ex) {
+        } catch (SQLException | ClassNotFoundException ex) {
             return 2;
         }
     }
     
-    public int excluirTitulo(Session s, int id){
+    public int excluirTitulo(int id){
         Titulo titulo = new Titulo();
         titulo.setId(id);
         try {
-            s.delete(titulo);
+            gDTitulo.excluir(titulo);
             return 1;
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -94,11 +93,11 @@ public class AplCadastrarTitulo {
         }
     }
     
-    public List listarTitulos(Session s){
-        return gDTitulo.consultar(s, Titulo.class);
+    public List listarTitulos(){
+        return gDTitulo.consultar(Titulo.class);
     }
     
-    public Titulo filtrarTitulo(Session s, int id){
-        return gDTitulo.filtrarTitulo(s, id);
+    public Titulo filtrarTitulo(int id){
+        return gDTitulo.filtrarTitulo(id);
     }
 }

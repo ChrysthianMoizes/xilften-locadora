@@ -1,9 +1,11 @@
 package model.application;
 
 import dao.GDAtor;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.domain.Ator;
-import org.hibernate.Session;
 
 public class AplCadastrarAtor{
     
@@ -13,49 +15,49 @@ public class AplCadastrarAtor{
         gdAtor = new GDAtor();
     }
 
-    public int incluirAtor(Session s, String nome){
-        
+    public int incluirAtor(String nome){
         if(nome.equals(""))
             return 0;
         Ator novoAtor = new Ator();
         novoAtor.setNome(nome);
-        
         try{
-            s.save(novoAtor);
+            gdAtor.incluir(novoAtor);
             return 1;
         }catch(Exception e){
             return 2;
         }
     }
     
-    public Ator filtrarAtor(Session s, int id){
-        return gdAtor.filtrarAtor(s, id);
+    public Ator filtrarAtor(int id){
+        return gdAtor.filtrarAtor(id);
     }
     
-    public List listarAtor(Session s){
-        return gdAtor.consultar(s, Ator.class);
+    public List listarAtor(){
+        return gdAtor.consultar(Ator.class);
     }
 
-    public int excluirAtor(Session s, int id) {
+    public int excluirAtor(int id) {
         
-        Ator ator = gdAtor.filtrarAtor(s, id);
+        Ator ator = gdAtor.filtrarAtor(id);
         
         try {
-            s.delete(ator);
+            gdAtor.excluir(ator);
             return 1;
         } catch (Exception ex) {
+            Logger.getLogger(AplCadastrarAtor.class.getName()).log(Level.SEVERE, null, ex);
             return 2;
         }
     }
     
-    public int alterarAtor(Session s, String idA, String nomeA) {
+    public int alterarAtor(String idA, String nomeA) {
         Ator ator = new Ator();
         ator.setId(Integer.valueOf(idA));
         ator.setNome(nomeA);
         try {
-            s.update(ator);
+            gdAtor.alterar(ator);
             return 1;
-        } catch (Exception ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(AplCadastrarAtor.class.getName()).log(Level.SEVERE, null, ex);
             return 0;
         }
     }

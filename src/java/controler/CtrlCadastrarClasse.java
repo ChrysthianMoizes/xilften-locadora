@@ -3,13 +3,15 @@ package controler;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.application.AplCadastrarClasse;
-import org.hibernate.Session;
 
 @WebServlet(name = "CtrlCadastrarClasse", urlPatterns = {"/CtrlCadastrarClasse"})
 public class CtrlCadastrarClasse extends HttpServlet {
@@ -45,9 +47,7 @@ public class CtrlCadastrarClasse extends HttpServlet {
         String nome = request.getParameter("nome");
         String valor = request.getParameter("valor");
         String data = request.getParameter("data");
-        Session s = (Session)request.getAttribute("SessionDB");
-        
-        int op = aplCadastrarClasse.incluirClasse(s, nome, valor, data);
+        int op = aplCadastrarClasse.incluirClasse(nome, valor, data);
         switch(op){
             //incluido 
             case 1:
@@ -66,11 +66,10 @@ public class CtrlCadastrarClasse extends HttpServlet {
         String valor = request.getParameter("valor");
         String data = request.getParameter("data");
         String id = request.getParameter("id");
-        Session s = (Session)request.getAttribute("SessionDB");
 
         int opAl = 0;
         if(!id.equals("0"))
-            opAl = aplCadastrarClasse.alterarClasse(s, id, nome, valor, data);
+            opAl = aplCadastrarClasse.alterarClasse(id, nome, valor, data);
         switch(opAl){
             case 1:
                 response.sendRedirect("Modulos/Classe/alteraClasse.jsp?msg="+nome+" Alterado com Sucesso!");
@@ -88,11 +87,10 @@ public class CtrlCadastrarClasse extends HttpServlet {
         
         String idS = request.getParameter("id");
         String nome = request.getParameter("nome");
-        Session s = (Session)request.getAttribute("SessionDB");
         
         int id = Integer.valueOf(idS);
         
-        int opEx = aplCadastrarClasse.excluirClasse(s, id);
+        int opEx = aplCadastrarClasse.excluirClasse(id);
         
         switch(opEx){
             //exluido 

@@ -57,11 +57,18 @@ public class GDGenerico {
         persistir(obj, EXCLUIR);
     }
      
-    public List consultar(Session s, Class classe) {
+    public List consultar(Class classe) {
         
         List lista;
-        Criteria cons = s.createCriteria(classe);
+        sessao = criarSessao();
+        sessao.beginTransaction();
+        
+        Criteria cons = sessao.createCriteria(classe);
         lista = cons.list();
+        
+        sessao.getTransaction().commit();
+        sessao.close();
+        
         return lista;
     }
 

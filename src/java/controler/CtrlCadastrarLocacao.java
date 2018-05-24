@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.application.AplCadastrarLocacao;
-import org.hibernate.Session;
 
 @WebServlet(name = "CtrlCadastrarLocacao", urlPatterns = {"/CtrlCadastrarLocacao"})
 public class CtrlCadastrarLocacao extends HttpServlet {
@@ -88,9 +87,8 @@ public class CtrlCadastrarLocacao extends HttpServlet {
     private void locar(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String idItem = request.getParameter("idItem");
         String idCliente = request.getParameter("idSocio");
-        Session s = (Session)request.getAttribute("SessionDB");
         
-        int op = aplCadastrarLocacao.efetuarLocacao(s, new Date(System.currentTimeMillis()), idItem, idCliente);
+        int op = aplCadastrarLocacao.efetuarLocacao(new Date(System.currentTimeMillis()), idItem, idCliente);
         switch(op){
             case 1:
                 response.sendRedirect("Modulos/Locacao/efetuaLocacao.jsp?msg= Locação efetuada com Sucesso!");

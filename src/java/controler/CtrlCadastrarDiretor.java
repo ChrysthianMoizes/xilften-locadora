@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.application.AplCadastrarDiretor;
-import org.hibernate.Session;
 
 @WebServlet(name = "CtrlCadastrarDiretor", urlPatterns = {"/CtrlCadastrarDiretor"})
 public class CtrlCadastrarDiretor extends HttpServlet{
@@ -42,9 +41,7 @@ public class CtrlCadastrarDiretor extends HttpServlet{
      
      public void cadastrar(HttpServletRequest request, HttpServletResponse response) throws IOException{
         String nome = request.getParameter("nome");
-        Session s = (Session)request.getAttribute("SessionDB");
-        int op = aplCadastrarDiretor.incluirDiretor(s, nome);
-        
+        int op = aplCadastrarDiretor.incluirDiretor(nome);
         switch(op){
             case 1:
                 response.sendRedirect("Modulos/Diretor/cadastraDiretor.jsp?msg="+nome+" Cadastrado com Sucesso!");
@@ -58,10 +55,9 @@ public class CtrlCadastrarDiretor extends HttpServlet{
      public void alterar(HttpServletRequest request, HttpServletResponse response) throws IOException{
         String nome = request.getParameter("nome");
         String id = request.getParameter("id");
-        Session s = (Session)request.getAttribute("SessionDB");
         int opAl = 0;
         if(!id.equals("0"))
-            opAl = aplCadastrarDiretor.alterarDiretor(s, Integer.valueOf(id), nome);
+            opAl = aplCadastrarDiretor.alterarDiretor(Integer.valueOf(id), nome);
         switch(opAl){
             case 1:
                 response.sendRedirect("Modulos/Diretor/alteraDiretor.jsp?msg="+nome+" Alterado com Sucesso!");
@@ -78,8 +74,7 @@ public class CtrlCadastrarDiretor extends HttpServlet{
      public void excluir(HttpServletRequest request, HttpServletResponse response) throws IOException{
         String idEx = request.getParameter("id");
         int id = Integer.valueOf(idEx);
-        Session s = (Session)request.getAttribute("SessionDB");
-        int opEx = aplCadastrarDiretor.excluirDiretor(s, id);
+        int opEx = aplCadastrarDiretor.excluirDiretor(id);
         switch(opEx){
             //exluido 
             case 1:
