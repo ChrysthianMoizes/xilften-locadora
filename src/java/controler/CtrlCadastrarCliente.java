@@ -102,15 +102,15 @@ public class CtrlCadastrarCliente extends HttpServlet {
        String cep = request.getParameter("cep");
        String num = request.getParameter("numero");
        if(  nome.equals("") ||
-            tel.equals("") || 
-            cpf.equals("") ||
+            tel.equals("")  || 
+            cpf.equals("")  ||
             sexo.equals("") ||
             data.equals("") ||
-            log.equals("") ||
+            log.equals("")  ||
             bair.equals("") ||
             cida.equals("") ||
-            cep.equals("") ||
-            num.equals("")  ){
+            cep.equals("")  ||
+            num.equals("")      ){
                 response.addHeader("msg", "Um ou mais campos vazio(s)");
                 throw new Exception("Campos vazios ou nulos");
        }
@@ -161,7 +161,7 @@ public class CtrlCadastrarCliente extends HttpServlet {
         //response.sendRedirect("Modulos/Cliente/incluirDependente.jsp");
     }
 
-    private void excluirDependente(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void excluirDependente(HttpServletRequest request, HttpServletResponse response) throws IOException{
         String idDep = request.getParameter("idDependente");
         int op = aplCadastrarCliente.excluirDependente(idDep);
         switch(op){

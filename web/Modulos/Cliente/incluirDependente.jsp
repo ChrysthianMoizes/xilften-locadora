@@ -15,7 +15,14 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"  crossorigin="anonymous"></script>
     </head>
     <body>
-        <div id="cabecalhoEx"></div>
+        <%
+            List dependentes = (List)request.getAttribute("lista");
+            if(dependentes != null){
+            %>
+                <div id="cabecalhoEx1"></div>
+        <%  }else{     %>
+                <div id="cabecalhoEx"></div>
+        <%  } %>
         <div class="container">
             <div id="main" class="container-fluid">
                 <h3 class="page-header">Incluir Dependentes</h3>
@@ -28,7 +35,6 @@
                             <select class="form-control" name="id" id="socios">
                                <option value="0">Selecione</option>
                                 <%  
-                                    //conseguir o id
                                     List lista = new AplCadastrarCliente().listarSocio();
                                     if(lista != null)
                                         for(int i = 0; i < lista.size(); i++){
@@ -44,11 +50,7 @@
                             <label for="dependentes">Dependentes incluidos</label>
                             <select multiple class="form-control" name="depentes" id="dependentes">
                                 <%  
-                                   //String id = request.getParameter("id");
-                                   List dependentes = (List)request.getAttribute("lista");
-                                    //if(id != null && !id.equals("")){
                                     if(dependentes != null){
-                                        //List dependentes = new AplCadastrarCliente().listarDependentes(id);
                                         for(int i = 0; i < dependentes.size(); i++){
                                 %>
                                             <option value="<%= ((Dependente)dependentes.get(i)).getId() %>" > <%= ((Dependente)dependentes.get(i)).getNome() %> </option>

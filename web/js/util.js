@@ -6,6 +6,7 @@ $(document).ready(function () {
     $("#cabecalho").load("util/cabecalho.jsp");
 });
 $(document).ready(function () {
+    $("#cabecalhoEx1").load('${pageContext.request.contextPath}/../util/cabecalhoCrud.jsp');
     $("#cabecalhoEx").load('../../util/cabecalhoCrud.jsp');
 });
 
