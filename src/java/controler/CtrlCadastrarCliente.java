@@ -41,13 +41,9 @@ public class CtrlCadastrarCliente extends HttpServlet {
                 case  "incluirDependente":
                     incluirDependente(request, response);break;
                 case "listar": 
-                    String id = request.getParameter("id");
-                    List listarDependentes = aplCadastrarCliente.listarDependentes(id);
-                    request.setAttribute("lista", listarDependentes);
-                    RequestDispatcher dispacher = request.getRequestDispatcher("Modulos/Cliente/incluirDependente.jsp");
-                    dispacher.forward(request, response);
-                    //response.sendRedirect("Modulos/Cliente/incluirDependente.jsp");
-                    break;
+                    listarDependentes(request, response);break;
+                case "excluir":
+                    excluirDependente(request, response);break;
                               
             }
         }catch(Exception e){
@@ -147,13 +143,34 @@ public class CtrlCadastrarCliente extends HttpServlet {
             case 1: 
                 response.sendRedirect("Modulos/Cliente/incluirDependente.jsp?msg="+nome+" Dependente Incluido com sucesso!");
                 break;
-                case 2:
-                response.addHeader("msg", "Erro ao cadastrar "+nome);
+            case 2:
+                response.sendRedirect("Modulos/Cliente/incluirDependente.jsp?msg=Erro ao cadastrar "+nome);
                 break;
-                case 3:
-                response.addHeader("msg", "O sócio possui mais de 3 dependentes");
+            case 3:
+                response.sendRedirect("Modulos/Cliente/incluirDependente.jsp?msg=O sócio possui mais de 3 dependentes");
                 break;
         }
     }
 
+    private void listarDependentes(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id = request.getParameter("id");
+        List listarDependentes = aplCadastrarCliente.listarDependentes(id);
+        request.setAttribute("lista", listarDependentes);
+        RequestDispatcher dispacher = request.getRequestDispatcher("Modulos/Cliente/incluirDependente.jsp");
+        dispacher.forward(request, response);
+        //response.sendRedirect("Modulos/Cliente/incluirDependente.jsp");
+    }
+
+    private void excluirDependente(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String idDep = request.getParameter("idDependente");
+        int op = aplCadastrarCliente.excluirDependente(idDep);
+        switch(op){
+            case 1:
+                response.sendRedirect("Modulos/Cliente/incluirDependente.jsp?msg=Dependente excluido com sucesso!");
+                break;
+            case 2:
+                response.sendRedirect("Modulos/Cliente/incluirDependente.jsp?msg=Houve um erro ao tentar excluir o dependente");
+                break;
+        }
+    }
 }

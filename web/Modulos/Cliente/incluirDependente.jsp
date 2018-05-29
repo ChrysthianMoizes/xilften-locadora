@@ -9,9 +9,9 @@
         <title>Incluir Dependentes</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/4-col-portfolio.css">
-        <link href="../../bootstrap-4.0.0/dist/css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap-4.0.0/dist/css/4-col-portfolio.css">
+        <link href="${pageContext.request.contextPath}/bootstrap-4.0.0/dist/css/style.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"  crossorigin="anonymous"></script>
     </head>
     <body>
@@ -28,6 +28,7 @@
                             <select class="form-control" name="id" id="socios">
                                <option value="0">Selecione</option>
                                 <%  
+                                    //conseguir o id
                                     List lista = new AplCadastrarCliente().listarSocio();
                                     if(lista != null)
                                         for(int i = 0; i < lista.size(); i++){
@@ -126,8 +127,8 @@
 
             </div>
         </div>
-         <script src="../../bootstrap-4.0.0/dist/js/bootstrap.bundle.js"></script>
-        <script src="../../js/jquery.mask.min.js"></script>
-        <script src="../../js/util.js"></script>
+         <script src="${pageContext.request.contextPath}/bootstrap-4.0.0/dist/js/bootstrap.bundle.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jquery.mask.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/util.js"></script>
     </body>
 </html>

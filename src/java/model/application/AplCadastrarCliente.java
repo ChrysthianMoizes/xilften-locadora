@@ -143,4 +143,10 @@ public class AplCadastrarCliente{
             return 0;
         }
     }
+
+    public int excluirDependente(String idDep) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+ 
 }
