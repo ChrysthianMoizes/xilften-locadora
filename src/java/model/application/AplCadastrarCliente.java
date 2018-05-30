@@ -1,6 +1,5 @@
 package model.application;
 
-import static com.sun.corba.se.impl.util.Utility.printStackTrace;
 import dao.GDCliente;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -145,8 +144,16 @@ public class AplCadastrarCliente{
     }
 
     public int excluirDependente(String idDep) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        int id = Integer.parseInt(idDep);
+        
+        Dependente dep = gdCliente.filtrarPorDependente(id);
+        
+        try {
+            gdCliente.excluir(dep);
+            return 1;
+        } catch (SQLException | ClassNotFoundException ex) {
+            return 2;
+        }
     }
-
- 
 }

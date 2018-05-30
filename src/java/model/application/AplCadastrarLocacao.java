@@ -2,7 +2,6 @@ package model.application;
 
 import dao.GDItem;
 import dao.GDLocacao;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;

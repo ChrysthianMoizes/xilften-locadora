@@ -38,4 +38,13 @@ public class GDCliente extends GDGenerico{
         return lista;
     }
     
+    public Dependente filtrarPorDependente(int id){
+        Criteria crit = criarSessao().createCriteria(Dependente.class);
+        crit.add(Restrictions.eq("id", id));
+        crit.setMaxResults(1);
+        Dependente dep = (Dependente) crit.uniqueResult();
+        sessao.close();
+        return dep;
+    }
+    
 }
