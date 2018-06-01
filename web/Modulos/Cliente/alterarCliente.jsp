@@ -72,17 +72,17 @@
 
                         <div class="form-group col-xl-4">
                             <label for="nomeTitulo">Nome</label>
-                            <input type="email" class="form-control" name="nome" placeholder="Digite seu nome">
+                            <input type="text" class="form-control" name="nome" placeholder="Digite seu nome">
                         </div>
 
                         <div class="form-group col-xl-4">
                             <label for="nomeTitulo">Telefone</label>
-                            <input type="email" class="form-control" name="telefone" placeholder="Digite seu telefone">
+                            <input type="text" class="form-control" name="telefone" placeholder="Digite seu telefone">
                         </div>
 
                         <div class="form-group col-xl-4">
                             <label for="nomeTitulo">CPF</label>
-                            <input type="email" class="form-control" name="cpf" placeholder="Digite seu CPF">
+                            <input type="text" class="form-control" name="cpf" placeholder="Digite seu CPF">
                         </div>
 
                         <div class="form-group col-xl-4">
@@ -106,27 +106,27 @@
 
                         <div class="form-group col-xl-4">
                             <label for="nomeTitulo">Logradouro</label>
-                            <input type="email" class="form-control" name="logradouro" placeholder="Logradouro">
+                            <input type="text" class="form-control" name="logradouro" placeholder="Logradouro">
                         </div>
 
                         <div class="form-group col-xl-4">
                             <label for="nomeTitulo">Bairro</label>
-                            <input type="email" class="form-control" name="bairro" placeholder="Bairro">
+                            <input type="text" class="form-control" name="bairro" placeholder="Bairro">
                         </div>
 
                         <div class="form-group col-xl-4">
                             <label for="nomeTitulo">Cidade</label>
-                            <input type="email" class="form-control" name="cidade" placeholder="Cidade">
+                            <input type="text" class="form-control" name="cidade" placeholder="Cidade">
                         </div>
 
                         <div class="form-group col-xl-4">
                             <label for="nomeTitulo">CEP</label>
-                            <input type="email" class="form-control" name="cep" placeholder="CEP">
+                            <input type="number" class="form-control" name="cep" placeholder="CEP">
                         </div>
 
                         <div class="form-group col-xl-4">
                             <label for="nomeTitulo">Número</label>
-                            <input type="email" class="form-control" name="numero" placeholder="Número">
+                            <input type="number" class="form-control" name="numero" placeholder="Número">
                         </div>
                     </div>
                     <hr />
