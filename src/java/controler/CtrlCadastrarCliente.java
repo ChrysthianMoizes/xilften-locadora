@@ -160,7 +160,6 @@ public class CtrlCadastrarCliente extends HttpServlet {
         List listarDependentes = aplCadastrarCliente.listarDependentes(id);
         request.setAttribute("lista", listarDependentes);
         String origem = request.getParameter("origem");
-        System.out.println("Origem "+origem);
         RequestDispatcher dispacher = request.getRequestDispatcher("Modulos/Cliente/"+origem);
         dispacher.forward(request, response);
         //response.sendRedirect("Modulos/Cliente/incluirDependente.jsp");
@@ -181,7 +180,57 @@ public class CtrlCadastrarCliente extends HttpServlet {
     }
 
     //logica a ser concluida no backend
-    private void alterarCliente(HttpServletRequest request, HttpServletResponse response) {
-        
+    private void alterarCliente(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String nome = request.getParameter("nome");
+       String tel = request.getParameter("telefone");
+       String cpf = request.getParameter("cpf");
+       String sexo = request.getParameter("sexo");
+       String data = request.getParameter("data");
+       String log = request.getParameter("logradouro");
+       String bair = request.getParameter("bairro");
+       String cida = request.getParameter("cidade");
+       String cep = request.getParameter("cep");
+       String num = request.getParameter("numero");
+       String idSocio = request.getParameter("idSocio");
+       String idDependente = request.getParameter("idDependente");
+       
+       int op = 0;
+       
+       if(  nome.equals("") ||
+            sexo.equals("") ||
+            data.equals("") ){
+            response.addHeader("msg", "Um ou mais campos vazio(s)");
+                throw new Exception("Campos vazios ou nulos");
+       }
+       if(idSocio != null && !idSocio.equals("0")){
+           if(  
+            tel.equals("")  || 
+            cpf.equals("")  ||
+            log.equals("")  ||
+            bair.equals("") ||
+            cida.equals("") ||
+            cep.equals("")  ||
+            num.equals("")      ){
+                response.addHeader("msg", "Um ou mais campos vazio(s)");
+                throw new Exception("Campos vazios ou nulos");
+            }
+               op = aplCadastrarCliente.alterarSocio(idSocio, nome, tel, cpf, data, sexo, log, bair, cida, cep, num);
+       }else if(idDependente != null && !idDependente.equals("0")){
+           op = aplCadastrarCliente.alterarDependente(idDependente, nome, data, sexo);
+       }
+       
+       switch(op){
+           case 1:
+                response.sendRedirect("Modulos/Cliente/alterarCliente.jsp?msg="+nome+" Alterado com Sucesso!");
+                break;
+           case 2:
+                response.addHeader("status", "Erro ao alterar "+nome);
+                response.sendRedirect("Modulos/Cliente/alterarCliente.jsp");
+                break;
+            default:
+                response.sendRedirect("Modulos/Cliente/alterarCliente.jsp");
+                break;
+       }
+       
     }
 }

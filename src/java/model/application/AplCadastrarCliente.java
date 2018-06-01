@@ -156,4 +156,10 @@ public class AplCadastrarCliente{
             return 2;
         }
     }
+
+    public int alterarDependente(String idDependente, String nome, String data, String sexo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    
 }
