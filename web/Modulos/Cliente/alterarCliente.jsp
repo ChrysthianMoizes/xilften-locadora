@@ -1,3 +1,7 @@
+<%@page import="model.domain.Dependente"%>
+<%@page import="model.domain.Socio"%>
+<%@page import="model.application.AplCadastrarCliente"%>
+<%@page import="java.util.List"%>
 <!DOCTYPE html>
 
 <html>
@@ -5,49 +9,60 @@
         <title>Alterar Cliente</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../../bootstrap-4.0.0/dist/css/4-col-portfolio.css">
-        <script src=../../bootstrap-4.0.0/assets/js/vendor/jquery-slim.min.js"></script>
-        <script src="../../bootstrap-4.0.0/assets/js/vendor/popper.min.js"></script>
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap-4.0.0/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap-4.0.0/dist/css/4-col-portfolio.css">
         <link href="../../bootstrap-4.0.0/dist/css/style.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div id="cabecalhoEx"></div>
-
+        <%
+            List dependentes = (List)request.getAttribute("lista");
+            if(dependentes != null){
+            %>
+                <div id="cabecalhoEx1"></div>
+        <%  }else{     %>
+                <div id="cabecalhoEx"></div>
+        <%  } %>
         <div class="container">
-
+            
             <div id="main" class="container-fluid">
-
+                
                 <h3 class="page-header">Alterar Cliente</h3>
-                <br><hr />
-
-                <form action="index.html">
-
+                
+                <br>
+                <hr />
+                
+                <form method="POST" action="/locadora/CtrlCadastrarCliente">
+                    
                     <div class="row">
-
                         <div class="form-group col-xl-4">
                             <label for="nomeDiretorTitulo">Cliente</label>
-                            <input id="auto" class="form-control" list="browsers" name="browser" type="text" placeholder="Selecione um cliente">
-                            <datalist id="browsers">
-                                <option value="Fernando Collor">
-                                <option value="Dilma Rouself">
-                                <option value="Jair Messias">
-                                <option value="Luiz Inasil Lula">
-                                <option value="Ciro Gomez">
-                                <option value="Marina Silva">
-                            </datalist>
+                            <select class="form-control" name="id" id="socios">
+                               <option value="0">Selecione</option>
+                                <%  
+                                    List lista = new AplCadastrarCliente().listarSocio();
+                                    if(lista != null)
+                                        for(int i = 0; i < lista.size(); i++){
+                                %>
+                                            <option value="<%= ((Socio)lista.get(i)).getId() %>" > <%= ((Socio)lista.get(i)).getNome() %> </option>
+                                <%      }%>
+                            </select>
                             <br>
-                            <a href="" class="btn btn-light">Adicionar</a>
-                            <a href="" class="btn btn-light">Remover</a>
+                            <input type="hidden" name="origem" value="alterarCliente.jsp">
+                            <button type="submit" formaction="/locadora/CtrlCadastrarCliente?operacao=listar" class="btn btn-primary">Listar Dependentes</button>
                         </div>
 
                         <div class="form-group col-md-4">
                             <label for="sel2">Dependentes incluidos</label>
-                            <select multiple class="form-control" id="sel2">
-                                <option>Dependente 1</option>
-                                <option>Dependente 2</option>
-                            </select>   
+                            <select multiple class="form-control" name="depentes" id="dependentes">
+                                <%  
+                                    if(dependentes != null){
+                                        for(int i = 0; i < dependentes.size(); i++){
+                                %>
+                                            <option value="<%= ((Dependente)dependentes.get(i)).getId() %>" > <%= ((Dependente)dependentes.get(i)).getNome() %> </option>
+                                <%      }
+                                    }%>
+                            </select>    
                         </div>
 
                     </div>
@@ -110,12 +125,11 @@
                         </div>
 
                         <div class="form-group col-xl-4">
-                            <label for="nomeTitulo">Número</label>
+                            <label for="nomeTitulo">N�mero</label>
                             <input type="email" class="form-control" id="nomeTituloTitulo" placeholder="Número">
                         </div>
                     </div>
                     <hr />
-
                     <center>
                         <div class="row">
                             <div class="col-md-12">
@@ -129,7 +143,8 @@
 
             </div>
         </div>
-
-        <script src="../../js/util.js"></script>
+        <script src="${pageContext.request.contextPath}/bootstrap-4.0.0/dist/js/bootstrap.bundle.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jquery.mask.min.js"></script>
+        <script src="${pageContext.request.contextPath}/js/util.js"></script>
     </body>
 </html>

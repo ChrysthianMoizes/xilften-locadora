@@ -35,6 +35,7 @@ public class CtrlCadastrarCliente extends HttpServlet {
         String operacao = request.getParameter("operacao");
         PrintWriter out = response.getWriter();
          try{
+             System.out.println("Operação: "+operacao);
             switch(operacao){
                 case "incluirSocio":
                     cadastrarSocio(request, response);break;
@@ -44,6 +45,8 @@ public class CtrlCadastrarCliente extends HttpServlet {
                     listarDependentes(request, response);break;
                 case "excluir":
                     excluirDependente(request, response);break;
+                case "alterarCliente":
+                    alterarCliente(request, response);break;
                               
             }
         }catch(Exception e){
@@ -156,11 +159,14 @@ public class CtrlCadastrarCliente extends HttpServlet {
         String id = request.getParameter("id");
         List listarDependentes = aplCadastrarCliente.listarDependentes(id);
         request.setAttribute("lista", listarDependentes);
-        RequestDispatcher dispacher = request.getRequestDispatcher("Modulos/Cliente/incluirDependente.jsp");
+        String origem = request.getParameter("origem");
+        System.out.println("Origem "+origem);
+        RequestDispatcher dispacher = request.getRequestDispatcher("Modulos/Cliente/"+origem);
         dispacher.forward(request, response);
         //response.sendRedirect("Modulos/Cliente/incluirDependente.jsp");
     }
 
+    //logica a ser concluida no backend
     private void excluirDependente(HttpServletRequest request, HttpServletResponse response) throws IOException{
         String idDep = request.getParameter("idDependente");
         int op = aplCadastrarCliente.excluirDependente(idDep);
@@ -172,5 +178,10 @@ public class CtrlCadastrarCliente extends HttpServlet {
                 response.sendRedirect("Modulos/Cliente/incluirDependente.jsp?msg=Houve um erro ao tentar excluir o dependente");
                 break;
         }
+    }
+
+    //logica a ser concluida no backend
+    private void alterarCliente(HttpServletRequest request, HttpServletResponse response) {
+        
     }
 }

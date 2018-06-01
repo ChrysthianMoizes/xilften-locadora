@@ -42,6 +42,7 @@
                                             <option value="<%= ((Socio)lista.get(i)).getId() %>" > <%= ((Socio)lista.get(i)).getNome() %> </option>
                                 <%      }%>
                             </select>
+                            <input type="hidden" name="origem" value="incluirDependente.jsp">
                             <br>
                             <button type="submit" formaction="/locadora/CtrlCadastrarCliente?operacao=listar" class="btn btn-primary">Listar Dependentes</button>
                         </div>
@@ -59,6 +60,7 @@
                             </select>   
                         </div>
                         <div class="form-group col-xl-4">
+                            <br>
                             <button type="text" formaction="/locadora/CtrlCadastrarCliente?operacao=excluir" class="btn btn-primary">Excluir Dependente</button>
                         </div>
                     </div>
@@ -129,7 +131,7 @@
 
             </div>
         </div>
-         <script src="${pageContext.request.contextPath}/bootstrap-4.0.0/dist/js/bootstrap.bundle.js"></script>
+        <script src="${pageContext.request.contextPath}/bootstrap-4.0.0/dist/js/bootstrap.bundle.js"></script>
         <script src="${pageContext.request.contextPath}/js/jquery.mask.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/util.js"></script>
     </body>
