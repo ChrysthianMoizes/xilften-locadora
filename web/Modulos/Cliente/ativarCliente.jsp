@@ -124,7 +124,7 @@
 
                                 <!-- Modal body -->
                                 <div class="modal-body">
-                                    <%= msg %>
+                                    <%= err %>
                                 </div>
 
                                 <!-- Modal footer -->
