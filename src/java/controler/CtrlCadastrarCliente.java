@@ -39,7 +39,7 @@ public class CtrlCadastrarCliente extends HttpServlet {
             switch(operacao){
                 case "incluirSocio":
                     cadastrarSocio(request, response);break;
-                case  "incluirDependente":
+                case "incluirDependente":
                     incluirDependente(request, response);break;
                 case "listar": 
                     listarDependentes(request, response);break;
@@ -47,6 +47,8 @@ public class CtrlCadastrarCliente extends HttpServlet {
                     excluirDependente(request, response);break;
                 case "alterarCliente":
                     alterarCliente(request, response);break;
+                case "reativarCliente":
+                    reativarCliente(request, response);break;
                               
             }
         }catch(Exception e){
@@ -181,7 +183,7 @@ public class CtrlCadastrarCliente extends HttpServlet {
 
     //logica a ser concluida no backend
     private void alterarCliente(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        String nome = request.getParameter("nome");
+       String nome = request.getParameter("nome");
        String tel = request.getParameter("telefone");
        String cpf = request.getParameter("cpf");
        String sexo = request.getParameter("sexo");
@@ -232,5 +234,26 @@ public class CtrlCadastrarCliente extends HttpServlet {
                 break;
        }
        
+    }
+
+    //logica a ser concluida no backend
+    private void reativarCliente(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String idSocio = request.getParameter("id");
+        String idDependente = request.getParameter("idDependente");
+        int op = 0;
+        
+        if(idSocio != null && !idSocio.equals("0")){
+            op = aplCadastrarCliente.reativarSocio(idSocio);
+        }else if(idDependente != null && !idDependente.equals("0")){
+            op = aplCadastrarCliente.reativarDepente(idDependente);
+        }
+        
+        switch(op){
+            case 1: 
+                response.sendRedirect("\"Modulos/Cliente/ativarCliente.jsp?msg=Cliente agora está ativo"); break;
+            default:
+                response.sendRedirect("\"Modulos/Cliente/ativarCliente.jsp?err=Houve um erro ao ativar o cliente");
+                break;
+        }
     }
 }

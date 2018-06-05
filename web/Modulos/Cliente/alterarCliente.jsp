@@ -37,7 +37,7 @@
                     <div class="row">
                         <div class="form-group col-xl-4">
                             <label for="nomeDiretorTitulo">Cliente</label>
-                            <select class="form-control" name="idSocio" id="socios">
+                            <select class="form-control" name="id" id="socios">
                                <option value="0">Selecione</option>
                                 <%  
                                     List lista = new AplCadastrarCliente().listarSocio();
