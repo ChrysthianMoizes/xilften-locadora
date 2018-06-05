@@ -49,6 +49,8 @@ public class CtrlCadastrarCliente extends HttpServlet {
                     alterarCliente(request, response);break;
                 case "reativarCliente":
                     reativarCliente(request, response);break;
+                case "desativarCliente":
+                    desativarCliente(request, response);break;
                               
             }
         }catch(Exception e){
@@ -250,10 +252,29 @@ public class CtrlCadastrarCliente extends HttpServlet {
         
         switch(op){
             case 1: 
-                response.sendRedirect("\"Modulos/Cliente/ativarCliente.jsp?msg=Cliente agora está ativo"); break;
+                response.sendRedirect("Modulos/Cliente/ativarCliente.jsp?msg=Cliente agora está ativo"); break;
             default:
-                response.sendRedirect("\"Modulos/Cliente/ativarCliente.jsp?err=Houve um erro ao ativar o cliente");
+                response.sendRedirect("Modulos/Cliente/ativarCliente.jsp?err=Houve um erro ao ativar o cliente");
                 break;
+        }
+    }
+
+    private void desativarCliente(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String idSocio = request.getParameter("id");
+        String idDependente = request.getParameter("idDependente");
+        int op = 0;
+        
+        if(idSocio != null && !idSocio.equals("0")){
+            op = aplCadastrarCliente.desativarSocio(idSocio);
+        }else if(idDependente != null && !idDependente.equals("0")){
+            op = aplCadastrarCliente.desativarDepente(idDependente);
+        }
+        
+        switch(op){
+            case 1: 
+                response.sendRedirect("Modulos/Cliente/ativarCliente.jsp?msg=Cliente agora está inativo"); break;
+            default:
+                response.sendRedirect("Modulos/Cliente/ativarCliente.jsp?err=Houve um erro ao inativar o cliente"); break;
         }
     }
 }
