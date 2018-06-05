@@ -102,13 +102,16 @@ public class AplCadastrarCliente{
 
     public int excluirSocio(String id) {
         
-        gdCliente.excluirDependentes(Integer.valueOf(id));
-        Socio socio = new Socio();
-        socio.setId(Integer.valueOf(id));
-        
         try {
-            gdCliente.excluir(socio);
+            
+            List listaLocacoes = gdCliente.filtrarAlocacoesCliente(Integer.parseInt(id));
+            
+            if(!listaLocacoes.isEmpty())
+                return 2;
+            
+            gdCliente.excluirSocioDependentes(Integer.valueOf(id));
             return 1;
+            
         } catch (Exception ex) {
             return 0;
         }
@@ -147,7 +150,7 @@ public class AplCadastrarCliente{
         
         int id = Integer.parseInt(idDep);
         
-        Dependente dep = gdCliente.filtrarPorDependente(id);
+        Dependente dep = gdCliente.filtrarUnicoDependente(id);
         
         try {
             gdCliente.excluir(dep);
@@ -158,23 +161,75 @@ public class AplCadastrarCliente{
     }
 
     public int alterarDependente(String idDependente, String nome, String data, String sexo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        try {
+            
+            Dependente dependente = gdCliente.filtrarUnicoDependente(Integer.valueOf(idDependente));
+
+            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+            Date dt = formatter.parse(data);
+
+            dependente.setDtNascimento(dt);
+            dependente.setNome(nome);
+            dependente.setSexo(sexo.charAt(0));
+            
+            gdCliente.alterar(dependente);
+            return 1;
+        } catch (ClassNotFoundException | NumberFormatException | SQLException | ParseException e) {
+            return 0;
+        }
+        
     }
 
     public int reativarSocio(String idSocio) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        try {
+            
+            gdCliente.reativarSocio(Integer.valueOf(idSocio));
+            return 1;
+            
+        } catch (Exception e) {
+            return 0;
+        }
     }
 
     public int reativarDepente(String idDependente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            
+            Dependente dependente = gdCliente.filtrarUnicoDependente(Integer.valueOf(idDependente));
+            dependente.setEstahAtivo(true);
+            gdCliente.alterar(dependente);
+            
+            return 1;
+            
+        } catch (Exception e) {
+            return 0;
+        }
     }
 
     public int desativarSocio(String idSocio) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            
+            gdCliente.desativarSocio(Integer.valueOf(idSocio));
+            return 1;
+            
+        } catch (Exception e) {
+            return 0;
+        }
     }
 
     public int desativarDepente(String idDependente) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            
+            Dependente dependente = gdCliente.filtrarUnicoDependente(Integer.valueOf(idDependente));
+            dependente.setEstahAtivo(false);
+            gdCliente.alterar(dependente);
+            
+            return 1;
+            
+        } catch (Exception e) {
+            return 0;
+        }
     }
 
 }

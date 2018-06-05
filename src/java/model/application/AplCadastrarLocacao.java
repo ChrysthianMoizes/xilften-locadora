@@ -54,15 +54,6 @@ public class AplCadastrarLocacao{
     
     public Date somaDias(Date dt, int dias) {
         
-//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-//        Date data = null;
-//        
-//        try {
-//            data = formatter.parse(dt);
-//        } catch (ParseException ex) {
-//            
-//        }
-        
 	Calendar cal = new GregorianCalendar();
 	cal.setTime(dt);
 	cal.add(Calendar.DAY_OF_MONTH, dias);
