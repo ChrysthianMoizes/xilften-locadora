@@ -110,7 +110,7 @@
                 %>
                 <%
                     String err = request.getParameter("err");
-                    if(msg != null){
+                    if(err != null){
                 %>
                     <!-- Modal -->
                     <div class="modal fade" id="modalErrExcluir">
