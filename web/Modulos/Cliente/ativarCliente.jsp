@@ -70,7 +70,7 @@
                     <center>
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="submit" formaction="/locadora/CtrlCadastrarCliente?operacao=reativarCliente" class="btn btn-primary">Reativar</button>
+                                <button type="submit" formaction="/locadora/CtrlCadastrarCliente?operacao=reativarCliente" class="btn btn-success">Reativar</button>
                                 <button type="submit" formaction="/locadora/CtrlCadastrarCliente?operacao=desativarCliente" class="btn btn-warning">Desativar</button>
                                 <a href="${pageContext.request.contextPath}/dashboard.html" class="btn btn-outline-dark">Cancelar</a>
                             </div>
