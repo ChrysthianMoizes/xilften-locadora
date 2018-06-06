@@ -7,7 +7,7 @@
     </filter>
     <filter-mapping>
         <filter-name>loginFilter</filter-name>
-        <url-pattern>/Modulos*</url-pattern>
+        <url-pattern>/Modulos/*</url-pattern>
     </filter-mapping>
     <servlet>
         <servlet-name>CtrlCadastrarAtor</servlet-name>
