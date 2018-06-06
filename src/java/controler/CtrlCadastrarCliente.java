@@ -44,7 +44,7 @@ public class CtrlCadastrarCliente extends HttpServlet {
                 case "listar": 
                     listarDependentes(request, response);break;
                 case "excluir":
-                    excluirDependente(request, response);break;
+                    excluirCliente(request, response);break;
                 case "alterarCliente":
                     alterarCliente(request, response);break;
                 case "reativarCliente":
@@ -170,9 +170,13 @@ public class CtrlCadastrarCliente extends HttpServlet {
     }
 
     //logica a ser concluida no backend
-    private void excluirDependente(HttpServletRequest request, HttpServletResponse response) throws IOException{
+    private void excluirCliente(HttpServletRequest request, HttpServletResponse response) throws IOException{
         String idDep = request.getParameter("idDependente");
-        int op = aplCadastrarCliente.excluirDependente(idDep);
+        String idSoc = request.getParameter("id");
+        int op = 0;
+        if(idDep != null)
+            op = aplCadastrarCliente.excluirDependente(idDep);
+        else if(idSoc != null)
         switch(op){
             case 1:
                 response.sendRedirect("Modulos/Cliente/incluirDependente.jsp?msg=Dependente excluido com sucesso!");
