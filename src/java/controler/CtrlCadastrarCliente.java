@@ -177,6 +177,7 @@ public class CtrlCadastrarCliente extends HttpServlet {
         if(idDep != null)
             op = aplCadastrarCliente.excluirDependente(idDep);
         else if(idSoc != null)
+            op = aplCadastrarCliente.excluirSocio(idSoc);
         switch(op){
             case 1:
                 response.sendRedirect("Modulos/Cliente/incluirDependente.jsp?msg=Dependente excluido com sucesso!");
