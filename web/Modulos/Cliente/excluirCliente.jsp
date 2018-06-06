@@ -49,7 +49,7 @@
                                 <%      }%>
                             </select>
                             <br/>
-                            <input type="hidden" name="origem" value="alterarCliente.jsp">
+                            <input type="hidden" name="origem" value="excluirCliente.jsp">
                             <button type="submit" formaction="/locadora/CtrlCadastrarCliente?operacao=listar" class="btn btn-outline-dark">Listar Dependentes</button>
                         </div>
                         <div class="form-group col-md-4">
@@ -71,7 +71,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary">Excluir</button>
-                                <a href="${pageContext.request.contextPath}/dashboard.html" class="btn btn-outline-dark">Cancelar</a>
+                                <a href="${pageContext.request.contextPath}/dashboard.jsp" class="btn btn-outline-dark">Cancelar</a>
                             </div>
                         </div>
                     </center>

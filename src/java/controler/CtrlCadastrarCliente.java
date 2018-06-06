@@ -180,15 +180,14 @@ public class CtrlCadastrarCliente extends HttpServlet {
             op = aplCadastrarCliente.excluirSocio(idSoc);
         switch(op){
             case 1:
-                response.sendRedirect("Modulos/Cliente/incluirDependente.jsp?msg=Dependente excluido com sucesso!");
+                response.sendRedirect("Modulos/Cliente/excluirDependente.jsp?msg=Dependente excluido com sucesso!");
                 break;
             case 2:
-                response.sendRedirect("Modulos/Cliente/incluirDependente.jsp?msg=Houve um erro ao tentar excluir o dependente");
+                response.sendRedirect("Modulos/Cliente/excluirDependente.jsp?msg=Houve um erro ao tentar excluir o dependente");
                 break;
         }
     }
 
-    //logica a ser concluida no backend
     private void alterarCliente(HttpServletRequest request, HttpServletResponse response) throws Exception {
        String nome = request.getParameter("nome");
        String tel = request.getParameter("telefone");
@@ -243,7 +242,6 @@ public class CtrlCadastrarCliente extends HttpServlet {
        
     }
 
-    //logica a ser concluida no backend
     private void reativarCliente(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String idSocio = request.getParameter("id");
         String idDependente = request.getParameter("idDependente");
