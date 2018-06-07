@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="icon" href="../../../../favicon.ico">
+        <link rel="icon" href="../../../../../favicon.ico">
         <link rel="stylesheet" href="bootstrap-4.0.0/dist/css/bootstrap.min.css">
         <link href="css/dashboard.css" rel="stylesheet">
          <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
@@ -45,9 +45,9 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                                     Ator
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="Modulos/Ator/cadastraAtor.jsp">Cadastrar</a>
-                                        <a class="dropdown-item" href="Modulos/Ator/alteraAtor.jsp">Alterar</a>
-                                        <a class="dropdown-item" href="Modulos/Ator/excluiAtor.jsp">Excluir</a>
+                                        <a class="dropdown-item" href="Ator/cadastraAtor.jsp">Cadastrar</a>
+                                        <a class="dropdown-item" href="Ator/alteraAtor.jsp">Alterar</a>
+                                        <a class="dropdown-item" href="Ator/excluiAtor.jsp">Excluir</a>
                                     </div>
                                 </a>
                             </li>
@@ -56,9 +56,9 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                                     Diretor
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="Modulos/Diretor/cadastraDiretor.jsp">Cadastrar</a>
-                                        <a class="dropdown-item" href="Modulos/Diretor/alteraDiretor.jsp">Alterar</a>
-                                        <a class="dropdown-item" href="Modulos/Diretor/excluiDiretor.jsp">Excluir</a>
+                                        <a class="dropdown-item" href="Diretor/cadastraDiretor.jsp">Cadastrar</a>
+                                        <a class="dropdown-item" href="Diretor/alteraDiretor.jsp">Alterar</a>
+                                        <a class="dropdown-item" href="Diretor/excluiDiretor.jsp">Excluir</a>
                                     </div>
                                 </a>
                             </li>
@@ -67,9 +67,9 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                                     Classe
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="Modulos/Classe/cadastraClasse.jsp">Cadastrar</a>
-                                        <a class="dropdown-item" href="Modulos/Classe/alteraClasse.jsp">Alterar</a>
-                                        <a class="dropdown-item" href="Modulos/Classe/excluiClasse.jsp">Excluir</a>
+                                        <a class="dropdown-item" href="Classe/cadastraClasse.jsp">Cadastrar</a>
+                                        <a class="dropdown-item" href="Classe/alteraClasse.jsp">Alterar</a>
+                                        <a class="dropdown-item" href="Classe/excluiClasse.jsp">Excluir</a>
                                     </div>
                                 </a>
                             </li>
@@ -78,9 +78,9 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
                                     Item
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="Modulos/Item/cadastraItem.jsp">Cadastrar</a>
-                                        <a class="dropdown-item" href="Modulos/Item/alteraItem.jsp">Alterar</a>
-                                        <a class="dropdown-item" href="Modulos/Item/excluiItem.jsp">Excluir</a>
+                                        <a class="dropdown-item" href="Item/cadastraItem.jsp">Cadastrar</a>
+                                        <a class="dropdown-item" href="Item/alteraItem.jsp">Alterar</a>
+                                        <a class="dropdown-item" href="Item/excluiItem.jsp">Excluir</a>
                                     </div>
                                 </a>
                             </li>
@@ -89,10 +89,10 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
                                     Título
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="Modulos/Titulo/cadastraTitulo.jsp">Cadastrar</a>
-                                        <a class="dropdown-item" href="Modulos/Titulo/alteraTitulo.jsp">Alterar</a>
-                                        <a class="dropdown-item" href="Modulos/Titulo/consultaDadosTitulo.jsp">Consultar</a>
-                                        <a class="dropdown-item" href="Modulos/Titulo/excluiTitulo.jsp">Excluir</a>
+                                        <a class="dropdown-item" href="Titulo/cadastraTitulo.jsp">Cadastrar</a>
+                                        <a class="dropdown-item" href="Titulo/alteraTitulo.jsp">Alterar</a>
+                                        <a class="dropdown-item" href="Titulo/consultaDadosTitulo.jsp">Consultar</a>
+                                        <a class="dropdown-item" href="Titulo/excluiTitulo.jsp">Excluir</a>
                                     </div>
                                 </a>
                             </li>
@@ -101,11 +101,11 @@
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                                     Cliente
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="Modulos/Cliente/cadastraCliente.jsp">Cadastrar</a>
-                                        <a class="dropdown-item" href="Modulos/Cliente/ativarCliente.jsp">Ativar</a>
-                                        <a class="dropdown-item" href="Modulos/Cliente/alterarCliente.jsp">Alterar</a>
-                                        <a class="dropdown-item" href="Modulos/Cliente/incluirDependente.jsp">Incluir Dependente</a>
-                                        <a class="dropdown-item" href="Modulos/Cliente/excluirCliente.jsp">Excluir</a>
+                                        <a class="dropdown-item" href="Cliente/cadastraCliente.jsp">Cadastrar</a>
+                                        <a class="dropdown-item" href="Cliente/ativarCliente.jsp">Ativar</a>
+                                        <a class="dropdown-item" href="Cliente/alterarCliente.jsp">Alterar</a>
+                                        <a class="dropdown-item" href="Cliente/incluirDependente.jsp">Incluir Dependente</a>
+                                        <a class="dropdown-item" href="Cliente/excluirCliente.jsp">Excluir</a>
                                     </div>
                                 </a>
                             </li>
@@ -146,7 +146,17 @@
                     </div>
                 </nav>
 
-                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+                    <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                        <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0">
+                            </div>
+                        </div>
+                        <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                            <div style="position:absolute;width:200%;height:200%;left:0; top:0">
+                            </div>
+                        </div>
+                    </div>
 
                     <h2>Últimas Locações</h2>
                     <br>
@@ -237,8 +247,8 @@
                 </main>
             </div>
         </div>
-        <script src="bootstrap-4.0.0/dist/js/bootstrap.bundle.js"></script>
-        <script src="js/jquery.mask.min.js"></script>
-        <script src="js/util.js"></script>
+        <script src="../bootstrap-4.0.0/dist/js/bootstrap.bundle.js"></script>
+        <script src="../js/jquery.mask.min.js"></script>
+        <script src="../js/util.js"></script>
     </body>
 </html>

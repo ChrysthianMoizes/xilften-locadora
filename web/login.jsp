@@ -18,9 +18,9 @@
             <img class="mb-4" src="img/netflix-logo.png" alt="aasd" width="300" height="100">
             <h1 class="h3 mb-3 font-weight-normal">Acesse sua conta</h1>
             <label for="inputEmail" class="sr-only">Digite seu email</label>
-            <input id="inputEmail" class="form-control" placeholder="Digite seu email" required="" autofocus="" type="email">
+            <input id="inputEma" class="formil-control" name="usuario" placeholder="Digite seu email" required="" autofocus="" type="text">
             <label for="inputPassword" class="sr-only">Senha</label>
-            <input id="inputPassword" class="form-control" placeholder="Senha" required="" type="password">
+            <input id="inputPassword" class="form-control" name="senha" placeholder="Senha" required="" type="password">
             <div class="checkbox mb-3">
                 <label>
                     <input value="remember-me" type="checkbox"> Lembrar-me

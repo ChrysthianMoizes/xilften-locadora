@@ -10,7 +10,7 @@
               <ul class="navbar-nav ml-auto">             
                   
                 <li class="nav-item active">
-                  <a class="nav-link" href="Modulos/Titulo/consultaDadosTitulo.html">Consultar Título
+                  <a class="nav-link" href="Modulos/Titulo/consultaDadosTitulo.jsp">Consultar Título
                     <span class="sr-only">(current)</span>
                   </a>
                 </li>
