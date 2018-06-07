@@ -61,6 +61,7 @@ public class loginFilter implements Filter {
      * @exception IOException if an input/output error occurs
      * @exception ServletException if a servlet error occurs
      */
+    @Override
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
@@ -77,12 +78,27 @@ public class loginFilter implements Filter {
         String senha = request.getParameter("senha");
         
         System.out.println("usuario =" +user);
-        if(user!=null && user.trim().length()>0){   
-            res.sendRedirect(req.getContextPath()+"/login.jsp");  
-        }else if(logar(usuario, senha)){
-            sessionLog = req.getSession(true);
-            sessionLog.setAttribute("currentSessionUser", usuario);
-            chain.doFilter(request, response);
+        
+        String logout = req.getParameter("logout");
+        if(logout != null && logout.equals("logout")){
+            session.removeAttribute("currentSessionUser");
+            res.sendRedirect(req.getContextPath()+"/login.jsp");
+        }
+        
+        
+        if(usuario != null && senha != null){
+            if(logar(usuario, senha)){
+                sessionLog = req.getSession(true);
+                sessionLog.setAttribute("currentSessionUser", usuario+" "+senha);//usuario+senha deve ser substituido por token de validação
+                chain.doFilter(request, response);
+            }else{
+                session.removeAttribute("currentSessionUser");
+                res.sendRedirect(req.getContextPath()+"/login.jsp?err=usuario");
+            }
+        }else if(user != null){
+            String[] split = user.split(" ");
+            if(logar(split[0], split[1]))
+                chain.doFilter(request, response);
         }else
             res.sendRedirect(req.getContextPath()+"/login.jsp?err=usuario");
         
@@ -91,6 +107,7 @@ public class loginFilter implements Filter {
 
     /**
      * Return the filter configuration object for this filter.
+     * @return 
      */
     public FilterConfig getFilterConfig() {
         return (this.filterConfig);
@@ -108,12 +125,15 @@ public class loginFilter implements Filter {
     /**
      * Destroy method for this filter
      */
+    @Override
     public void destroy() {        
     }
 
     /**
      * Init method for this filter
+     * @param filterConfig
      */
+    @Override
     public void init(FilterConfig filterConfig) {        
         this.filterConfig = filterConfig;
         if (filterConfig != null) {
@@ -131,41 +151,12 @@ public class loginFilter implements Filter {
         if (filterConfig == null) {
             return ("loginFilter()");
         }
-        StringBuffer sb = new StringBuffer("loginFilter(");
+        StringBuilder sb = new StringBuilder("loginFilter(");
         sb.append(filterConfig);
         sb.append(")");
         return (sb.toString());
     }
     
-    private void sendProcessingError(Throwable t, ServletResponse response) {
-        String stackTrace = getStackTrace(t);        
-        
-        if (stackTrace != null && !stackTrace.equals("")) {
-            try {
-                response.setContentType("text/html");
-                PrintStream ps = new PrintStream(response.getOutputStream());
-                PrintWriter pw = new PrintWriter(ps);                
-                pw.print("<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n"); //NOI18N
-
-                // PENDING! Localize this for next official release
-                pw.print("<h1>The resource did not process correctly</h1>\n<pre>\n");                
-                pw.print(stackTrace);                
-                pw.print("</pre></body>\n</html>"); //NOI18N
-                pw.close();
-                ps.close();
-                response.getOutputStream().close();
-            } catch (Exception ex) {
-            }
-        } else {
-            try {
-                PrintStream ps = new PrintStream(response.getOutputStream());
-                t.printStackTrace(ps);
-                ps.close();
-                response.getOutputStream().close();
-            } catch (Exception ex) {
-            }
-        }
-    }
     
     public static String getStackTrace(Throwable t) {
         String stackTrace = null;
@@ -176,7 +167,7 @@ public class loginFilter implements Filter {
             pw.close();
             sw.close();
             stackTrace = sw.getBuffer().toString();
-        } catch (Exception ex) {
+        } catch (IOException ex) {
         }
         return stackTrace;
     }

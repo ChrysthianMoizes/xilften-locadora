@@ -8,8 +8,8 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <link rel="icon" href="../../../../../favicon.ico">
-        <link rel="stylesheet" href="bootstrap-4.0.0/dist/css/bootstrap.min.css">
-        <link href="css/dashboard.css" rel="stylesheet">
+        <link rel="stylesheet" href="../bootstrap-4.0.0/dist/css/bootstrap.min.css">
+        <link href="../css/dashboard.css" rel="stylesheet">
          <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
 
         <title>Dashboard</title>
@@ -24,7 +24,9 @@
             <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="index.jsp" style="color: red">X I L F T E N</a>
             <ul class="navbar-nav px-5">
                 <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="login.jsp">Logout</a>
+                    <form>
+                        <a class="nav-link" href="dashboard.jsp?logout=logout">Logout</a>
+                    </form>
                 </li>
             </ul>
         </nav>
