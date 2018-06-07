@@ -19,10 +19,11 @@ import model.application.AplUsuario;
 public class loginFilter implements Filter {
     
     private static final boolean debug = true;
-
+    private AplUsuario aplUsuario;
     private FilterConfig filterConfig = null;
     
     public loginFilter() {
+        aplUsuario = new AplUsuario();
     }    
     
     
@@ -84,7 +85,6 @@ public class loginFilter implements Filter {
             chain.doFilter(request, response);
         }else
             res.sendRedirect(req.getContextPath()+"/login.jsp?err=usuario");
-        
         
         doAfterProcessing(request, response);
     }
@@ -186,7 +186,7 @@ public class loginFilter implements Filter {
     }
 
     private boolean logar(String usuario, String senha) {
-        return AplUsuario.logar(usuario, senha);
+        return aplUsuario.logar(usuario, senha);
     }
     
 }
