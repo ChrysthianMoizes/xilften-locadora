@@ -74,6 +74,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                <a href="../dashboard.jsp" class="btn btn-outline-dark">Cancelar</a>
                             </div>
                         </div>
                     </center>

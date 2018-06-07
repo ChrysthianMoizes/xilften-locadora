@@ -56,17 +56,17 @@ $(document).ready(function () {
 });
 
 function efetuarLocacao() {
-    window.location = "Modulos/Locacao/efetuaLocacao.jsp";
+    window.location = "Locacao/efetuaLocacao.jsp";
 }
 
 function alterarLocacao() {
-    window.location = "Modulos/Locacao/alteraLocacao.jsp";
+    window.location = "Locacao/alteraLocacao.jsp";
 }
 
 function cancelarLocacao() {
-    window.location = "Modulos/Locacao/cancelaLocacao.jsp";
+    window.location = "Locacao/cancelaLocacao.jsp";
 }
 
 function efetuarDevolucao() {
-    window.location = "Modulos/Devolucao/efetuaDevolucao.jsp";
+    window.location = "Devolucao/efetuaDevolucao.jsp";
 }

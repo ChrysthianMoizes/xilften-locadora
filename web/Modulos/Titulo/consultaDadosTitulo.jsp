@@ -45,7 +45,7 @@
                     <div class="card h-100">
                         <a href="http://www.adorocinema.com/filmes/filme-130336/"><img class="card-img-top" src="../../img/filmes_logo1.jpg" alt=""></a>
                         <div class="card-body">
-                        <h4 class="card-title"><a href="#" data-toggle="popover" title="T√≠tulo de Filme" data-content="Some content inside the popover">Filme 1</a></h4>
+                        <h4 class="card-title"><a href="#" data-toggle="popover" title="TÌtulo de Filme" data-content="Some content inside the popover">Filme 1</a></h4>
                         <p class="card-text">Filme conta a hist√≥ria da volta dos que nao foram</p>
                     </div>
                 </div>
@@ -55,8 +55,8 @@
                 <div class="card h-100">
                     <a href="http://www.adorocinema.com/filmes/filme-130336/"><img class="card-img-top" src="../../img/filmes_logo1.jpg" alt=""></a>
                     <div class="card-body">
-                        <h4 class="card-title"><a href="#"data-toggle="popover" title="T√≠tulo de Filme" data-content="Some content inside the popover">Filme 2</a></h4>
-                        <p class="card-text">Filme conta a hist√≥ria da volta dos que nao foram</p>
+                        <h4 class="card-title"><a href="#"data-toggle="popover" title="TÌtulo de Filme" data-content="Some content inside the popover">Filme 2</a></h4>
+                        <p class="card-text">Filme conta a histÛria da volta dos que nao foram</p>
                     </div>
                 </div>
             </div>

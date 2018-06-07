@@ -36,7 +36,7 @@
                     <div class="row">
                         <div class="col-md-12" align="center">
                             <button type="submit" class="btn btn-primary">Salvar</button>
-                            <a href="../../dashboard.jsp" class="btn btn-outline-dark">Cancelar</a>
+                            <a href="../dashboard.jsp" class="btn btn-outline-dark">Cancelar</a>
                         </div>
                     </div>
                 </form>

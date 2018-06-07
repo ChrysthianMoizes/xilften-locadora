@@ -48,7 +48,7 @@
                     <div class="row">
                         <div class="col-md-12" align="center">
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Excluir</button>
-                            <a href="../../dashboard.jsp" class="btn btn-outline-dark">Cancelar</a>
+                            <a href="../dashboard.jsp" class="btn btn-outline-dark">Cancelar</a>
 
                             <!-- Modal -->
                             <div class="modal fade" id="myModal">

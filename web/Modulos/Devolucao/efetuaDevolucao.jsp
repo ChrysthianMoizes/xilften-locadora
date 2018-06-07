@@ -22,7 +22,7 @@
 
             <div id="main" class="container-fluid">
 
-                <h3 class="page-header">Efetuar DevoluÃ§Ã£o</h3>
+                <h3 class="page-header">Efetuar Devolução</h3>
                 <br><hr />
 
                 <form>
@@ -52,7 +52,7 @@
                             <input type="text" id="valor" class="form-control" placeholder="R$">
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="exampleInputEmail1">Data de DevoluÃ§Ã£o</label>
+                            <label for="exampleInputEmail1">Data de Devolução</label>
                             <input type="date" id="telefone" class="form-control" placeholder="__/__/____">
                         </div>
                     </div>
@@ -61,8 +61,8 @@
                     <center>
                         <div class="row">
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary">Efetuar DevoluÃ§Ã£o</button>
-                                <a href="" class="btn btn-outline-dark">Cancelar</a>
+                                <button type="submit" class="btn btn-primary">Efetuar Devolução</button>
+                                <a href="../dashboard.jsp" class="btn btn-outline-dark">Cancelar</a>
                             </div>
                         </div>
                     </center>

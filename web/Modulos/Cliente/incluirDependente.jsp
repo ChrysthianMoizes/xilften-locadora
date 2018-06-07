@@ -93,7 +93,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <button tupe="submit" formaction="/locadora/CtrlCadastrarCliente?operacao=incluirDependente" class="btn btn-primary">Adicionar</button>
-                                <a href="../../dashboard.html" class="btn btn-outline-dark">Cancelar</a>
+                                <a href="../dashboard.jsp" class="btn btn-outline-dark">Cancelar</a>
                             </div>
                         </div>
                     </center>
