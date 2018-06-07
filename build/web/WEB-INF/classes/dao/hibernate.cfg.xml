@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/locadora?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    <mapping class="model.domain.Ator"/>
+    <mapping class="model.domain.Classe"/>
+    <mapping class="model.domain.Cliente"/>
+    <mapping class="model.domain.Dependente"/>
+    <mapping class="model.domain.Diretor"/>
+    <mapping class="model.domain.Dependente"/>
+    <mapping class="model.domain.Diretor"/>
+    <mapping class="model.domain.Item"/>
+    <mapping class="model.domain.Locacao"/>
+    <mapping class="model.domain.Socio"/>
+    <mapping class="model.domain.Titulo"/>
+    <mapping class="model.domain.Usuario"/>
+  </session-factory>
+</hibernate-configuration>
