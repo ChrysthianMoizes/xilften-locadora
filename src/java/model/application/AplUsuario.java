@@ -1,9 +1,27 @@
 package model.application;
 
+import dao.GDUsuario;
+import model.domain.Usuario;
+
 public class AplUsuario {
 
-    public static boolean logar(String usuario, String senha) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private GDUsuario gdUser;
+
+    public AplUsuario() {
+        gdUser = new GDUsuario();
+    }
+    
+    public boolean logar(String usuario, String senha) {
+        
+        if(usuario != null && senha != null){
+        
+            Usuario user = gdUser.filtrarUsuario(usuario, senha);
+
+            if(user != null)
+                return true;
+        
+        }
+        return false;
     }
     
 }
