@@ -67,42 +67,42 @@ public class loginFilter implements Filter {
             throws IOException, ServletException {
         
         
-        HttpServletRequest req = (HttpServletRequest) request;   
-        HttpServletResponse res = (HttpServletResponse) response;   
-        
-        HttpSession session = req.getSession();   
-        String user = (String) session.getAttribute("currentSessionUser");   
-        
-        HttpSession sessionLog;
-        String usuario = request.getParameter("usuario");
-        String senha = request.getParameter("senha");
-        
-        System.out.println("usuario =" +user);
-        
-        String logout = req.getParameter("logout");
-        if(logout != null && logout.equals("logout")){
-            session.removeAttribute("currentSessionUser");
-            res.sendRedirect(req.getContextPath()+"/login.jsp");
-        }
-        
-        
-        if(usuario != null && senha != null){
-            if(logar(usuario, senha)){
-                sessionLog = req.getSession(true);
-                sessionLog.setAttribute("currentSessionUser", usuario+" "+senha);//usuario+senha deve ser substituido por token de validação
+//        HttpServletRequest req = (HttpServletRequest) request;   
+//        HttpServletResponse res = (HttpServletResponse) response;   
+//        
+//        HttpSession session = req.getSession();   
+//        String user = (String) session.getAttribute("currentSessionUser");   
+//        
+//        HttpSession sessionLog;
+//        String usuario = request.getParameter("usuario");
+//        String senha = request.getParameter("senha");
+//        
+//        System.out.println("usuario =" +user);
+//        
+//        String logout = req.getParameter("logout");
+//        if(logout != null && logout.equals("logout")){
+//            session.removeAttribute("currentSessionUser");
+//            res.sendRedirect(req.getContextPath()+"/login.jsp");
+//        }
+//        
+//        
+//        if(usuario != null && senha != null){
+//            if(logar(usuario, senha)){
+//                sessionLog = req.getSession(true);
+//                sessionLog.setAttribute("currentSessionUser", usuario+" "+senha);//usuario+senha deve ser substituido por token de validação
                 chain.doFilter(request, response);
-            }else{
-                session.removeAttribute("currentSessionUser");
-                res.sendRedirect(req.getContextPath()+"/login.jsp?err=usuario");
-            }
-        }else if(user != null){
-            String[] split = user.split(" ");
-            if(logar(split[0], split[1]))
-                chain.doFilter(request, response);
-        }else
-            res.sendRedirect(req.getContextPath()+"/login.jsp?err=usuario");
-        
-        doAfterProcessing(request, response);
+//            }else{
+//                session.removeAttribute("currentSessionUser");
+//                res.sendRedirect(req.getContextPath()+"/login.jsp?err=usuario");
+//            }
+//        }else if(user != null){
+//            String[] split = user.split(" ");
+//            if(logar(split[0], split[1]))
+//                chain.doFilter(request, response);
+//        }else
+//            res.sendRedirect(req.getContextPath()+"/login.jsp?err=usuario");
+//        
+//        doAfterProcessing(request, response);
     }
 
     /**

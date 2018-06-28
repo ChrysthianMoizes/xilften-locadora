@@ -58,18 +58,22 @@ public class GDGenerico {
     }
      
     public List consultar(Class classe) {
-        
-        List lista;
-        sessao = criarSessao();
-        sessao.beginTransaction();
-        
-        Criteria cons = sessao.createCriteria(classe);
-        lista = cons.list();
-        
-        sessao.getTransaction().commit();
-        sessao.close();
-        
-        return lista;
+        try{
+            List lista;
+            sessao = criarSessao();
+            sessao.beginTransaction();
+
+            Criteria cons = sessao.createCriteria(classe);
+            lista = cons.list();
+
+            sessao.getTransaction().commit();
+            sessao.close();
+
+            return lista;
+        }catch(Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public Session criarSessao() {
